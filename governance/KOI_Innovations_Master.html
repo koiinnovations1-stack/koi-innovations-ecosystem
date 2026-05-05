@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<meta name="supported-color-schemes" content="light">
+<title>Koi Innovations — Master Document</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  color-scheme: light only;
+  --koi-black: #0A0A0A;
+  --koi-gold: #C8A24B;
+  --gold-deep: #9E7F36;
+  --ivory: #F4EDE0;
+  --stone: #888888;
+  --graphite: #3A3A3A;
+  --bg: #FAFAF7;
+  --white: #FFFFFF;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--bg);
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg) !important;
+  color: var(--koi-black);
+  line-height: 1.7;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+.serif { font-family: 'Cormorant Garamond', Georgia, serif; }
+
+/* ===== NAVIGATION ===== */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 100;
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(200, 162, 75, 0.2);
+}
+
+.nav-brand {
+  color: var(--ivory);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.nav-brand span {
+  color: var(--koi-gold);
+}
+
+.nav-version {
+  color: var(--stone);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh;
+  background: var(--koi-black);
+  color: var(--ivory);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 32px 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 30%, rgba(200, 162, 75, 0.08), transparent 60%);
+  pointer-events: none;
+}
+
+.hero-eyebrow {
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: var(--koi-gold);
+  text-transform: uppercase;
+  margin-bottom: 32px;
+  font-weight: 500;
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(48px, 9vw, 120px);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -2px;
+  margin-bottom: 32px;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--koi-gold);
+  font-weight: 400;
+}
+
+.hero-subtitle {
+  font-size: clamp(18px, 2.5vw, 24px);
+  color: rgba(244, 237, 224, 0.7);
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  margin-bottom: 64px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+}
+
+.hero-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(16px, 2vw, 20px);
+  color: var(--koi-gold);
+  font-style: italic;
+  letter-spacing: 1px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  border-top: 1px solid rgba(200, 162, 75, 0.3);
+  border-bottom: 1px solid rgba(200, 162, 75, 0.3);
+  padding: 20px 40px;
+  margin-bottom: 80px;
+}
+
+.hero-meta {
+  display: flex;
+  gap: 32px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--stone);
+  position: relative;
+  z-index: 2;
+}
+
+.hero-meta span {
+  color: var(--koi-gold);
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--stone);
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  z-index: 2;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+/* ===== EPIGRAPH ===== */
+.epigraph {
+  background: var(--ivory);
+  padding: 120px 32px;
+  text-align: center;
+}
+
+.epigraph-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.epigraph blockquote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.3;
+  font-style: italic;
+  color: var(--koi-black);
+  font-weight: 400;
+  letter-spacing: -0.5px;
+  margin-bottom: 32px;
+}
+
+.epigraph cite {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* ===== SECTIONS ===== */
+.section {
+  padding: 120px 32px;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.section-number {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--ivory);
+  background: var(--koi-black);
+  font-weight: 600;
+  margin-bottom: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+}
+
+.section-number::before {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--koi-gold);
+  display: block;
+}
+
+.section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -1px;
+  margin-bottom: 48px;
+  color: var(--koi-black);
+}
+
+.section h2 em {
+  font-style: italic;
+  color: var(--koi-gold);
+}
+
+.section p {
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--koi-black);
+  margin-bottom: 24px;
+  font-weight: 400;
+}
+
+/* Ivory body text on dark backgrounds */
+.hero p,
+.domains-section p,
+.final p,
+.highlight p {
+  color: var(--ivory);
+}
+
+.hero p.hero-subtitle {
+  color: rgba(244, 237, 224, 0.85);
+}
+
+.domains-section > .domains-content > p {
+  color: rgba(244, 237, 224, 0.75);
+}
+
+.section p strong {
+  color: var(--koi-black);
+  font-weight: 600;
+}
+
+.section .lead {
+  font-size: 22px;
+  line-height: 1.5;
+  color: var(--koi-black);
+  margin-bottom: 32px;
+  font-weight: 400;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+}
+
+.section .impact {
+  font-size: 19px;
+  font-weight: 500;
+  color: var(--koi-black);
+  padding: 32px 0;
+  border-top: 1px solid rgba(10, 10, 10, 0.1);
+  border-bottom: 1px solid rgba(10, 10, 10, 0.1);
+  margin: 32px 0;
+  line-height: 1.6;
+}
+
+/* ===== HIGHLIGHT BOX ===== */
+.highlight {
+  background: var(--koi-black);
+  color: var(--ivory);
+  padding: 60px;
+  margin: 60px 0;
+  position: relative;
+}
+
+.highlight::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--koi-gold);
+}
+
+.highlight .label {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--koi-gold);
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.highlight .quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 3.5vw, 38px);
+  font-style: italic;
+  line-height: 1.3;
+  color: var(--ivory);
+  font-weight: 400;
+}
+
+/* ===== LAYER BANNERS (Architectural Blocks) ===== */
+.layer-banner {
+  margin: 60px 0 32px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.layer-header {
+  background: var(--koi-black);
+  color: var(--ivory);
+  padding: 28px 36px;
+}
+
+.layer-header .meta {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--koi-gold);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.layer-header .name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+}
+
+.layer-subtitle {
+  background: var(--koi-gold);
+  color: var(--koi-black);
+  padding: 20px 36px;
+  font-size: 15px;
+  font-style: italic;
+  font-weight: 500;
+  border-bottom: 3px solid var(--koi-black);
+}
+
+/* ===== PILLARS ===== */
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+  margin: 48px 0;
+}
+
+.pillar {
+  padding: 32px 24px;
+  background: var(--white);
+  border: 1px solid rgba(10, 10, 10, 0.08);
+  transition: all 0.3s ease;
+}
+
+.pillar:hover {
+  border-color: var(--koi-gold);
+  transform: translateY(-2px);
+}
+
+.pillar-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  color: var(--koi-gold);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.pillar-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--koi-black);
+  margin-bottom: 8px;
+  letter-spacing: -0.3px;
+}
+
+.pillar-desc {
+  font-size: 14px;
+  color: var(--koi-black);
+  line-height: 1.5;
+}
+
+/* ===== DOMAINS GRID ===== */
+.domains-section {
+  background: var(--koi-black);
+  color: var(--ivory);
+  padding: 120px 32px;
+  margin: 80px -32px;
+}
+
+.domains-content {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.domains-content h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 500;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+
+.domains-content > p {
+  font-size: 17px;
+  color: rgba(244, 237, 224, 0.7);
+  line-height: 1.7;
+  margin-bottom: 64px;
+  max-width: 700px;
+}
+
+.domains-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1px;
+  background: rgba(244, 237, 224, 0.1);
+  border: 1px solid rgba(244, 237, 224, 0.1);
+}
+
+.domain {
+  background: var(--koi-black);
+  padding: 32px 28px;
+  transition: background 0.3s ease;
+  cursor: default;
+}
+
+.domain:hover {
+  background: rgba(200, 162, 75, 0.05);
+}
+
+.domain-num {
+  font-size: 11px;
+  color: var(--koi-gold);
+  letter-spacing: 2px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.domain-venture {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  color: var(--ivory);
+  margin-bottom: 4px;
+  font-weight: 500;
+  letter-spacing: -0.3px;
+}
+
+.domain-name {
+  font-size: 13px;
+  color: var(--koi-gold);
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+
+.domain-role {
+  font-size: 13px;
+  color: rgba(244, 237, 224, 0.6);
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* ===== METHOD CHANNELS ===== */
+.method-channels {
+  margin: 48px 0;
+}
+
+.channel {
+  display: flex;
+  gap: 32px;
+  padding: 32px 0;
+  border-bottom: 1px solid rgba(10, 10, 10, 0.08);
+}
+
+.channel:last-child { border-bottom: none; }
+
+.channel-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 56px;
+  color: var(--koi-gold);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 0.9;
+  flex-shrink: 0;
+  width: 80px;
+}
+
+.channel-content h4 {
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--koi-black);
+  margin-bottom: 8px;
+}
+
+.channel-content p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--koi-black);
+  margin: 0;
+}
+
+/* ===== TIERS ===== */
+.tiers {
+  margin: 48px 0;
+}
+
+.tier {
+  padding: 40px 0;
+  border-bottom: 1px solid rgba(10, 10, 10, 0.08);
+}
+
+.tier:last-child { border-bottom: none; }
+
+.tier-label {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--koi-gold);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.tier-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--koi-black);
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+
+.tier-desc {
+  font-size: 16px;
+  color: var(--koi-black);
+  margin-bottom: 16px;
+  line-height: 1.7;
+}
+
+.tier-ventures {
+  font-size: 14px;
+  color: var(--gold-deep);
+  font-weight: 500;
+}
+
+/* ===== DOORS ===== */
+.doors {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin: 48px 0;
+}
+
+.door {
+  background: var(--white);
+  padding: 48px 32px;
+  border: 1px solid rgba(10, 10, 10, 0.08);
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.door:hover {
+  background: var(--koi-black);
+  color: var(--ivory);
+  transform: translateY(-4px);
+}
+
+.door:hover .door-name { color: var(--ivory); }
+.door:hover .door-subtitle { color: rgba(244, 237, 224, 0.7); }
+.door:hover .door-audience { color: var(--koi-gold); }
+
+.door-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--koi-black);
+  margin-bottom: 12px;
+  transition: color 0.3s ease;
+}
+
+.door-subtitle {
+  font-size: 13px;
+  color: var(--koi-black);
+  margin-bottom: 24px;
+  line-height: 1.6;
+  transition: color 0.3s ease;
+}
+
+.door-audience {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+/* ===== PRINCIPLES ===== */
+.principles {
+  margin: 48px 0;
+}
+
+.principle {
+  display: flex;
+  gap: 24px;
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(10, 10, 10, 0.08);
+}
+
+.principle:last-child { border-bottom: none; }
+
+.principle-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  color: var(--koi-gold);
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1;
+  width: 60px;
+  flex-shrink: 0;
+}
+
+.principle-text {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--koi-black);
+  padding-top: 8px;
+}
+
+.principle-text strong {
+  color: var(--koi-black);
+  font-weight: 600;
+}
+
+/* ===== FINAL ===== */
+.final {
+  background: var(--koi-black);
+  color: var(--ivory);
+  padding: 160px 32px;
+  text-align: center;
+}
+
+.final h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(40px, 6vw, 80px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -1px;
+  margin-bottom: 32px;
+}
+
+.final h2 em {
+  font-style: italic;
+  color: var(--koi-gold);
+}
+
+.final-tagline {
+  font-size: 15px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--koi-gold);
+  font-weight: 500;
+  margin-bottom: 64px;
+}
+
+.final-tagline span { color: rgba(244, 237, 224, 0.5); margin: 0 12px; }
+
+.final-meta {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--stone);
+  text-transform: uppercase;
+}
+
+/* ===== TOC ===== */
+.toc {
+  background: var(--ivory);
+  padding: 100px 32px;
+}
+
+.toc-content {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.toc-eyebrow {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.toc h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 500;
+  margin-bottom: 48px;
+  letter-spacing: -1px;
+}
+
+.toc-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 0 48px;
+}
+
+.toc-item {
+  display: flex;
+  gap: 20px;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(10, 10, 10, 0.1);
+  text-decoration: none;
+  color: var(--koi-black);
+  transition: color 0.2s;
+}
+
+.toc-item:hover {
+  color: var(--gold-deep);
+}
+
+.toc-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  color: var(--koi-gold);
+  font-style: italic;
+  font-weight: 500;
+  width: 50px;
+  flex-shrink: 0;
+}
+
+.toc-title {
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -0.2px;
+  padding-top: 8px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  nav { padding: 14px 20px; }
+  .nav-version { display: none; }
+  .section { padding: 80px 24px; }
+  .hero { padding: 80px 24px 40px; }
+  .epigraph { padding: 80px 24px; }
+  .domains-section { padding: 80px 24px; margin: 60px -24px; }
+  .final { padding: 100px 24px; }
+  .highlight { padding: 40px 28px; }
+  .channel { flex-direction: column; gap: 12px; }
+  .channel-num { width: auto; }
+}
+
+/* ===== FADE IN ANIMATION ===== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">KOI <span>·</span> INNOVATIONS</div>
+  <div class="nav-version">Master Document · v2.3</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">A Doctrine of Building</div>
+  <h1>Koi <em>Innovations</em></h1>
+  <p class="hero-subtitle">Business that betters communities.</p>
+  <div class="hero-tagline">Better is possible. Better is built together.<br>What is built together gets better at building.</div>
+  <div class="hero-meta">
+    <div>Master Document <span>·</span></div>
+    <div>v2.3 <span>·</span></div>
+    <div>May 2026</div>
+  </div>
+  <div class="scroll-indicator">↓ Scroll</div>
+</section>
+
+<!-- EPIGRAPH -->
+<section class="epigraph">
+  <div class="epigraph-content">
+    <blockquote>"Koi thinks. Aura manifests. The thinking happens at the center. The manifestation happens at the twelve."</blockquote>
+    <cite>— The Architecture of Koi Innovations</cite>
+  </div>
+</section>
+
+<!-- I. THE FIRST TRUTH -->
+<section class="section fade-in">
+  <div class="section-number">Section I</div>
+  <h2>The First Truth</h2>
+  <p class="lead">There is a kind of company the world has not yet been taught to build.</p>
+  <p>It is not a corporation, though it operates with corporate discipline. It is not a charity, though it leaves communities better than it found them. It is not a movement, though people feel different inside it. It is something older than all three — older than the language of modern business — and at the same time, something the world has never seen before in this exact configuration.</p>
+  <p>It is a system that gets better at getting better. And in the getting better, makes the world better.</p>
+  <p>It is built on a truth most enterprises have spent a century trying to forget: that business, at its highest, is not the extraction of value from community. Business, at its highest, is the construction of community itself. The transactions are not the point. The transactions are the byproduct. The point is the people who become more whole because the work was done well, and done together.</p>
+  <p class="impact"><strong>Koi Innovations is the company built on that truth. We exist because somebody had to.</strong></p>
+</section>
+
+<!-- II. THE WORD THAT CAME FIRST -->
+<section class="section fade-in">
+  <div class="section-number">Section II</div>
+  <h2>The Word That <em>Came First</em></h2>
+  <p class="lead">Before there was a company, there was a word. The word was Koinonia.</p>
+  <p>It is Greek — κοινωνία — and it is two thousand years old, and it is one of those rare words that the dictionary cannot quite hold. The dictionary will tell you it means fellowship. That is true, and not enough. Koinonia is fellowship the way oxygen is air: technically accurate, fatally incomplete.</p>
+  <p>What koinonia actually describes is the condition that arises when people stop performing community and start practicing it. When iron sharpens iron and both pieces walk away changed. When one body recognizes that its different parts each have a part to play, and not one of them is incidental. When breaking bread together becomes the ritual that holds people through the things bread alone cannot fix.</p>
+  <p>Koinonia is what happens when presence becomes prayer. When a meal becomes a vow. When a working relationship becomes a kind of love that has no other word to wear.</p>
+  <p>It is spiritual. It is divine. It is the good feeling that runs underneath the good times — the current beneath the surface that tells you something real is happening here. The world keeps forgetting koinonia. The world keeps needing to remember.</p>
+  <p>When the founder of this company asked himself, plainly, what he was drawn to — what he wanted to make of his life and what kind of dent he wanted to leave on the world — the answer was always the same. Koinonia. He wanted to build koinonia. Not write about it. Not preach about it. Build it. With his hands and his hours and his name.</p>
+  <p class="impact"><strong>So koinonia became the soil. And from that soil, a name took root.</strong></p>
+</section>
+
+<!-- III. WHAT IS KOI -->
+<section class="section fade-in">
+  <div class="section-number">Section III</div>
+  <h2>What Is <em>Koi</em></h2>
+  <p class="lead">Koi did not begin as a fish.</p>
+  <p>Koi did not come from a meditation on perseverance, or a metaphor about swimming upstream, or any of the borrowed symbolism the world has draped over those three letters since we adopted them. Koi came from Koinonia. It is the kernel — the first sound of the whole word, lifted out and made portable, the way you carry a single seed in your pocket when you cannot carry the whole orchard.</p>
+  <p>Every time we say Koi, we are saying Koinonia in shorthand. Every time we sign Koi, we are signing fellowship. Every time we name a venture inside this company with that prefix, we are stamping it with the founding word — the way old houses carry the family name above the door.</p>
+
+  <div class="highlight">
+    <div class="label">The Symbolism We Carry</div>
+    <div class="quote">"In tradition, the koi fish represents perseverance, transformation, and the courage to swim upstream toward becoming something greater. The koi that completes its journey is said to ascend into a dragon."</div>
+  </div>
+
+  <p>The koi fish has long stood for perseverance, transformation, prosperity, and the discipline of swimming upstream toward becoming something greater. In Eastern tradition, the koi that completes its journey ascends — it becomes a dragon. These meanings are not the origin of our name. But they are part of our identity. We carry them because they describe the work: the discipline of refinement, the patience of building against the current, the belief that what is small and intentional today becomes something powerful and enduring tomorrow.</p>
+
+  <p class="impact"><strong>The world is full of names that mean nothing because their founders chose them for the way they sounded. Koi means something because it was chosen for the way it remembers — and the way it carries forward.</strong></p>
+</section>
+
+<!-- IV. WHAT IS INNOVATIONS -->
+<section class="section fade-in">
+  <div class="section-number">Section IV</div>
+  <h2>What Is <em>Innovations</em></h2>
+  <p>Innovation is one of the most exhausted words in modern business. It has been used so often, by so many people, to describe so little, that it has nearly lost the power to mean anything at all. We use it anyway, because the right word is the right word even after the world has roughed it up.</p>
+  <p class="lead">But we use it differently.</p>
+  <p>Innovation, in the dialect of Silicon Valley, has come to mean disruption — the act of breaking something so that a new thing can be sold in the rubble. Innovation, in our dialect, means refinement. It means the slow, patient work of making something better than it was yesterday and not as good as it will be tomorrow.</p>
+  <p>It means efficiency without coldness, smoothness without sterility, freshness without amnesia. It means refreshing what has grown stale, and rebirthing what has been forgotten, and building practices a generation will be proud to inherit.</p>
+  <p class="impact"><strong>Better is possible. That sentence is the entire engine. Innovations — plural, ongoing, unfinished — is the proof.</strong></p>
+</section>
+
+<!-- V. THE NAME, FUSED -->
+<section class="section fade-in">
+  <div class="section-number">Section V</div>
+  <h2>The Name, <em>Fused</em></h2>
+  <p>Koi gives us the seed — the kernel of fellowship, carried into the work. Koinonia gives us the soil — the spiritual condition that makes any of this matter. Innovations gives us the verb — the unending labor of refinement that turns intention into outcome.</p>
+
+  <div class="highlight">
+    <div class="label">The Recursive Elegance</div>
+    <div class="quote">"Koi Innovations is a community-reliant system that preserves itself, refines itself, and rebirths itself through togetherness — a system that gets better at getting better, and makes whatever it touches better in the process."</div>
+  </div>
+
+  <p>The work refines the people, and the people refine the work, and both refine the world they touch. The community gets better at building. What is built makes the community better. And the cycle continues — quietly, patiently, profitably, generationally — until what was once a company becomes a culture, and what was once a culture becomes a way of life people choose for their children.</p>
+</section>
+
+<!-- VI. BRAIN BEHIND AURA -->
+<section class="section fade-in">
+  <div class="section-number">Section VI</div>
+  <h2>Brain Behind <em>Aura</em></h2>
+  <p class="lead">Every thing that has ever been made has an aura.</p>
+  <p>A garment carries the aura of the hands that built it. A room carries the aura of the intention behind it. A meal carries the aura of the gathering it serves. A logistics route carries the aura of whoever planned it. A piece of software carries the aura of whoever decided what mattered. Aura is not aesthetic alone — aura is the truth a thing emits when no one is grading it.</p>
+
+  <div class="layer-banner">
+    <div class="layer-header">
+      <div class="meta">Primary Layer</div>
+      <div class="name">Brain Behind Aura</div>
+    </div>
+    <div class="layer-subtitle">The source intelligence that thinks before the system runs.</div>
+  </div>
+
+  <p>Anyone can stumble into an aesthetic. Few can engineer a presence. The brain behind the aura is the source intelligence — the consciousness that decides, before the work begins, what the work is going to radiate when it is finished. We did not invent it. We received it. The intelligence we are working from is older than this company, older than this country, older than the alphabet.</p>
+  <p>The highest things were never meant to live in cathedrals alone. They were meant to live in the workday. In the invoice. In the way you greet a new client. In the texture of a stitch.</p>
+
+  <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 500; margin: 48px 0 16px; color: var(--koi-black);">The Four Pillars</h3>
+
+  <div class="pillars">
+    <div class="pillar">
+      <div class="pillar-num">I</div>
+      <div class="pillar-name">Source</div>
+      <div class="pillar-desc">The divine intelligence we draw from</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">II</div>
+      <div class="pillar-name">Sight</div>
+      <div class="pillar-desc">The consciousness that sees what others miss</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">III</div>
+      <div class="pillar-name">Architecture</div>
+      <div class="pillar-desc">Structural thinking that builds for scale</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">IV</div>
+      <div class="pillar-name">Intentionality</div>
+      <div class="pillar-desc">Discipline that makes every choice meaningful</div>
+    </div>
+  </div>
+
+  <p class="impact"><strong>Source intelligence is not a metaphor. It is the operating principle. It is how every decision in this company is meant to be made.</strong></p>
+</section>
+
+<!-- VII. KOI THINKS. AURA MANIFESTS. -->
+<section class="section fade-in">
+  <div class="section-number">Section VII</div>
+  <h2>Koi Thinks.<br><em>Aura Manifests.</em></h2>
+  <p>Here is the simplest way to understand the architecture of this company. Two sentences. Four words. Read them slowly.</p>
+
+  <div class="highlight">
+    <div class="label">The Architecture, Stated Plainly</div>
+    <div class="quote">"Koi Innovations is the thinking engine. Aura is the expression of ideas through ventures. Brain and aura are not two separate things. They are one organism with two functions: thought and expression."</div>
+  </div>
+
+  <p>This is the crucial distinction most holding companies miss. They believe their job is to own businesses. They become passive — collectors of assets, optimizers of returns, financial spectators of the work their portfolio companies actually do.</p>
+  <p><strong>Koi Innovations is the opposite of that.</strong> The center is the most active part of the architecture. The center thinks. The center designs. The center sees the patterns no individual venture could see from inside its own industry. The center carries the doctrine that makes every venture coherent with every other.</p>
+  <p>The ventures, in turn, are not just commercial entities. They are organs of expression. A garment from Priauratize is not just a product — it is a sentence Koi is speaking through tailoring. A clean facility from Clean Check is not just a service — it is a sentence Koi is speaking through stewardship. A meal from Filet Me On is not just dinner — it is a sentence Koi is speaking through gathering.</p>
+  <p class="impact"><strong>Twelve sentences. One author. Spoken simultaneously, in twelve languages, into twelve different rooms of the world.</strong></p>
+</section>
+
+<!-- VIII. WE ARE NOT THE FIRST -->
+<section class="section fade-in">
+  <div class="section-number">Section VIII</div>
+  <h2>We Are <em>Not the First</em></h2>
+  <p class="lead">It would be arrogance to claim we invented this architecture. We didn't. We inherited it.</p>
+  <p>One central authority surrounded by twelve domains of influence is the oldest organizational pattern in recorded human civilization. It shows up everywhere it has ever been needed.</p>
+  <p>One king and twelve advisors held the courts of Mesopotamia, Persia, and medieval Europe together. One teacher and twelve disciples carried the most influential moral movement in Western history. Twelve tribes formed Israel. Twelve apostles carried the early church. Twelve zodiac houses ring the central sun. Twelve Olympian gods governed Mt. Olympus under Zeus. Twelve months wheel around the year.</p>
+  <p><strong>Why twelve?</strong> Because twelve is the stability threshold. Fewer than twelve and the system cannot scale. More than twelve and the system descends into chaos. Twelve is what civilizations have always landed on when they needed to organize themselves into something that could last.</p>
+  <p class="impact"><strong>Koi Innovations stands inside this lineage. The same architectural truth that has organized empires, religions, and cosmologies — applied now to building communities through enterprise.</strong></p>
+</section>
+
+<!-- DOMAINS GRID -->
+<section class="domains-section fade-in">
+  <div class="domains-content">
+    <h3>The Twelve Domains <em style="font-style: italic; color: var(--koi-gold);">of Civilization</em></h3>
+    <p>Look at our ventures and notice what they actually are. Not businesses. Domains. Each one corresponds to a function a civilization needs to be whole.</p>
+
+    <div class="domains-grid">
+      <div class="domain"><div class="domain-num">01</div><div class="domain-venture">Priauratize</div><div class="domain-name">Style & Image</div><div class="domain-role">How a culture presents itself</div></div>
+      <div class="domain"><div class="domain-num">02</div><div class="domain-venture">Priaura</div><div class="domain-name">Identity & Lifestyle</div><div class="domain-role">How a culture clothes its people</div></div>
+      <div class="domain"><div class="domain-num">03</div><div class="domain-venture">Homes of Aura</div><div class="domain-name">Shelter & Sanctuary</div><div class="domain-role">Where a culture lives</div></div>
+      <div class="domain"><div class="domain-num">04</div><div class="domain-venture">Clean Check</div><div class="domain-name">Stewardship & Order</div><div class="domain-role">How a culture maintains itself</div></div>
+      <div class="domain"><div class="domain-num">05</div><div class="domain-venture">Fast Freddy</div><div class="domain-name">Refinement & Care</div><div class="domain-role">How a culture keeps its tools beautiful</div></div>
+      <div class="domain"><div class="domain-num">06</div><div class="domain-venture">Hopson Logistics</div><div class="domain-name">Mobility & Trade</div><div class="domain-role">How a culture moves</div></div>
+      <div class="domain"><div class="domain-num">07</div><div class="domain-venture">Virtechz</div><div class="domain-name">Knowledge & Tools</div><div class="domain-role">How a culture thinks and builds</div></div>
+      <div class="domain"><div class="domain-num">08</div><div class="domain-venture">Filet Me On</div><div class="domain-name">Sustenance & Gathering</div><div class="domain-role">How a culture breaks bread</div></div>
+      <div class="domain"><div class="domain-num">09</div><div class="domain-venture">TipsyTAB</div><div class="domain-name">Discovery & Joy</div><div class="domain-role">How a culture finds delight</div></div>
+      <div class="domain"><div class="domain-num">10</div><div class="domain-venture">The Groove</div><div class="domain-name">Voice & Discourse</div><div class="domain-role">How a culture talks to itself</div></div>
+      <div class="domain"><div class="domain-num">11</div><div class="domain-venture">INDIGO</div><div class="domain-name">Economy & Wealth</div><div class="domain-role">How a culture prospers</div></div>
+      <div class="domain"><div class="domain-num">12</div><div class="domain-venture">Black Alumni Gala</div><div class="domain-name">Ceremony & Memory</div><div class="domain-role">How a culture honors</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- IX. THE KOI METHOD -->
+<section class="section fade-in">
+  <div class="section-number">Section IX</div>
+  <h2>The <em>Koi Method</em></h2>
+  <p>Now the most important sentence in this entire document.</p>
+
+  <div class="highlight">
+    <div class="label">The Truth Behind the Architecture</div>
+    <div class="quote">"Our twelve ventures are not the ceiling. They are the seed."</div>
+  </div>
+
+  <p>It would be one thing to build a holding company with twelve ventures and call that the achievement. It would be respectable. It would be useful. But it would not be enough — and it was never the ambition.</p>
+  <p>The ambition is much larger, and much older, and much more generous. <strong>The ambition is to prove the model works, and then to give the model away.</strong></p>
+  <p>Our first twelve ventures are a working demonstration. They are the proof of concept that a 1+12 ecosystem, governed by source intelligence and operated by design, can serve communities better than any single business ever could. Once the demonstration is established — once the model is visibly, undeniably functional — the work expands.</p>
+
+  <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 500; margin: 48px 0 24px; color: var(--koi-black);">Four Channels of Application</h3>
+
+  <div class="method-channels">
+    <div class="channel">
+      <div class="channel-num">i</div>
+      <div class="channel-content">
+        <h4>Consultation</h4>
+        <p>The twelve organs of Koi Innovations advising other founders, each in its own domain. Each organ becomes a council seat for the next generation of builders.</p>
+      </div>
+    </div>
+    <div class="channel">
+      <div class="channel-num">ii</div>
+      <div class="channel-content">
+        <h4>Licensing</h4>
+        <p>External builders adopting the 1+12 model formally — using the architecture, hierarchy, and operating principles to build their own twelve.</p>
+      </div>
+    </div>
+    <div class="channel">
+      <div class="channel-num">iii</div>
+      <div class="channel-content">
+        <h4>Incubation</h4>
+        <p>Ventures born inside Koi Innovations — created, idealized, and launched under the Koi umbrella before being released into the world.</p>
+      </div>
+    </div>
+    <div class="channel">
+      <div class="channel-num">iv</div>
+      <div class="channel-content">
+        <h4>All of the above, simultaneously</h4>
+        <p>Different builders need different relationships. The Koi Method is generous enough to meet each one where they stand.</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="impact"><strong>The first twelve are our birth. The next thousand will be the harvest.</strong></p>
+</section>
+
+<!-- X. HOW THE ECOSYSTEM SERVES -->
+<section class="section fade-in">
+  <div class="section-number">Section X</div>
+  <h2>How the Ecosystem <em>Serves</em></h2>
+  <p>If Brain Behind Aura is the intelligence, Systems in Service is the body. Twelve ventures, organized into three tiers, each functioning as a vital organ in a living organism.</p>
+
+  <div class="tiers">
+    <div class="tier">
+      <div class="tier-label">Tier 01 · Image</div>
+      <div class="tier-name">What you see. What you feel. What you live and dwell on.</div>
+      <div class="tier-desc">The ventures that shape personal and environmental aura — the organs through which the ecosystem becomes visible to the world.</div>
+      <div class="tier-ventures">Priauratize · Priaura · Homes of Aura</div>
+    </div>
+    <div class="tier">
+      <div class="tier-label">Tier 02 · Operations</div>
+      <div class="tier-name">The life force. The breath. The motion.</div>
+      <div class="tier-desc">The ventures that build and maintain the operational backbone — the organs that keep the ecosystem breathing.</div>
+      <div class="tier-ventures">Clean Check · Fast Freddy · Hopson Logistics · Virtechz</div>
+    </div>
+    <div class="tier">
+      <div class="tier-label">Tier 03 · Culture</div>
+      <div class="tier-name">The essence. The being. The development.</div>
+      <div class="tier-desc">The ventures that hold and transmit story, capital, and ceremony — the organs that give the ecosystem its memory and its meaning.</div>
+      <div class="tier-ventures">Filet Me On · TipsyTAB · The Groove · INDIGO · Black Alumni Gala</div>
+    </div>
+  </div>
+
+  <p class="impact"><strong>Infrastructure serves Purpose. Method serves Mission. The ecosystem serves the community. When a system stops serving, it gets redesigned — because the community we serve deserves a system that still serves it.</strong></p>
+</section>
+
+<!-- XI. THE THREE DOORS -->
+<section class="section fade-in">
+  <div class="section-number">Section XI</div>
+  <h2>The <em>Three Doors</em></h2>
+  <p>Three ways to enter the ecosystem. Each door leads to the same source intelligence — expressed through different relationships.</p>
+
+  <div class="doors">
+    <div class="door">
+      <div class="door-name">Work With Us</div>
+      <div class="door-subtitle">Services. Solutions. Excellence.</div>
+      <div class="door-audience">Clients · Customers · Accounts</div>
+    </div>
+    <div class="door">
+      <div class="door-name">Build With Us</div>
+      <div class="door-subtitle">Partnerships. Collaboration. Growth.</div>
+      <div class="door-audience">Partners · Collaborators · Allies</div>
+    </div>
+    <div class="door">
+      <div class="door-name">Invest With Us</div>
+      <div class="door-subtitle">Capital. Equity. Legacy.</div>
+      <div class="door-audience">Investors · Equity Holders · Builders</div>
+    </div>
+  </div>
+</section>
+
+<!-- XII. BY DESIGN -->
+<section class="section fade-in">
+  <div class="section-number">Section XII</div>
+  <h2>By <em>Design</em></h2>
+  <p class="lead">Source intelligence does not show up in the world by accident. It shows up by design.</p>
+  <p>Brain Behind Aura tells us where the intelligence comes from. Systems in Service tells us how the intelligence becomes infrastructure. By Design tells us how the infrastructure becomes lived experience — how the divine, available to all of us, makes its way into the texture of intention and creation.</p>
+  <p>How a garment is finished. How a service is delivered. How a meeting opens. How a community is gathered. How a meal is plated. How a route is planned. How a story is told. How a dollar moves. How a teammate is greeted on a hard morning.</p>
+  <p>All of it is design. All of it is decision. All of it is either honored or wasted. There is no neutral ground.</p>
+  <p>By Design is the daily commitment that ensures the highest intelligence we can access is honored in the smallest decisions we make. Nothing is left to default. Nothing is allowed to drift.</p>
+  <p class="impact"><strong>We do not believe in accidents. We believe in attention. By Design is the discipline of attention applied to everything that bears our name.</strong></p>
+</section>
+
+<!-- XIII. OPERATING PRINCIPLES -->
+<section class="section fade-in">
+  <div class="section-number">Section XIII</div>
+  <h2>Operating <em>Principles</em></h2>
+  <p>How Koi Innovations decides, builds, and serves.</p>
+
+  <div class="principles">
+    <div class="principle"><div class="principle-num">i</div><div class="principle-text"><strong>Source intelligence first.</strong> Every initiative begins with the question: what is the divine intelligence asking of this work?</div></div>
+    <div class="principle"><div class="principle-num">ii</div><div class="principle-text"><strong>Brain Behind Aura second.</strong> Articulate the intelligence before building the structure.</div></div>
+    <div class="principle"><div class="principle-num">iii</div><div class="principle-text"><strong>Systems in Service third.</strong> Build infrastructure that serves a documented purpose.</div></div>
+    <div class="principle"><div class="principle-num">iv</div><div class="principle-text"><strong>By Design always.</strong> No accidental outputs. Every choice is examined.</div></div>
+    <div class="principle"><div class="principle-num">v</div><div class="principle-text"><strong>Koinonia is the test.</strong> Every system must serve fellowship, or it must be redesigned.</div></div>
+    <div class="principle"><div class="principle-num">vi</div><div class="principle-text"><strong>Close existing loops before opening new ones.</strong> No new ventures, frameworks, or features until current ones are closed.</div></div>
+    <div class="principle"><div class="principle-num">vii</div><div class="principle-text"><strong>Premium positioning.</strong> Compete on intelligence, intentionality, and craft — never on price.</div></div>
+    <div class="principle"><div class="principle-num">viii</div><div class="principle-text"><strong>Governance over hustle.</strong> Standards win. Systems scale. Hustle alone collapses.</div></div>
+    <div class="principle"><div class="principle-num">ix</div><div class="principle-text"><strong>Stewardship over ownership.</strong> The work belongs to the community served.</div></div>
+    <div class="principle"><div class="principle-num">x</div><div class="principle-text"><strong>Seed, not ceiling.</strong> Build the proof. Then give the method away.</div></div>
+  </div>
+</section>
+
+<!-- XIV. THE PROMISE -->
+<section class="section fade-in">
+  <div class="section-number">Section XIV</div>
+  <h2>The <em>Promise</em></h2>
+  <p class="lead">We are not building a holding company. We are building a doctrine.</p>
+  <p>A doctrine that says fellowship can be operationalized without becoming sentimental. That sacred discipline can pay its bills. That community can be both the means and the end of profitable enterprise. That the highest things — divine intelligence, ancestral wisdom, intentional aura — were never supposed to live only in sanctuaries. They were supposed to live in everyday purpose, everyday service.</p>
+  <p>We believe — quietly, completely, without needing anyone's permission — that the world cannot afford another generation of businesses that take more than they give back. The next era of enterprise belongs to companies that understand themselves as stewards rather than owners. As servants rather than extractors. As ecosystems rather than empires.</p>
+  <p>We do not pretend we have figured it all out. We have figured out enough to begin, and the rest we will learn the way every honest builder has ever learned anything: by doing the work, watching what fails, returning to the source, and trying again with more wisdom than we had yesterday.</p>
+  <p>And once the proof is established, we give the method away. We consult. We license. We incubate. The first twelve are our birth. The next thousand are the harvest. The world that comes after — communities lifted by ecosystems they own, instead of being used up by businesses they don't — is the inheritance we are working to leave.</p>
+  <p class="impact"><strong>That is the promise. We will keep it.</strong></p>
+</section>
+
+<!-- FINAL -->
+<section class="final">
+  <h2>Business that betters <em>communities.</em></h2>
+  <div class="final-tagline">Koi thinks. <span>·</span> Aura manifests.</div>
+  <div class="final-meta">
+    Brain Behind Aura · Systems in Service · By Design<br>
+    <br>
+    Koi Innovations · Master Document · v2.3 · May 2026
+  </div>
+</section>
+
+<script>
+// Fade-in animation on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

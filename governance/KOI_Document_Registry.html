@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<meta name="supported-color-schemes" content="light">
+<title>Koi Innovations — Document Registry</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  color-scheme: light only;
+  --koi-black: #0A0A0A;
+  --koi-gold: #C8A24B;
+  --gold-deep: #9E7F36;
+  --ivory: #F4EDE0;
+  --stone: #888888;
+  --bg: #FAFAF7;
+  --white: #FFFFFF;
+}
+
+html { scroll-behavior: smooth; background: var(--bg); }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg) !important;
+  color: var(--koi-black);
+  line-height: 1.7;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(20px);
+  z-index: 100;
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(200, 162, 75, 0.2);
+}
+
+.nav-brand {
+  color: var(--ivory);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.nav-brand span { color: var(--koi-gold); }
+
+.nav-version {
+  color: var(--stone);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.hero {
+  min-height: 60vh;
+  background: var(--koi-black);
+  color: var(--ivory);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 32px;
+  position: relative;
+}
+
+.hero h1 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(48px, 8vw, 100px);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -2px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  color: rgba(244, 237, 224, 0.7);
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 48px;
+  max-width: 600px;
+}
+
+.hero-meta {
+  display: flex;
+  gap: 32px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+
+.hero-meta span { color: var(--koi-gold); }
+
+.section {
+  padding: 100px 32px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.section-eyebrow {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--koi-gold);
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 5vw, 60px);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -1px;
+  margin-bottom: 40px;
+  color: var(--koi-black);
+}
+
+.section h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 500;
+  margin: 48px 0 24px;
+  color: var(--koi-black);
+}
+
+.section p {
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--koi-black);
+  margin-bottom: 24px;
+}
+
+.doc-card {
+  margin: 32px 0;
+  padding: 28px;
+  background: var(--white);
+  border: 1px solid rgba(10, 10, 10, 0.08);
+  border-left: 4px solid var(--koi-gold);
+}
+
+.doc-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--koi-black);
+  margin-bottom: 12px;
+}
+
+.doc-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+  font-size: 13px;
+  color: var(--stone);
+}
+
+.doc-meta-item {
+  font-weight: 500;
+}
+
+.doc-meta-item strong {
+  color: var(--koi-black);
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 2px;
+}
+
+.doc-desc {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--koi-black);
+}
+
+.tier-section {
+  margin: 60px 0 40px;
+}
+
+.tier-label {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--koi-gold);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.tier-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 24px;
+  color: var(--koi-black);
+}
+
+.venture-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.venture-item {
+  padding: 20px;
+  background: var(--white);
+  border: 1px solid rgba(10, 10, 10, 0.08);
+}
+
+.venture-num {
+  font-size: 11px;
+  color: var(--koi-gold);
+  letter-spacing: 1px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.venture-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--koi-black);
+  margin-bottom: 4px;
+}
+
+.venture-desc {
+  font-size: 13px;
+  color: var(--koi-black);
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.venture-status {
+  font-size: 11px;
+  color: var(--stone);
+  font-style: italic;
+}
+
+.final {
+  background: var(--koi-black);
+  color: var(--ivory);
+  padding: 120px 32px;
+  text-align: center;
+}
+
+.final h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(40px, 6vw, 70px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -1px;
+  margin-bottom: 32px;
+}
+
+.final-meta {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--stone);
+  text-transform: uppercase;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  nav { padding: 14px 20px; }
+  .nav-version { display: none; }
+  .section { padding: 80px 24px; }
+  .hero { padding: 80px 24px; }
+  .final { padding: 100px 24px; }
+  .venture-list { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">KOI <span>·</span> INNOVATIONS</div>
+  <div class="nav-version">Document Registry · v1.0</div>
+</nav>
+
+<section class="hero">
+  <h1>Document Registry</h1>
+  <p class="hero-subtitle">Master index. All documents. Versions. Purposes. Relationships.</p>
+  <div class="hero-meta">
+    <div>v1.0 <span>·</span></div>
+    <div>May 2026 <span>·</span></div>
+    <div>Living Reference</div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">I. Master Documents</div>
+  <h2>Core Foundation</h2>
+
+  <div class="doc-card">
+    <div class="doc-title">KOI Innovations Master</div>
+    <div class="doc-meta">
+      <div class="doc-meta-item"><strong>Status</strong>LOCKED · v2.3</div>
+      <div class="doc-meta-item"><strong>Audience</strong>Internal & Public</div>
+      <div class="doc-meta-item"><strong>Format</strong>HTML</div>
+      <div class="doc-meta-item"><strong>Purpose</strong>Doctrine</div>
+    </div>
+    <div class="doc-desc">The founding manifesto. Complete philosophy. Koi Method. 1+12 archetype. Civilizational domains. Koi fish symbolism. 14 sections of doctrine. Single source of truth for all downstream documents.</div>
+  </div>
+
+  <div class="doc-card">
+    <div class="doc-title">KOI Portfolio</div>
+    <div class="doc-meta">
+      <div class="doc-meta-item"><strong>Status</strong>LOCKED · v1.0</div>
+      <div class="doc-meta-item"><strong>Audience</strong>Clients, Partners, Investors</div>
+      <div class="doc-meta-item"><strong>Format</strong>HTML</div>
+      <div class="doc-meta-item"><strong>Purpose</strong>External Pitch</div>
+    </div>
+    <div class="doc-desc">Three Doors framework. Work With Us / Build With Us / Invest With Us. Ecosystem benefits. Premium positioning. Governance-first approach. Client-ready pitch deck.</div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">II. Governance Documents</div>
+  <h2>Internal Operations</h2>
+
+  <div class="doc-card">
+    <div class="doc-title">KOI Codex</div>
+    <div class="doc-meta">
+      <div class="doc-meta-item"><strong>Status</strong>v1.0</div>
+      <div class="doc-meta-item"><strong>Audience</strong>Team, Leadership</div>
+      <div class="doc-meta-item"><strong>Format</strong>HTML</div>
+      <div class="doc-meta-item"><strong>Purpose</strong>Operations Manual</div>
+    </div>
+    <div class="doc-desc">Internal constitution. Ten Operating Principles. Decision hierarchy. Leadership tiers. Governance cadence. Conflict resolution. Standards. How we think. Who decides. What we value.</div>
+  </div>
+
+  <div class="doc-card">
+    <div class="doc-title">KOI Brand Kits</div>
+    <div class="doc-meta">
+      <div class="doc-meta-item"><strong>Status</strong>v1.0</div>
+      <div class="doc-meta-item"><strong>Audience</strong>Creative Team</div>
+      <div class="doc-meta-item"><strong>Format</strong>HTML</div>
+      <div class="doc-meta-item"><strong>Purpose</strong>Brand Standards</div>
+    </div>
+    <div class="doc-desc">Color system (master + venture palettes). Typography (Cormorant + Inter). Logos (all 13 ventures). Voice tiers (Architect/Atelier/Host). Usage rules and guardrails. Visual standards lock.</div>
+  </div>
+
+  <div class="doc-card">
+    <div class="doc-title">KOI Document Registry</div>
+    <div class="doc-meta">
+      <div class="doc-meta-item"><strong>Status</strong>v1.0</div>
+      <div class="doc-meta-item"><strong>Audience</strong>Internal, Project Coordinators</div>
+      <div class="doc-meta-item"><strong>Format</strong>HTML</div>
+      <div class="doc-meta-item"><strong>Purpose</strong>Master Index</div>
+    </div>
+    <div class="doc-desc">You are reading it. Comprehensive inventory. All 18 core documents. Supporting assets. Versions. Purposes. Audiences. Relationships. Living reference.</div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">III. Venture Documents</div>
+  <h2>The Twelve Operating Ventures + Reserved</h2>
+  <p>Each venture document (HTML format) contains full framework, voice, positioning, and operational details specific to that venture. Structure follows Brand Kits and Codex standards.</p>
+
+  <div class="tier-section">
+    <div class="tier-label">Image Tier</div>
+    <div class="tier-name">What you see. What you feel. What you live and dwell on.</div>
+    <div class="venture-list">
+      <div class="venture-item">
+        <div class="venture-num">01</div>
+        <div class="venture-name">Priauratize</div>
+        <div class="venture-desc">Luxury atelier. Bespoke tailoring. Triple-S™ framework.</div>
+        <div class="venture-status">Status: LOCKED · Formats: HTML</div>
+      </div>
+      <div class="venture-item">
+        <div class="venture-num">02</div>
+        <div class="venture-name">Priaura</div>
+        <div class="venture-desc">Ready-to-wear heritage fashion. Barkley mascot.</div>
+        <div class="venture-status">Status: LOCKED · Formats: HTML · Assets: Tier 2</div>
+      </div>
+      <div class="venture-item">
+        <div class="venture-num">03</div>
+        <div class="venture-name">Homes of Aura</div>
+        <div class="venture-desc">Residential & vacation architecture.</div>
+        <div class="venture-status">Status: v0.8 · Formats: HTML</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tier-section">
+    <div class="tier-label">Operations Tier</div>
+    <div class="tier-name">The life force. The breath. The motion.</div>
+    <div class="venture-list">
+      <div class="venture-item">
+        <div class="venture-num">04</div>
+        <div class="venture-name">Clean Check</div>
+        <div class="venture-desc">Service governance. Property & facility care. SAM.gov registered.</div>
+        <div class="venture-status">Status: LOCKED · Active clients: F45, Patient Plus, Baptist Health</div>
+      </div>
+      <div class="venture-item">
+        <div class="venture-num">05</div>
+        <div class="venture-name">Fast Freddy</div>
+        <div class="venture-desc">Speed & execution. Rapid-turnaround services.</div>
+        <div class="venture-status">Status: v0.8 · Formats: HTML</div>
+      </div>
+      <div class="venture-item">
+        <div class="venture-num">06</div>
+        <div class="venture-name">Hopson Logistics</div>
+        <div class="venture-desc">Routes & reliability. Mobility infrastructure.</div>
+        <div class="venture-status">Status: v0.8 · Formats: HTML</div>
+      </div>
+      <div class="venture-item">
+        <div class="venture-num">07</div>
+        <div class="venture-name">Virtechz</div>
+        <div class="venture-desc">AI & technology. Infrastructure transparency.</div>
+        <div class="venture-status">Status: v0.8 · Formats: HTML</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tier-section">
+    <div class="tier-label">Culture Tier</div>
+    <div class="tier-name">The essence. The being. The development.</div>
+    <div class="venture-list">
+      <div class="venture-item">
+        <div class="venture-num">08</div>
+        <div class="venture-name">Filet Me On</div>
+        <div class="venture-desc">Culinary craft. Gathering & sustenance.</div>
+        <div class="venture-status">Status: v0.8 · Formats: HTML</div>
+      </div>
+      <div class="venture-item">
+        <div class="venture-num">09</div>
+        <div class="venture-name">TipsyTAB</div>
+        <div class="venture-desc">Discovery & curation. Community finding.</div>
+        <div class="venture-status">Status: v0.8 · Formats: HTML</div>
+      </div>
+      <div class="venture-item">
+        <div class="venture-num">10</div>
+        <div class="venture-name">The Groove</div>
+        <div class="venture-desc">Voice & legacy. Stories & discourse.</div>
+        <div class="venture-status">Status: v0.8 · Formats: HTML</div>
+      </div>
+      <div class="venture-item">
+        <div class="venture-num">11</div>
+        <div class="venture-name">INDIGO</div>
+        <div class="venture-desc">Capital & equity. Community prosperity.</div>
+        <div class="venture-status">Status: v0.8 · Formats: HTML</div>
+      </div>
+      <div class="venture-item">
+        <div class="venture-num">12</div>
+        <div class="venture-name">Black Alumni Gala</div>
+        <div class="venture-desc">Ceremony & memory. Celebration & honor.</div>
+        <div class="venture-status">Status: v0.8 · Formats: HTML</div>
+      </div>
+      <div class="venture-item">
+        <div class="venture-num">R</div>
+        <div class="venture-name">Aesthete Spaces (Reserved)</div>
+        <div class="venture-desc">Beauty & innovation. Coming soon.</div>
+        <div class="venture-status">Status: Reserved · Formats: HTML (when built)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">IV. Library Modules</div>
+  <h2>Educational & Operational Guides</h2>
+
+  <div class="doc-card">
+    <div class="doc-title">Library Module 00 — Philosophical Foundation</div>
+    <div class="doc-meta">
+      <div class="doc-meta-item"><strong>Status</strong>In development · v1.0</div>
+      <div class="doc-meta-item"><strong>Audience</strong>Team training, New hires</div>
+      <div class="doc-meta-item"><strong>Format</strong>HTML</div>
+    </div>
+    <div class="doc-desc">The Koi Thesis. Why we exist. What we mean. How community, intentionality, and systems create better. Derived from Master Sections I-VII.</div>
+  </div>
+
+  <div class="doc-card">
+    <div class="doc-title">Library Module 01 — Clean Check 8 Pillars</div>
+    <div class="doc-meta">
+      <div class="doc-meta-item"><strong>Status</strong>LOCKED · v1.0</div>
+      <div class="doc-meta-item"><strong>Audience</strong>Clean Check team, Service partners</div>
+      <div class="doc-meta-item"><strong>Format</strong>HTML</div>
+    </div>
+    <div class="doc-desc">Complete operating manual. 8 Pillars framework for property & facility governance. Service standards. Quality metrics. Team protocols. 50–60 pages operational depth.</div>
+  </div>
+</section>
+
+<section class="final fade-in">
+  <h2>One System.<br>Many Documents.</h2>
+  <div class="final-meta">
+    Total: 18 core + 2 Library Modules + supporting assets = 20+ coordinated documents<br>
+    All derive from Master. All follow Brand Kits. All reflect By Design discipline.<br>
+    <br>
+    KOI Document Registry · v1.0 · May 2026 · Updated as documents evolve.
+  </div>
+</section>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

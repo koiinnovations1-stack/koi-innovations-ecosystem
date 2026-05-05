@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<meta name="supported-color-schemes" content="light">
+<title>Koi Innovations — Brand Kits</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  color-scheme: light only;
+  --koi-black: #0A0A0A;
+  --koi-gold: #C8A24B;
+  --gold-deep: #9E7F36;
+  --ivory: #F4EDE0;
+  --stone: #888888;
+  --graphite: #3A3A3A;
+  --bg: #FAFAF7;
+  --white: #FFFFFF;
+  --cc-green: #76B043;
+}
+
+html { scroll-behavior: smooth; background: var(--bg); }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg) !important;
+  color: var(--koi-black);
+  line-height: 1.7;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(20px);
+  z-index: 100;
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(200, 162, 75, 0.2);
+}
+
+.nav-brand {
+  color: var(--ivory);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.nav-brand span { color: var(--koi-gold); }
+
+.nav-version {
+  color: var(--stone);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.hero {
+  min-height: 60vh;
+  background: var(--koi-black);
+  color: var(--ivory);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 32px;
+  position: relative;
+}
+
+.hero h1 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(48px, 8vw, 100px);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -2px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  color: rgba(244, 237, 224, 0.7);
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 48px;
+  max-width: 600px;
+}
+
+.hero-meta {
+  display: flex;
+  gap: 32px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+
+.hero-meta span { color: var(--koi-gold); }
+
+.section {
+  padding: 100px 32px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.section-eyebrow {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--koi-gold);
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 5vw, 60px);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -1px;
+  margin-bottom: 40px;
+  color: var(--koi-black);
+}
+
+.section h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 500;
+  margin: 48px 0 24px;
+  color: var(--koi-black);
+}
+
+.section p {
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--koi-black);
+  margin-bottom: 24px;
+}
+
+.section p strong { font-weight: 600; }
+
+.color-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+  margin: 40px 0;
+}
+
+.color-swatch {
+  display: flex;
+  flex-direction: column;
+}
+
+.swatch {
+  width: 100%;
+  height: 120px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+.color-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--koi-black);
+  margin-bottom: 4px;
+}
+
+.color-code {
+  font-size: 12px;
+  color: var(--stone);
+  font-family: monospace;
+  letter-spacing: 0.5px;
+}
+
+.color-desc {
+  font-size: 13px;
+  color: var(--graphite);
+  margin-top: 8px;
+  line-height: 1.4;
+}
+
+.venture-colors {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 32px;
+  margin: 40px 0;
+}
+
+.venture-color-block {
+  padding: 24px;
+  background: var(--white);
+  border: 1px solid rgba(10, 10, 10, 0.08);
+}
+
+.venture-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--koi-black);
+  margin-bottom: 16px;
+}
+
+.venture-colors-show {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.venture-color {
+  flex: 1;
+  height: 40px;
+  border-radius: 2px;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.venture-codes {
+  font-size: 12px;
+  color: var(--graphite);
+  font-family: monospace;
+  line-height: 1.6;
+}
+
+.type-sample {
+  margin: 40px 0;
+  padding: 32px;
+  background: var(--white);
+  border: 1px solid rgba(10, 10, 10, 0.08);
+}
+
+.type-label {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.type-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--koi-black);
+  margin-bottom: 12px;
+}
+
+.type-display {
+  font-size: 36px;
+  margin-bottom: 12px;
+  color: var(--koi-black);
+}
+
+.type-display.serif {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.type-specs {
+  font-size: 12px;
+  color: var(--graphite);
+  line-height: 1.8;
+}
+
+.voice-card {
+  margin: 40px 0;
+  padding: 32px;
+  background: var(--white);
+  border-left: 4px solid var(--koi-gold);
+}
+
+.voice-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--koi-black);
+  margin-bottom: 16px;
+}
+
+.voice-desc {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--koi-black);
+  margin-bottom: 16px;
+}
+
+.voice-example {
+  font-size: 14px;
+  color: var(--graphite);
+  font-style: italic;
+  padding: 16px;
+  background: rgba(200, 162, 75, 0.08);
+  border-left: 2px solid var(--koi-gold);
+  margin-top: 12px;
+}
+
+.usage-box {
+  margin: 32px 0;
+  padding: 24px;
+  background: var(--white);
+  border: 1px solid rgba(10, 10, 10, 0.08);
+}
+
+.usage-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--koi-black);
+  margin-bottom: 12px;
+}
+
+.usage-content {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--koi-black);
+}
+
+.final {
+  background: var(--koi-black);
+  color: var(--ivory);
+  padding: 120px 32px;
+  text-align: center;
+}
+
+.final h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(40px, 6vw, 70px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -1px;
+  margin-bottom: 32px;
+}
+
+.final-meta {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--stone);
+  text-transform: uppercase;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  nav { padding: 14px 20px; }
+  .nav-version { display: none; }
+  .section { padding: 80px 24px; }
+  .hero { padding: 80px 24px; }
+  .final { padding: 100px 24px; }
+  .color-grid { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">KOI <span>·</span> INNOVATIONS</div>
+  <div class="nav-version">Brand Kits · v1.0</div>
+</nav>
+
+<section class="hero">
+  <h1>Brand Kits</h1>
+  <p class="hero-subtitle">Visual standards. Color system. Typography. Voice. Logo guidelines.</p>
+  <div class="hero-meta">
+    <div>v1.0 <span>·</span></div>
+    <div>May 2026 <span>·</span></div>
+    <div>Reference Standard</div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">I. Master Colors</div>
+  <h2>The Foundation</h2>
+  <p>These four colors form the foundation of all Koi Innovations communications. Used across all ventures and materials.</p>
+
+  <div class="color-grid">
+    <div class="color-swatch">
+      <div class="swatch" style="background-color: #0A0A0A;"></div>
+      <div class="color-name">Koi Black</div>
+      <div class="color-code">#0A0A0A</div>
+      <div class="color-desc">Primary dark. Authority. Structure. Primary text on light backgrounds.</div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch" style="background-color: #C8A24B;"></div>
+      <div class="color-name">Koi Gold</div>
+      <div class="color-code">#C8A24B</div>
+      <div class="color-desc">Accent. Luxury. Premium positioning. Headers, highlights, navigational elements.</div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch" style="background-color: #F4EDE0; border: 1px solid #ddd;"></div>
+      <div class="color-name">Ivory</div>
+      <div class="color-code">#F4EDE0</div>
+      <div class="color-desc">Light breathing space. Text on dark backgrounds. Sanctuary color.</div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch" style="background-color: #3D1E5C;"></div>
+      <div class="color-name">Royal Purple</div>
+      <div class="color-code">#3D1E5C</div>
+      <div class="color-desc">Ceremonial reserve. INDIGO. Black Alumni Gala. Used sparingly, with authority.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">II. Venture Color Palettes</div>
+  <h2>Specialized Palettes</h2>
+  <p>Each venture extends the master palette with venture-specific colors that support their identity.</p>
+
+  <h3>IMAGE TIER</h3>
+  <div class="venture-colors">
+    <div class="venture-color-block">
+      <div class="venture-name">Priauratize</div>
+      <div class="venture-colors-show">
+        <div class="venture-color" style="background-color: #B8943E;"></div>
+        <div class="venture-color" style="background-color: #5E2129;"></div>
+      </div>
+      <div class="venture-codes">#B8943E (Primary)<br>#5E2129 (Accent/Oxblood)</div>
+    </div>
+    <div class="venture-color-block">
+      <div class="venture-name">Priaura</div>
+      <div class="venture-colors-show">
+        <div class="venture-color" style="background-color: #0A0A0A;"></div>
+        <div class="venture-color" style="background-color: #F4EDE0; border: 1px solid #ddd;"></div>
+      </div>
+      <div class="venture-codes">Monochrome (Black/White)</div>
+    </div>
+    <div class="venture-color-block">
+      <div class="venture-name">Homes of Aura</div>
+      <div class="venture-colors-show">
+        <div class="venture-color" style="background-color: #0A0A0A;"></div>
+        <div class="venture-color" style="background-color: #C8A24B;"></div>
+      </div>
+      <div class="venture-codes">Koi Black + Koi Gold</div>
+    </div>
+  </div>
+
+  <h3>OPERATIONS TIER</h3>
+  <div class="venture-colors">
+    <div class="venture-color-block">
+      <div class="venture-name">Clean Check</div>
+      <div class="venture-colors-show">
+        <div class="venture-color" style="background-color: #76B043;"></div>
+        <div class="venture-color" style="background-color: #4E7A2C;"></div>
+      </div>
+      <div class="venture-codes">#76B043 (Green)<br>#4E7A2C (Dark Green)</div>
+    </div>
+    <div class="venture-color-block">
+      <div class="venture-name">Fast Freddy</div>
+      <div class="venture-colors-show">
+        <div class="venture-color" style="background-color: #E8A13A;"></div>
+        <div class="venture-color" style="background-color: #C0C0C0;"></div>
+      </div>
+      <div class="venture-codes">#E8A13A (Amber)<br>Chrome Silver (Accent)</div>
+    </div>
+    <div class="venture-color-block">
+      <div class="venture-name">Hopson Logistics</div>
+      <div class="venture-colors-show">
+        <div class="venture-color" style="background-color: #E86A2A;"></div>
+        <div class="venture-color" style="background-color: #0A0A0A;"></div>
+      </div>
+      <div class="venture-codes">#E86A2A (Orange)<br>Koi Black (Accent)</div>
+    </div>
+    <div class="venture-color-block">
+      <div class="venture-name">Virtechz</div>
+      <div class="venture-colors-show">
+        <div class="venture-color" style="background-color: #6C3AF2;"></div>
+        <div class="venture-color" style="background-color: #2BD4E6;"></div>
+      </div>
+      <div class="venture-codes">#6C3AF2 (Electric Violet)<br>#2BD4E6 (Circuit Cyan)</div>
+    </div>
+  </div>
+
+  <h3>CULTURE TIER</h3>
+  <div class="venture-colors">
+    <div class="venture-color-block">
+      <div class="venture-name">Filet Me On</div>
+      <div class="venture-colors-show">
+        <div class="venture-color" style="background-color: #5E2129;"></div>
+        <div class="venture-color" style="background-color: #D4A84A;"></div>
+      </div>
+      <div class="venture-codes">#5E2129 (Oxblood)<br>#D4A84A (Butter Gold)</div>
+    </div>
+    <div class="venture-color-block">
+      <div class="venture-name">TipsyTAB</div>
+      <div class="venture-colors-show">
+        <div class="venture-color" style="background-color: #D63846;"></div>
+        <div class="venture-color" style="background-color: #0A0A0A;"></div>
+      </div>
+      <div class="venture-codes">#D63846 (Red)<br>Koi Black (Accent)</div>
+    </div>
+    <div class="venture-color-block">
+      <div class="venture-name">The Groove</div>
+      <div class="venture-colors-show">
+        <div class="venture-color" style="background-color: #0A0A0A;"></div>
+        <div class="venture-color" style="background-color: #C8A24B;"></div>
+      </div>
+      <div class="venture-codes">Monochrome + Koi Gold (Premium)</div>
+    </div>
+    <div class="venture-color-block">
+      <div class="venture-name">INDIGO</div>
+      <div class="venture-colors-show">
+        <div class="venture-color" style="background-color: #0A0A0A;"></div>
+        <div class="venture-color" style="background-color: #3D1E5C;"></div>
+      </div>
+      <div class="venture-codes">Koi Black + Royal Purple</div>
+    </div>
+    <div class="venture-color-block">
+      <div class="venture-name">Black Alumni Gala</div>
+      <div class="venture-colors-show">
+        <div class="venture-color" style="background-color: #C8A24B;"></div>
+        <div class="venture-color" style="background-color: #3D1E5C;"></div>
+      </div>
+      <div class="venture-codes">Koi Gold + Royal Purple</div>
+    </div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">III. Typography</div>
+  <h2>Type System</h2>
+
+  <h3>Font Families</h3>
+
+  <div class="type-sample">
+    <div class="type-label">Serif</div>
+    <div class="type-name">Cormorant Garamond</div>
+    <div class="type-display serif">The elegant foundation</div>
+    <div class="type-specs">
+      <strong>Use for:</strong> Headers, titles, manifesto-weight text, serif accents, emphasis<br>
+      <strong>Weights:</strong> 400 (Regular), 500 (Medium), 600 (SemiBold), 700 (Bold)<br>
+      <strong>Style:</strong> Roman (upright) and Italic. Italic = elegant, doctrine-weight<br>
+      <strong>Character:</strong> Sophisticated. Literary. Premium. Carries authority without coldness.
+    </div>
+  </div>
+
+  <div class="type-sample">
+    <div class="type-label">Sans-Serif</div>
+    <div class="type-name">Inter</div>
+    <div class="type-display">The modern clarity</div>
+    <div class="type-specs">
+      <strong>Use for:</strong> Body text, navigation, UI elements, labels, operational text<br>
+      <strong>Weights:</strong> 300 (Light), 400 (Regular), 500 (Medium), 600 (SemiBold), 700 (Bold)<br>
+      <strong>Character:</strong> Modern. Clean. Corporate. Highest legibility at all sizes.
+    </div>
+  </div>
+
+  <h3>Type Scale</h3>
+  <div class="usage-box">
+    <div class="usage-title">Display (H1)</div>
+    <div class="usage-content">48px–120px · Cormorant · Bold · For page titles</div>
+  </div>
+  <div class="usage-box">
+    <div class="usage-title">Headline (H2)</div>
+    <div class="usage-content">32px–64px · Cormorant · SemiBold · For section titles</div>
+  </div>
+  <div class="usage-box">
+    <div class="usage-title">Subheading (H3)</div>
+    <div class="usage-content">24px–32px · Cormorant · Medium · For subsections</div>
+  </div>
+  <div class="usage-box">
+    <div class="usage-title">Body</div>
+    <div class="usage-content">16px–17px · Inter · Regular · For running text · 1.8x line-height</div>
+  </div>
+  <div class="usage-box">
+    <div class="usage-title">Label</div>
+    <div class="usage-content">11px–12px · Inter · SemiBold · For labels, metadata · 3–4px tracking</div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">IV. Brand Voice</div>
+  <h2>Three Voice Tiers</h2>
+
+  <div class="voice-card">
+    <div class="voice-title">Architect Voice</div>
+    <div class="voice-desc">Use for systems, governance, operations, infrastructure, B2B communications.</div>
+    <div class="voice-desc"><strong>Tone:</strong> Precise. Disciplined. Clear. Direct without coldness.</div>
+    <div class="voice-desc"><strong>Language:</strong> Active voice. Declarative. No hedging.</div>
+    <div class="voice-example">"Standards win. Systems scale."</div>
+  </div>
+
+  <div class="voice-card">
+    <div class="voice-title">Atelier Voice</div>
+    <div class="voice-desc">Use for luxury, craft, bespoke, premium positioning, storytelling.</div>
+    <div class="voice-desc"><strong>Tone:</strong> Refined. Intentional. Sophisticated. Inviting without icy.</div>
+    <div class="voice-desc"><strong>Language:</strong> Sensory detail. Metaphor. Narrative. Craft as spiritual practice.</div>
+    <div class="voice-example">"The work refines the people. The people refine the work."</div>
+  </div>
+
+  <div class="voice-card">
+    <div class="voice-title">Host Voice</div>
+    <div class="voice-desc">Use for community, gathering, discovery, culture, experience.</div>
+    <div class="voice-desc"><strong>Tone:</strong> Warm. Inclusive. Generous. Presence-based.</div>
+    <div class="voice-desc"><strong>Language:</strong> Second person ("you"). Questions. Invitation. Belonging language.</div>
+    <div class="voice-example">"Better is possible. Better is built together."</div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">V. Usage Rules</div>
+  <h2>Standards & Guardrails</h2>
+
+  <div class="usage-box">
+    <div class="usage-title">Color Usage</div>
+    <div class="usage-content"><strong>Koi Gold:</strong> Never more than 30% of a layout. Accent, not dominant.<br>
+    <strong>Koi Black:</strong> Primary background in dark sections. Primary text in light sections.<br>
+    <strong>Ivory:</strong> Light background in light sections. Text color on dark.<br>
+    <strong>Venture colors:</strong> Confined to their own venture contexts. No cross-bleeding.</div>
+  </div>
+
+  <div class="usage-box">
+    <div class="usage-title">Typography Usage</div>
+    <div class="usage-content"><strong>Pattern:</strong> Serif headers + sans-serif body. This is locked. Do not reverse.<br>
+    <strong>All caps:</strong> Only for labels, metadata, navigation. Never for body copy.<br>
+    <strong>Italics:</strong> Use sparingly. Cormorant Italic for emphasis, quotes, taglines.<br>
+    <strong>Bold:</strong> For impact statements, key phrases, decision anchors.</div>
+  </div>
+
+  <div class="usage-box">
+    <div class="usage-title">Voice Mixing</div>
+    <div class="usage-content"><strong>One voice per document.</strong> Pick the right voice for the audience and stick with it. Architect = operational/internal. Atelier = luxury/craft. Host = community/culture.</div>
+  </div>
+
+  <div class="usage-box">
+    <div class="usage-title">Cross-Venture Rule</div>
+    <div class="usage-content"><strong>Each venture is sovereign</strong> in its own materials. Do not blend venture aesthetics. Exception: Master framework documents reference all ventures but maintain Koi Black + Gold + Ivory palette.</div>
+  </div>
+</section>
+
+<section class="final fade-in">
+  <h2>One Palette.<br>Many Expressions.</h2>
+  <div class="final-meta">
+    KOI Brand Kits · v1.0 · May 2026 · Living Standard<br>
+    <br>
+    Governed by discipline. Evolved by intelligence.
+  </div>
+</section>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

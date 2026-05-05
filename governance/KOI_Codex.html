@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<meta name="supported-color-schemes" content="light">
+<title>Koi Innovations — The Codex</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  color-scheme: light only;
+  --koi-black: #0A0A0A;
+  --koi-gold: #C8A24B;
+  --gold-deep: #9E7F36;
+  --ivory: #F4EDE0;
+  --stone: #888888;
+  --graphite: #3A3A3A;
+  --bg: #FAFAF7;
+  --white: #FFFFFF;
+}
+
+html { scroll-behavior: smooth; background: var(--bg); }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg) !important;
+  color: var(--koi-black);
+  line-height: 1.7;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(20px);
+  z-index: 100;
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(200, 162, 75, 0.2);
+}
+
+.nav-brand {
+  color: var(--ivory);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.nav-brand span { color: var(--koi-gold); }
+
+.nav-version {
+  color: var(--stone);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.hero {
+  min-height: 60vh;
+  background: var(--koi-black);
+  color: var(--ivory);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 32px;
+  position: relative;
+}
+
+.hero h1 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(48px, 8vw, 100px);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -2px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  color: rgba(244, 237, 224, 0.7);
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 48px;
+  max-width: 600px;
+}
+
+.hero-meta {
+  display: flex;
+  gap: 32px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+
+.hero-meta span { color: var(--koi-gold); }
+
+.section {
+  padding: 100px 32px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.section-eyebrow {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--koi-gold);
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 5vw, 60px);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -1px;
+  margin-bottom: 40px;
+  color: var(--koi-black);
+}
+
+.section h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 500;
+  margin: 50px 0 24px;
+  color: var(--koi-black);
+}
+
+.section p {
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--koi-black);
+  margin-bottom: 24px;
+}
+
+.section p strong { font-weight: 600; color: var(--koi-black); }
+
+.principle {
+  margin: 32px 0;
+  padding: 28px;
+  background: var(--white);
+  border-left: 4px solid var(--koi-gold);
+}
+
+.principle-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  color: var(--koi-gold);
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.principle-text {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--koi-black);
+}
+
+.hierarchy-level {
+  margin: 40px 0;
+  padding: 32px;
+  background: var(--white);
+  border: 1px solid rgba(10, 10, 10, 0.08);
+}
+
+.hierarchy-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--koi-black);
+  margin-bottom: 4px;
+}
+
+.hierarchy-subtitle {
+  font-size: 13px;
+  color: var(--gold-deep);
+  font-weight: 500;
+  margin-bottom: 16px;
+  letter-spacing: 0.5px;
+}
+
+.hierarchy-item {
+  margin-bottom: 16px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--koi-black);
+}
+
+.hierarchy-item strong { font-weight: 600; }
+
+.cadence-box {
+  margin: 36px 0;
+  padding: 32px;
+  background: var(--koi-black);
+  color: var(--ivory);
+}
+
+.cadence-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: var(--koi-gold);
+}
+
+.cadence-item {
+  margin-bottom: 12px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.cadence-item strong { font-weight: 600; color: var(--ivory); }
+
+.highlight {
+  background: var(--koi-black);
+  color: var(--ivory);
+  padding: 48px;
+  margin: 60px 0;
+  position: relative;
+}
+
+.highlight::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--koi-gold);
+}
+
+.highlight-label {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--koi-gold);
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.highlight-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-style: italic;
+  line-height: 1.3;
+  color: var(--ivory);
+  font-weight: 400;
+}
+
+.final {
+  background: var(--koi-black);
+  color: var(--ivory);
+  padding: 120px 32px;
+  text-align: center;
+}
+
+.final h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(40px, 6vw, 70px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -1px;
+  margin-bottom: 32px;
+}
+
+.final-meta {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--stone);
+  text-transform: uppercase;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  nav { padding: 14px 20px; }
+  .nav-version { display: none; }
+  .section { padding: 80px 24px; }
+  .hero { padding: 80px 24px; }
+  .final { padding: 100px 24px; }
+  .principle { padding: 20px; }
+  .hierarchy-level { padding: 24px; }
+  .highlight { padding: 40px 28px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">KOI <span>·</span> INNOVATIONS</div>
+  <div class="nav-version">Codex · v1.0 · Internal</div>
+</nav>
+
+<section class="hero">
+  <h1>The Codex</h1>
+  <p class="hero-subtitle">Internal operations manual. How we think. Who decides. What we value.</p>
+  <div class="hero-meta">
+    <div>v1.0 <span>·</span></div>
+    <div>May 2026 <span>·</span></div>
+    <div>Internal Only</div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">I. Purpose</div>
+  <h2>What This Document Is</h2>
+  <p>The Codex is the operational expression of Koi Innovations doctrine. It translates Master philosophy into decision-making frameworks, governance structures, and daily practice.</p>
+  <p>This is not a strategy document. It is not a business plan. <strong>It is the constitution of how we think, who decides, what we value, and how we behave when the stakes are unclear.</strong></p>
+  <p>The Codex is meant to outlast individual founders. It is written for the generation that comes after us — so they know not just what we built, but why we built it the way we did, and how to evolve it without breaking what made it work.</p>
+  <p>If you are reading this and you see something that needs to change, bring it to leadership. Argue for the change. But argue clearly, document well, and do not expect the change to happen quickly. Speed on values is how you lose them.</p>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">II. The Foundation</div>
+  <h2>The Ten Operating Principles</h2>
+  <p>These are not values. Values are abstract. These are decision rules. When you are unsure, return to these ten.</p>
+
+  <div class="principle">
+    <div class="principle-num">1</div>
+    <div class="principle-text"><strong>Source intelligence first.</strong> Every initiative begins with the question: what is the divine intelligence asking of this work? We do not start with market research, margin, or "what competitors are doing." We start with what is true.</div>
+  </div>
+
+  <div class="principle">
+    <div class="principle-num">2</div>
+    <div class="principle-text"><strong>Brain Behind Aura second.</strong> Articulate the intelligence before building the structure. Name what the work is supposed to radiate before you start building.</div>
+  </div>
+
+  <div class="principle">
+    <div class="principle-num">3</div>
+    <div class="principle-text"><strong>Systems in Service third.</strong> Infrastructure exists to serve a documented purpose. Never build a system for its own elegance. Build systems that make people more capable, not more dependent.</div>
+  </div>
+
+  <div class="principle">
+    <div class="principle-num">4</div>
+    <div class="principle-text"><strong>By Design always.</strong> No accidental outputs. Every choice is examined. All of it is design — how this memo is formatted, how this meeting opens, how this email is signed.</div>
+  </div>
+
+  <div class="principle">
+    <div class="principle-num">5</div>
+    <div class="principle-text"><strong>Koinonia is the test.</strong> Every system must serve fellowship, or it must be redesigned. If a system is extracting value but breaking community, it has failed.</div>
+  </div>
+
+  <div class="principle">
+    <div class="principle-num">6</div>
+    <div class="principle-text"><strong>Close existing loops before opening new ones.</strong> No new ventures, frameworks, or features until current ones are closed. Completion has authority over expansion.</div>
+  </div>
+
+  <div class="principle">
+    <div class="principle-num">7</div>
+    <div class="principle-text"><strong>Premium positioning always.</strong> Compete on intelligence, intentionality, and craft — never on price. We are expensive because we are good.</div>
+  </div>
+
+  <div class="principle">
+    <div class="principle-num">8</div>
+    <div class="principle-text"><strong>Governance over hustle.</strong> Standards win. Systems scale. Hustle alone collapses. Document what works. Build the playbook. Then teach it.</div>
+  </div>
+
+  <div class="principle">
+    <div class="principle-num">9</div>
+    <div class="principle-text"><strong>Stewardship over ownership.</strong> The work belongs to the community served. We are stewards, not owners. The mark of a good steward is that the work is better when you step away.</div>
+  </div>
+
+  <div class="principle">
+    <div class="principle-num">10</div>
+    <div class="principle-text"><strong>Seed, not ceiling.</strong> Build the proof. Then give the method away. The first twelve ventures are our birth. The next thousand are the harvest.</div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">III. How We Decide</div>
+  <h2>Decision Hierarchy</h2>
+  <p>Not all decisions carry the same weight. Treating them the same way is how companies lose their way.</p>
+
+  <div class="hierarchy-level">
+    <div class="hierarchy-title">Level 1: Doctrinal Decisions</div>
+    <div class="hierarchy-subtitle">Changes what Koi fundamentally is</div>
+    <div class="hierarchy-item"><strong>What:</strong> Changes to the Ten Principles. Changes to the 1+12 architecture. Changes to the definition of Brain Behind Aura.</div>
+    <div class="hierarchy-item"><strong>Authority:</strong> Founder + leadership council (the twelve organs advising each other)</div>
+    <div class="hierarchy-item"><strong>Timeline:</strong> 90+ days of discussion. Multiple passes. Documented reasoning.</div>
+    <div class="hierarchy-item"><strong>Reversibility:</strong> These should almost never be reversed.</div>
+  </div>
+
+  <div class="hierarchy-level">
+    <div class="hierarchy-title">Level 2: Structural Decisions</div>
+    <div class="hierarchy-subtitle">Changes how the company operates</div>
+    <div class="hierarchy-item"><strong>What:</strong> New ventures. New governance layers. Mergers or partnerships. Major leadership hires.</div>
+    <div class="hierarchy-item"><strong>Authority:</strong> Leadership council with founder approval</div>
+    <div class="hierarchy-item"><strong>Timeline:</strong> 30–60 days of analysis and proposal</div>
+    <div class="hierarchy-item"><strong>Reversibility:</strong> Expensive to reverse, but possible.</div>
+  </div>
+
+  <div class="hierarchy-level">
+    <div class="hierarchy-title">Level 3: Operational Decisions</div>
+    <div class="hierarchy-subtitle">How existing structures run</div>
+    <div class="hierarchy-item"><strong>What:</strong> Pricing, service offerings, team structure, client contracts, budget allocation.</div>
+    <div class="hierarchy-item"><strong>Authority:</strong> Venture leadership + operational council</div>
+    <div class="hierarchy-item"><strong>Timeline:</strong> Days to weeks</div>
+    <div class="hierarchy-item"><strong>Reversibility:</strong> Designed to be reversible. Try, measure, adjust.</div>
+  </div>
+
+  <div class="hierarchy-level">
+    <div class="hierarchy-title">Level 4: Tactical Decisions</div>
+    <div class="hierarchy-subtitle">Day-to-day execution</div>
+    <div class="hierarchy-item"><strong>What:</strong> Which project to tackle next. How to structure a client call. Whether to push a deadline.</div>
+    <div class="hierarchy-item"><strong>Authority:</strong> Individual team member or small team</div>
+    <div class="hierarchy-item"><strong>Timeline:</strong> Minutes to hours</div>
+    <div class="hierarchy-item"><strong>Reversibility:</strong> Fully reversible. Encourage experimentation.</div>
+  </div>
+
+  <p style="margin-top: 40px;"><strong>The mistake most companies make:</strong> they apply heavy governance to tactical decisions (killing speed and morale) while making doctrinal changes on a quarterly basis (destroying coherence). We do the opposite. Lightweight on tactics. Heavy on doctrine. This is how you stay fast while staying true.</p>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">IV. Leadership Structure</div>
+  <h2>The Four Tiers</h2>
+
+  <div class="hierarchy-level">
+    <div class="hierarchy-title">Tier 1: Founder / Architectural Visionary</div>
+    <div class="hierarchy-item"><strong>Authority:</strong> Sets doctrine. Defines what Koi Innovations is. Holds the long view.</div>
+    <div class="hierarchy-item"><strong>Responsibility:</strong> The answer to "why does this company exist?" is the founder's responsibility.</div>
+    <div class="hierarchy-item"><strong>Accountability:</strong> For the arc of the company across decades.</div>
+  </div>
+
+  <div class="hierarchy-level">
+    <div class="hierarchy-title">Tier 2: Leadership Council (The Twelve Organs Advising)</div>
+    <div class="hierarchy-item"><strong>Authority:</strong> Leads ventures. Interprets doctrine for their domain. Makes structural decisions with founder input.</div>
+    <div class="hierarchy-item"><strong>Responsibility:</strong> That doctrine survives and evolves with intelligence. That their venture serves the ecosystem.</div>
+    <div class="hierarchy-item"><strong>Accountability:</strong> For the quality and coherence of their domain.</div>
+  </div>
+
+  <div class="hierarchy-level">
+    <div class="hierarchy-title">Tier 3: Operational Leaders</div>
+    <div class="hierarchy-item"><strong>Authority:</strong> Manages teams. Makes operational decisions within structural frameworks.</div>
+    <div class="hierarchy-item"><strong>Responsibility:</strong> That systems run, that people are developed, that standards are held.</div>
+    <div class="hierarchy-item"><strong>Accountability:</strong> For the month-to-month health of their operation.</div>
+  </div>
+
+  <div class="hierarchy-level">
+    <div class="hierarchy-title">Tier 4: Individual Contributors</div>
+    <div class="hierarchy-item"><strong>Authority:</strong> Makes tactical decisions in their scope. Suggests improvements.</div>
+    <div class="hierarchy-item"><strong>Responsibility:</strong> Excellence in their work. Care for teammates. Growth of their capability.</div>
+    <div class="hierarchy-item"><strong>Accountability:</strong> For the quality and intentionality of the work they produce.</div>
+  </div>
+
+  <p style="margin-top: 40px;"><strong>This is not a hierarchy of worth.</strong> A Tier 4 contributor can see something the Tier 1 founder misses. The structure is in place so that insight can travel up the hierarchy and get heard.</p>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">V. Governance Cadence</div>
+  <h2>How We Stay Aligned</h2>
+
+  <div class="cadence-box">
+    <div class="cadence-title">Monthly: Operational Review</div>
+    <div class="cadence-item"><strong>Attendees:</strong> Founder + leadership council + operational leaders</div>
+    <div class="cadence-item"><strong>Length:</strong> 3–4 hours</div>
+    <div class="cadence-item"><strong>Purpose:</strong> Review previous month. Identify problems. Decide what changes are needed.</div>
+    <div class="cadence-item"><strong>Output:</strong> Decisions logged. Changes documented.</div>
+  </div>
+
+  <div class="cadence-box">
+    <div class="cadence-title">Quarterly: Strategic Alignment</div>
+    <div class="cadence-item"><strong>Attendees:</strong> Founder + leadership council</div>
+    <div class="cadence-item"><strong>Length:</strong> Full day</div>
+    <div class="cadence-item"><strong>Purpose:</strong> Zoom out. Are the ventures coherent? Is doctrine still being honored? What structural changes are needed?</div>
+    <div class="cadence-item"><strong>Output:</strong> Q goals. Leadership assignments. Documentation of doctrine evolution (if any).</div>
+  </div>
+
+  <div class="cadence-box">
+    <div class="cadence-title">Annually: Doctrinal Review</div>
+    <div class="cadence-item"><strong>Attendees:</strong> Founder + full leadership council + external advisors</div>
+    <div class="cadence-item"><strong>Length:</strong> 2–3 days</div>
+    <div class="cadence-item"><strong>Purpose:</strong> Deep examination. Should the Ten Principles evolve? Is the 1+12 architecture serving us? What have we learned?</div>
+    <div class="cadence-item"><strong>Output:</strong> Codex updates (if warranted). Long-term direction. Generational thinking.</div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">VI. Conflict Resolution</div>
+  <h2>How We Handle Disagreement</h2>
+  <p>Conflict is inevitable. Unresolved conflict is a choice.</p>
+
+  <div class="highlight">
+    <div class="highlight-label">The Protocol</div>
+    <div class="highlight-quote">"Assume good intent. The person disagreeing with you is not your enemy. They are seeing something you cannot see."</div>
+  </div>
+
+  <p><strong>Step 1: Assume good intent.</strong> The person disagreeing is not your enemy. They are seeing something you cannot see.</p>
+  <p><strong>Step 2: Name it early.</strong> The moment you notice friction, bring it up. Do not let it ferment.</p>
+  <p><strong>Step 3: Seek to understand first.</strong> What is the other person trying to protect? What value do they see that you are missing?</p>
+  <p><strong>Step 4: Propose a resolution.</strong> Usually: "Your concern is valid. Here is how we will honor it while moving forward."</p>
+  <p><strong>Step 5: If you cannot agree, escalate.</strong> Go to the next level of authority. Do not stay stuck.</p>
+  <p><strong>Step 6: Once a decision is made, everyone moves in that direction.</strong> Disagreement is allowed. Undermining is not.</p>
+  <p style="margin-top: 32px;"><strong>The goal is never consensus. The goal is coherence.</strong> We move in one direction, and everyone who wants to stay part of this company moves with us.</p>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">VII. Standards & Culture</div>
+  <h2>What We Expect</h2>
+
+  <h3>Standards for All Work</h3>
+  <p><strong>1. Intentional.</strong> Every detail is chosen. Nothing is left to default or "close enough."</p>
+  <p><strong>2. Documented.</strong> If you made a decision, there is a note about why. Decisions can be revisited, but not disappeared.</p>
+  <p><strong>3. Coherent with doctrine.</strong> The work radiates the intelligence we said it would radiate.</p>
+  <p><strong>4. Craft-first.</strong> Quality is not negotiable for speed. Speed happens when you have discipline.</p>
+  <p><strong>5. Service-oriented.</strong> Does it serve the user/client/community? If not, why are we doing it?</p>
+
+  <h3 style="margin-top: 48px;">Standards for Leadership</h3>
+  <p><strong>1. Availability.</strong> You are available to your team in a real way. Not performatively. In reality.</p>
+  <p><strong>2. Clarity.</strong> You say what you mean. You make decisions visible. You explain the "why" behind the "what."</p>
+  <p><strong>3. Care.</strong> You know who is on your team. You notice when someone is struggling. You act on it.</p>
+  <p><strong>4. Courage.</strong> You are willing to be wrong. You are willing to change your mind when experience demands it.</p>
+  <p><strong>5. Continuity.</strong> You are building for the next generation. This is not your company to finish. It is your company to pass forward.</p>
+</section>
+
+<section class="final fade-in">
+  <h2>The Codex Is Living</h2>
+  <p style="color: rgba(244, 237, 224, 0.7); font-size: 18px; margin-bottom: 48px;">It changes as we learn. But it changes carefully, documented, and with the full awareness that what we write here is going to shape how this company behaves for decades.</p>
+  <div class="final-meta">
+    KOI Codex · v1.0 · May 2026 · Internal Reference<br>
+    <br>
+    One doctrine. Many applications. Governed by discipline.
+  </div>
+</section>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
