@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<title>Ray Approved — Affiliate Creator Platform</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  color-scheme: light only;
+  --koi-black: #0A0A0A;
+  --koi-gold: #C8A24B;
+  --ivory: #F4EDE0;
+  --stone: #888888;
+  --bg: #FAFAF7;
+  --white: #FFFFFF;
+}
+html { scroll-behavior: smooth; background: var(--bg); }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg) !important;
+  color: var(--koi-black);
+  line-height: 1.7;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(20px);
+  z-index: 100;
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(200, 162, 75, 0.2);
+}
+.nav-brand {
+  color: var(--ivory);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.nav-brand span { color: var(--koi-gold); }
+.nav-meta {
+  color: var(--stone);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.hero {
+  min-height: 60vh;
+  background: var(--koi-black);
+  color: var(--ivory);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 32px;
+}
+.hero h1 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(48px, 8vw, 100px);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -2px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+.hero-subtitle {
+  font-size: 18px;
+  color: rgba(244, 237, 224, 0.7);
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 48px;
+  max-width: 600px;
+}
+.hero-meta {
+  display: flex;
+  gap: 32px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+.hero-meta span { color: var(--koi-gold); }
+.section {
+  padding: 100px 32px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.section-eyebrow {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--koi-gold);
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 5vw, 60px);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -1px;
+  margin-bottom: 40px;
+}
+.section h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 500;
+  margin: 50px 0 24px;
+}
+.section p {
+  font-size: 17px;
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+.section p strong { font-weight: 600; }
+.feature-box {
+  padding: 40px;
+  background: var(--white);
+  border: 1px solid rgba(10, 10, 10, 0.08);
+  border-left: 4px solid var(--koi-gold);
+  margin: 32px 0;
+}
+.feature-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.feature-desc {
+  font-size: 15px;
+  line-height: 1.7;
+}
+.tier-card {
+  padding: 32px;
+  background: var(--white);
+  border: 1px solid rgba(10, 10, 10, 0.08);
+  margin: 24px 0;
+}
+.tier-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--koi-black);
+}
+.tier-items {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--stone);
+}
+.highlight {
+  background: var(--koi-black);
+  color: var(--ivory);
+  padding: 48px;
+  margin: 60px 0;
+  position: relative;
+}
+.highlight::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--koi-gold);
+}
+.highlight-text {
+  font-size: 16px;
+  line-height: 1.7;
+}
+.step-box {
+  padding: 28px;
+  background: rgba(200, 162, 75, 0.05);
+  border: 1px solid rgba(200, 162, 75, 0.2);
+  margin: 24px 0;
+  border-left: 4px solid var(--koi-gold);
+}
+.step-title {
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+.step-content {
+  font-size: 14px;
+  line-height: 1.6;
+}
+.final {
+  background: var(--koi-black);
+  color: var(--ivory);
+  padding: 120px 32px;
+  text-align: center;
+}
+.final h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(40px, 6vw, 70px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -1px;
+  margin-bottom: 32px;
+}
+.final-meta {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--stone);
+  text-transform: uppercase;
+}
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (max-width: 768px) {
+  nav { padding: 14px 20px; }
+  .nav-meta { display: none; }
+  .section { padding: 80px 24px; }
+  .hero { padding: 80px 24px; }
+  .final { padding: 100px 24px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">RAY APPROVED <span>·</span> AFFILIATE PLATFORM</div>
+  <div class="nav-meta">Creator Guide · May 2026</div>
+</nav>
+
+<section class="hero">
+  <h1>Affiliate Creator Platform</h1>
+  <p class="hero-subtitle">How to earn with Ray Approved. Creator ecosystem. Multi-platform commerce.</p>
+  <div class="hero-meta">
+    <div>Tier 2 Asset <span>·</span></div>
+    <div>Creator Playbook <span>·</span></div>
+    <div>May 2026</div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">I. What Is Ray Approved</div>
+  <h2>Your Affiliate Storefront</h2>
+  <p>Ray Approved is Rayshun Hopson's curated storefront. It's where you, as a creator, recommend products you genuinely use and believe in. Every recommendation earns you commission. It's not just a link. It's a full commerce experience that feels like <em>you</em>.</p>
+
+  <div class="highlight">
+    <div class="highlight-text"><strong>The Philosophy:</strong> Recommendations should feel personal, not transactional. When your audience buys through Ray Approved, they know they're supporting you directly. No mystery. No middleman. Just authentic recommendations with real earnings.</div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">II. Platform Features</div>
+  <h2>How It Works</h2>
+
+  <div class="feature-box">
+    <div class="feature-title">Multi-Platform Integration</div>
+    <div class="feature-desc">Ray Approved integrates with Amazon Influencer, LTK, TikTok Shop, Walmart Creator, and more. You recommend once. Earnings flow from every platform.</div>
+  </div>
+
+  <div class="feature-box">
+    <div class="feature-title">Your Personal Storefront</div>
+    <div class="feature-desc">rayapproved.netlify.app is your hub. Everything you recommend appears here. Your followers find everything in one place. Unified experience. Simple navigation.</div>
+  </div>
+
+  <div class="feature-box">
+    <div class="feature-title">Commission Tracking</div>
+    <div class="feature-desc">Real-time dashboard. You see which products sell. Which platforms drive most revenue. Data to make smarter recommendations.</div>
+  </div>
+
+  <div class="feature-box">
+    <div class="feature-title">Content Templates</div>
+    <div class="feature-desc">Pre-built templates for Instagram, TikTok, YouTube. Thumbnails. Captions. Hashtag strategies. Everything you need to promote effectively.</div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">III. The Tier System</div>
+  <h2>Where You Earn</h2>
+
+  <div class="tier-card">
+    <div class="tier-name">Tier 1: Established Platforms</div>
+    <div class="tier-items">Amazon Influencer · LTK · TikTok Shop Creator · ShopMy. These are the foundation. Easiest to start with. Best for pure commerce.</div>
+  </div>
+
+  <div class="tier-card">
+    <div class="tier-name">Tier 2: Creator Networks</div>
+    <div class="tier-items">Walmart Creator · Impact · ShareASale · Target Circle · Shopify Collabs. Mid-tier programs. Higher commission rates. Wider brand access.</div>
+  </div>
+
+  <div class="tier-card">
+    <div class="tier-name">Tier 3: Emerging & Premium</div>
+    <div class="tier-items">YouTube Shopping (when eligible) · Sponsored content deals · Direct brand partnerships. Highest earnings. Requires audience & influence.</div>
+  </div>
+
+  <p style="margin-top: 40px;"><strong>Strategy:</strong> Start Tier 1. Build audience. Once you have 5K+ followers, expand to Tier 2. Once you have 50K+ followers, approach brands directly for Tier 3 partnerships.</p>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">IV. Getting Started</div>
+  <h2>5 Steps to Launch</h2>
+
+  <div class="step-box">
+    <div class="step-title">Step 1: Apply to Ray Approved</div>
+    <div class="step-content">Submit your application at rayapproved.netlify.app/apply. Tell us about your audience. What do you recommend? We approve in 3–5 business days.</div>
+  </div>
+
+  <div class="step-box">
+    <div class="step-title">Step 2: Connect Your Platforms</div>
+    <div class="step-content">Link your Amazon Influencer, LTK, TikTok Shop accounts. Add Instagram & TikTok handles. Your storefront starts building automatically.</div>
+  </div>
+
+  <div class="step-box">
+    <div class="step-title">Step 3: Add Your Products</div>
+    <div class="step-content">Curate your first 10–15 products. Things you actually use and love. Write honest descriptions. Upload photos from your life (not stock images).</div>
+  </div>
+
+  <div class="step-box">
+    <div class="step-title">Step 4: Create Content</div>
+    <div class="step-content">Use our templates. Post on Instagram, TikTok. Tag products. Include the Ray Approved link in bio. Mention earnings potential in video descriptions (transparency builds trust).</div>
+  </div>
+
+  <div class="step-box">
+    <div class="step-title">Step 5: Track & Optimize</div>
+    <div class="step-content">Monitor your dashboard weekly. Which products sell? Which platforms drive most revenue? Double down on what works. Kill what doesn't.</div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">V. Content Strategy</div>
+  <h2>How to Win</h2>
+
+  <h3>The Golden Rules</h3>
+  <p><strong>1. Authenticity first.</strong> Recommend things you actually use. Your audience can smell fake. Trust is the only currency that matters.</p>
+
+  <p><strong>2. Show the product in action.</strong> Don't just link. Show how you use it. Why you love it. What problem it solves for you. This sells.</p>
+
+  <p><strong>3. Price transparency.</strong> Tell people what it costs. "This [product] is $X and worth every penny because..." Honesty builds authority.</p>
+
+  <p><strong>4. Post consistently.</strong> 3x weekly minimum. Recommendations buried in your feed don't earn. Featured content does.</p>
+
+  <p><strong>5. Disclose affiliates.</strong> "I earn commission if you buy through my link" — legally required and builds trust. People respect transparency.</p>
+
+  <h3>Content Pillars</h3>
+  <p><strong>Tutorial Content:</strong> How to use a product. Step-by-step. Solves a problem. High converting.</p>
+  <p><strong>Unboxing & First Look:</strong> Show surprise. Show quality. Show why you love it. Authentic reactions.</p>
+  <p><strong>Comparison:</strong> "I compared X vs Y. Here's why I choose Y." Decision-making content converts.</p>
+  <p><strong>Haul & Setup:</strong> Monthly hauls. Wardrobe refreshes. Room setup. What you bought and why. Relatable.</p>
+  <p><strong>Behind-the-Scenes:</strong> What Ray Approved made you last month. How you make money with recommendations. Transparency sells.</p>
+</section>
+
+<section class="final fade-in">
+  <h2>Earn What<br>You Recommend.</h2>
+  <div class="final-meta">
+    Ray Approved Affiliate Platform Guide · Tier 2 Asset · v1.0 · May 2026<br>
+    <br>
+    Authentic recommendations. Real earnings. No middleman.
+  </div>
+</section>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

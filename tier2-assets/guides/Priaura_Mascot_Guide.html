@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<title>Priaura — Barkley Mascot Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  color-scheme: light only;
+  --koi-black: #0A0A0A;
+  --koi-gold: #C8A24B;
+  --ivory: #F4EDE0;
+  --stone: #888888;
+  --bg: #FAFAF7;
+  --white: #FFFFFF;
+}
+html { scroll-behavior: smooth; background: var(--bg); }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg) !important;
+  color: var(--koi-black);
+  line-height: 1.7;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(20px);
+  z-index: 100;
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(200, 162, 75, 0.2);
+}
+.nav-brand {
+  color: var(--ivory);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.nav-brand span { color: var(--koi-gold); }
+.nav-meta {
+  color: var(--stone);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.hero {
+  min-height: 60vh;
+  background: var(--koi-black);
+  color: var(--ivory);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 32px;
+}
+.hero h1 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(48px, 8vw, 100px);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -2px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+.hero-subtitle {
+  font-size: 18px;
+  color: rgba(244, 237, 224, 0.7);
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 48px;
+  max-width: 600px;
+}
+.hero-meta {
+  display: flex;
+  gap: 32px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+.hero-meta span { color: var(--koi-gold); }
+.section {
+  padding: 100px 32px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.section-eyebrow {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--koi-gold);
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 5vw, 60px);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -1px;
+  margin-bottom: 40px;
+}
+.section h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 500;
+  margin: 50px 0 24px;
+}
+.section p {
+  font-size: 17px;
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+.section p strong { font-weight: 600; }
+.guide-box {
+  padding: 40px;
+  background: var(--white);
+  border: 1px solid rgba(10, 10, 10, 0.08);
+  border-left: 4px solid var(--koi-gold);
+  margin: 32px 0;
+}
+.guide-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.guide-content {
+  font-size: 15px;
+  line-height: 1.7;
+}
+.example-card {
+  padding: 28px;
+  background: rgba(200, 162, 75, 0.05);
+  border: 1px solid rgba(200, 162, 75, 0.2);
+  margin: 24px 0;
+}
+.example-label {
+  font-size: 12px;
+  color: var(--koi-gold);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.example-text {
+  font-size: 15px;
+  line-height: 1.6;
+}
+.symbol-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+  margin: 40px 0;
+}
+.symbol-item {
+  text-align: center;
+  padding: 24px;
+  background: var(--white);
+  border: 1px solid rgba(10, 10, 10, 0.08);
+}
+.symbol-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 12px 0 8px;
+}
+.symbol-desc {
+  font-size: 13px;
+  color: var(--stone);
+  line-height: 1.5;
+}
+.highlight {
+  background: var(--koi-black);
+  color: var(--ivory);
+  padding: 48px;
+  margin: 60px 0;
+  position: relative;
+}
+.highlight::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--koi-gold);
+}
+.highlight-text {
+  font-size: 16px;
+  line-height: 1.7;
+}
+.final {
+  background: var(--koi-black);
+  color: var(--ivory);
+  padding: 120px 32px;
+  text-align: center;
+}
+.final h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(40px, 6vw, 70px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -1px;
+  margin-bottom: 32px;
+}
+.final-meta {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--stone);
+  text-transform: uppercase;
+}
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (max-width: 768px) {
+  nav { padding: 14px 20px; }
+  .nav-meta { display: none; }
+  .section { padding: 80px 24px; }
+  .hero { padding: 80px 24px; }
+  .final { padding: 100px 24px; }
+  .symbol-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">PRIAURA <span>·</span> MASCOT GUIDE</div>
+  <div class="nav-meta">Barkley Brand Guardian</div>
+</nav>
+
+<section class="hero">
+  <h1>Barkley</h1>
+  <p class="hero-subtitle">Priaura's brand guardian. French bulldog. Loyalty, joy, unshakeable presence.</p>
+  <div class="hero-meta">
+    <div>Tier 2 Asset <span>·</span></div>
+    <div>Brand Reference <span>·</span></div>
+    <div>May 2026</div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">I. Who Is Barkley</div>
+  <h2>The Heart of Priaura</h2>
+  <p>Barkley is not a mascot as decoration. Barkley is brand guardian. A French bulldog who embodies the essence of Priaura: loyal, joyful, grounded, unapologetically themselves.</p>
+  <p>Barkley appears in every context where Priaura appears — not because we need a mascot, but because Barkley IS the brand. When you see Barkley, you know exactly who this company is.</p>
+
+  <div class="highlight">
+    <div class="highlight-text"><strong>Barkley's Role:</strong> To represent the wearer. Confident. Grounded. Elevated. Unshakeable. When Barkley shows up, it says: "This brand knows who you are, and it celebrates you."</div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">II. Barkley's Symbolism</div>
+  <h2>Four Crowns. Four Meanings.</h2>
+
+  <div class="symbol-grid">
+    <div class="symbol-item">
+      <div style="font-size: 32px; margin-bottom: 12px;">👑</div>
+      <div class="symbol-name">Wealth</div>
+      <div class="symbol-desc">Abundance. Prosperity. What Priaura brings: quality that lasts, investment that pays dividends.</div>
+    </div>
+    <div class="symbol-item">
+      <div style="font-size: 32px; margin-bottom: 12px;">👑</div>
+      <div class="symbol-name">Loyalty</div>
+      <div class="symbol-desc">Commitment. Show up for those who show up for you. Barkley stays. Barkley doesn't leave.</div>
+    </div>
+    <div class="symbol-item">
+      <div style="font-size: 32px; margin-bottom: 12px;">👑</div>
+      <div class="symbol-name">Unity</div>
+      <div class="symbol-desc">Togetherness. Community. The Priaura customer is part of a family, not a transaction.</div>
+    </div>
+    <div class="symbol-item">
+      <div style="font-size: 32px; margin-bottom: 12px;">👑</div>
+      <div class="symbol-name">Power</div>
+      <div class="symbol-desc">Confidence. Authority. When you wear Priaura, you move differently. Barkley knows this.</div>
+    </div>
+  </div>
+
+  <p>Barkley also carries diamonds — symbols of brilliance, refinement, permanence. Style, Status, Character, Poise.</p>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">III. Where Barkley Appears</div>
+  <h2>Barkley's Presence</h2>
+
+  <div class="guide-box">
+    <div class="guide-title">Packaging & Labels</div>
+    <div class="guide-content">Every piece of packaging carries Barkley. Hang tags. Tissue paper. Boxes. Barkley is the signature that says: "This is Priaura."</div>
+  </div>
+
+  <div class="guide-box">
+    <div class="guide-title">Digital Presence</div>
+    <div class="guide-content">Website hero. Social media. Email signature. Barkley appears consistently across all digital touchpoints. Recognizable at 1 inch or 1000 inches.</div>
+  </div>
+
+  <div class="guide-box">
+    <div class="guide-title">Seasonal & Campaign</div>
+    <div class="guide-content">Limited edition drops. Collection launches. Barkley in seasonal dress. Holiday campaigns. Barkley evolves but is always Barkley.</div>
+  </div>
+
+  <div class="guide-box">
+    <div class="guide-title">Community & Events</div>
+    <div class="guide-content">Priaura pop-ups. Brand events. Black Alumni Gala. Barkley is present. Physical or illustrated, Barkley shows up to celebrate the community.</div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">IV. How to Use Barkley</div>
+  <h2>Brand Guardian Rules</h2>
+
+  <h3>The Golden Rules</h3>
+  <p><strong>1. Barkley is never cartoon-ified.</strong> Barkley is sophisticated. Barkley wears jewels. Barkley doesn't smile stupidly. Barkley is serious about joy.</p>
+
+  <p><strong>2. Barkley appears with intention.</strong> Not every piece of collateral needs Barkley. Barkley shows up when it matters. When Barkley appears, notice it.</p>
+
+  <p><strong>3. Barkley's quality matches Priaura's quality.</strong> If you're using Barkley, the artwork is first-rate. The placement is intentional. The context is premium.</p>
+
+  <p><strong>4. Barkley is always recognizable.</strong> Whether large or small, Barkley's silhouette is clear. Minimalist execution. No detail lost.</p>
+
+  <p><strong>5. Barkley respects the brand colors.</strong> Monochrome. Gold accents on monochrome. Never muddy Barkley with too many colors. Restraint is power.</p>
+
+  <h3>What NOT to Do</h3>
+  <p>❌ Do not anthropomorphize Barkley beyond what's real</p>
+  <p>❌ Do not use Barkley as filler on every page</p>
+  <p>❌ Do not distort Barkley's proportions</p>
+  <p>❌ Do not use Barkley without brand context</p>
+  <p>❌ Do not make Barkley cute. Barkley is confident.</p>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">V. Content Template Examples</div>
+  <h2>Barkley in Action</h2>
+
+  <div class="example-card">
+    <div class="example-label">Instagram Post: New Collection Drop</div>
+    <div class="example-text">Image: New collection draped + Barkley in corner with new season symbolism (crown for power, diamond for brilliance). Caption: "Better threads. Barkley approves. New collection live now." Three-line body about collection meaning.</div>
+  </div>
+
+  <div class="example-card">
+    <div class="example-label">Email: Welcome Sequence</div>
+    <div class="example-text">Hero image: Barkley in Priaura garment with tagline "Elevate Your LIFE|STYLE." Body text about the brand. Call-to-action. Barkley reappears in footer as signature that says: "Yours in quality, Barkley & The Priaura Family."</div>
+  </div>
+
+  <div class="example-card">
+    <div class="example-label">TikTok Content: Behind the Scenes</div>
+    <div class="example-text">Video of production/fitting. Barkley appears as watermark or transition element. Reinforces quality + playfulness. Barkley's presence says: "This brand is serious about craft AND joy."</div>
+  </div>
+</section>
+
+<section class="final fade-in">
+  <h2>Barkley<br>Brand Guardian</h2>
+  <div class="final-meta">
+    Priaura Mascot Guide · Tier 2 Asset · v1.0 · May 2026<br>
+    <br>
+    Loyal. Joyful. Unshakeable. That's Barkley. That's Priaura.
+  </div>
+</section>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

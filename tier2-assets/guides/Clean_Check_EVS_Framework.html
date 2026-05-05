@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<title>Clean Check — EVS Consulting Framework</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  color-scheme: light only;
+  --koi-black: #0A0A0A;
+  --cc-green: #76B043;
+  --ivory: #F4EDE0;
+  --stone: #888888;
+  --bg: #FAFAF7;
+  --white: #FFFFFF;
+}
+html { scroll-behavior: smooth; background: var(--bg); }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg) !important;
+  color: var(--koi-black);
+  line-height: 1.7;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(20px);
+  z-index: 100;
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(118, 176, 67, 0.2);
+}
+.nav-brand {
+  color: var(--ivory);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.nav-brand span { color: var(--cc-green); }
+.nav-meta {
+  color: var(--stone);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.hero {
+  min-height: 60vh;
+  background: var(--koi-black);
+  color: var(--ivory);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 32px;
+}
+.hero h1 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(48px, 8vw, 100px);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -2px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+.hero-subtitle {
+  font-size: 18px;
+  color: rgba(244, 237, 224, 0.7);
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 48px;
+  max-width: 600px;
+}
+.hero-meta {
+  display: flex;
+  gap: 32px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+.hero-meta span { color: var(--cc-green); }
+.section {
+  padding: 100px 32px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.section-eyebrow {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--cc-green);
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 5vw, 60px);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -1px;
+  margin-bottom: 40px;
+}
+.section h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 500;
+  margin: 50px 0 24px;
+}
+.section p {
+  font-size: 17px;
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+.section p strong { font-weight: 600; }
+.framework-box {
+  padding: 40px;
+  background: var(--white);
+  border: 1px solid rgba(118, 176, 67, 0.2);
+  border-left: 4px solid var(--cc-green);
+  margin: 32px 0;
+}
+.framework-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.framework-content {
+  font-size: 15px;
+  line-height: 1.7;
+}
+.phase-card {
+  padding: 32px;
+  background: var(--white);
+  border: 1px solid rgba(10, 10, 10, 0.08);
+  margin: 24px 0;
+}
+.phase-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  color: var(--cc-green);
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.phase-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.phase-items {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--stone);
+}
+.highlight {
+  background: var(--koi-black);
+  color: var(--ivory);
+  padding: 48px;
+  margin: 60px 0;
+  position: relative;
+}
+.highlight::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--cc-green);
+}
+.highlight-text {
+  font-size: 16px;
+  line-height: 1.7;
+}
+.outcome-box {
+  padding: 28px;
+  background: rgba(118, 176, 67, 0.05);
+  border: 1px solid rgba(118, 176, 67, 0.2);
+  margin: 24px 0;
+}
+.outcome-title {
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+.outcome-text {
+  font-size: 14px;
+  line-height: 1.6;
+}
+.final {
+  background: var(--koi-black);
+  color: var(--ivory);
+  padding: 120px 32px;
+  text-align: center;
+}
+.final h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(40px, 6vw, 70px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -1px;
+  margin-bottom: 32px;
+}
+.final-meta {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--stone);
+  text-transform: uppercase;
+}
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (max-width: 768px) {
+  nav { padding: 14px 20px; }
+  .nav-meta { display: none; }
+  .section { padding: 80px 24px; }
+  .hero { padding: 80px 24px; }
+  .final { padding: 100px 24px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">CLEAN CHECK <span>·</span> EVS CONSULTING</div>
+  <div class="nav-meta">Healthcare Framework</div>
+</nav>
+
+<section class="hero">
+  <h1>EVS Consulting Framework</h1>
+  <p class="hero-subtitle">Healthcare facility stewardship. Hospital & clinic governance. Three-phase transformation.</p>
+  <div class="hero-meta">
+    <div>Tier 2 Asset <span>·</span></div>
+    <div>Healthcare Consulting <span>·</span></div>
+    <div>May 2026</div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">I. The Opportunity</div>
+  <h2>Healthcare Facilities Need Governance</h2>
+  <p>Hospitals and clinics operate in chaos. Environmental Services (EVS) is chronically understaffed, under-trained, and under-valued. Yet patient safety depends entirely on clean, organized facilities.</p>
+  <p>Clean Check EVS Consulting brings governance-first thinking to healthcare. We assess. We train. We implement. We measure. We transform.</p>
+
+  <div class="highlight">
+    <div class="highlight-text"><strong>The Gap:</strong> Healthcare facilities spend millions on medical equipment but neglect the systems that keep it safe. EVS governance is not a cost center — it's a patient safety center.</div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">II. The Three-Phase Framework</div>
+  <h2>Stabilization → Optimization → Governance</h2>
+
+  <div class="phase-card">
+    <div class="phase-num">1</div>
+    <div class="phase-name">Stabilization Phase</div>
+    <div class="phase-items"><strong>Timeline: 30–45 days</strong><br>
+    Assessment of current state. Documentation of gaps. Emergency protocols for critical areas. Team alignment on standards. First baseline metrics. Goal: Get to baseline acceptable performance.</div>
+  </div>
+
+  <div class="phase-card">
+    <div class="phase-num">2</div>
+    <div class="phase-name">Optimization Phase</div>
+    <div class="phase-items"><strong>Timeline: 45–90 days</strong><br>
+    Systems refinement. Equipment upgrades. Training intensification. Process documentation. Metrics tracking. Goal: Exceed baseline. Build sustainable operations.</div>
+  </div>
+
+  <div class="phase-card">
+    <div class="phase-num">3</div>
+    <div class="phase-name">Governance Phase</div>
+    <div class="phase-items"><strong>Timeline: Ongoing</strong><br>
+    Full governance infrastructure. Leadership development. Continuous improvement protocols. Accountability systems. Annual strategic reviews. Goal: EVS becomes self-sustaining excellence engine.</div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">III. Five Pillars of Healthcare EVS</div>
+  <h2>What We Transform</h2>
+
+  <div class="framework-box">
+    <div class="framework-title">Pillar 1: Infrastructure Governance</div>
+    <div class="framework-content">How facilities are maintained. Equipment lifecycle. Budget allocation. Capital planning. We document what exists, what's failing, what needs replacement.</div>
+  </div>
+
+  <div class="framework-box">
+    <div class="framework-title">Pillar 2: Team Development</div>
+    <div class="framework-content">Recruitment, training, retention. Wage competitiveness. Career pathways. Staff morale. EVS staff often feel invisible — we make them central.</div>
+  </div>
+
+  <div class="framework-box">
+    <div class="framework-title">Pillar 3: Process Documentation</div>
+    <div class="framework-content">Standard protocols for every task. Cleaning procedures. Safety protocols. Incident response. Everything written. Everything traceable.</div>
+  </div>
+
+  <div class="framework-box">
+    <div class="framework-title">Pillar 4: Performance Metrics</div>
+    <div class="framework-content">What gets measured gets managed. Patient satisfaction. Infection rates. Staff retention. Cost per square foot. Real data driving real decisions.</div>
+  </div>
+
+  <div class="framework-box">
+    <div class="framework-title">Pillar 5: Safety & Compliance</div>
+    <div class="framework-content">OSHA standards. Infection control. Chemical safety. Hazmat protocols. Zero tolerance for shortcuts. Patient safety is non-negotiable.</div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">IV. How We Measure Success</div>
+  <h2>The Outcomes</h2>
+
+  <div class="outcome-box">
+    <div class="outcome-title">Patient Safety Metric</div>
+    <div class="outcome-text">Reduced hospital-acquired infection rates. Cleanliness audits improve from baseline. Third-party inspections pass consistently.</div>
+  </div>
+
+  <div class="outcome-box">
+    <div class="outcome-title">Operational Efficiency</div>
+    <div class="outcome-text">Cost per square foot decreases 15–25%. Labor productivity increases 20%+. Waste reduction through systematic improvement.</div>
+  </div>
+
+  <div class="outcome-box">
+    <div class="outcome-title">Staff Satisfaction</div>
+    <div class="outcome-text">EVS staff morale surveys improve 40%+. Retention increases (target: 70%+ annual retention). Staff feel valued and trained.</div>
+  </div>
+
+  <div class="outcome-box">
+    <div class="outcome-title">Compliance Achievement</div>
+    <div class="outcome-text">100% OSHA compliance. Zero safety violations. Full documentation for audits. Regulatory confidence restored.</div>
+  </div>
+
+  <div class="outcome-box">
+    <div class="outcome-title">Financial Impact</div>
+    <div class="outcome-text">ROI achieved in 12–18 months. Reduced liability from infections. Improved reputation leads to patient acquisition.</div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">V. Engagement Model</div>
+  <h2>How We Work With Healthcare Systems</h2>
+
+  <p><strong>Phase 1: Initial Assessment (Week 1–2)</strong> — Site visit. Current state documentation. Gap analysis. Team interviews. Cost estimate for transformation.</p>
+
+  <p><strong>Phase 2: Proposal & Buy-In (Week 3–4)</strong> — Detailed transformation plan. Budget. Timeline. Leadership agreement. Notice to Proceed signature.</p>
+
+  <p><strong>Phase 3: Execution (Days 1–120)</strong> — On-site leadership. Daily stand-ups. Weekly progress reviews. Monthly stakeholder updates. Measurement and adjustment.</p>
+
+  <p><strong>Phase 4: Transition (Month 4+)</strong> — Hand-off to internal leadership. Training internal change agents. Ongoing advisory (optional). Annual review meetings.</p>
+
+  <p style="margin-top: 32px;"><strong>Investment Range:</strong> $50K–$150K depending on facility size and complexity. Paid across three phases. ROI typically achieved within 12–18 months.</p>
+</section>
+
+<section class="final fade-in">
+  <h2>EVS Excellence<br>Healthcare Governance</h2>
+  <div class="final-meta">
+    Clean Check EVS Consulting Framework · Tier 2 Asset · v1.0 · May 2026<br>
+    <br>
+    Patient safety. Staff dignity. Sustainable excellence.
+  </div>
+</section>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

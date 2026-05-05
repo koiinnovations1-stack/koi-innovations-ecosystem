@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<title>Priaura — Brand Story & Heritage</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  color-scheme: light only;
+  --koi-black: #0A0A0A;
+  --ivory: #F4EDE0;
+  --stone: #888888;
+  --bg: #FAFAF7;
+  --white: #FFFFFF;
+}
+html { scroll-behavior: smooth; background: var(--bg); }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg) !important;
+  color: var(--koi-black);
+  line-height: 1.7;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(20px);
+  z-index: 100;
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(10, 10, 10, 0.2);
+}
+.nav-brand {
+  color: var(--ivory);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.nav-brand span { color: var(--koi-black); }
+.nav-meta {
+  color: var(--stone);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.hero {
+  min-height: 60vh;
+  background: var(--koi-black);
+  color: var(--ivory);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 32px;
+}
+.hero h1 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(48px, 8vw, 100px);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -2px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+.hero-subtitle {
+  font-size: 18px;
+  color: rgba(244, 237, 224, 0.7);
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 48px;
+  max-width: 600px;
+}
+.hero-meta {
+  display: flex;
+  gap: 32px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+.section {
+  padding: 100px 32px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.section-eyebrow {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--koi-black);
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 5vw, 60px);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -1px;
+  margin-bottom: 40px;
+}
+.section h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 500;
+  margin: 50px 0 24px;
+}
+.section p {
+  font-size: 17px;
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+.section p strong { font-weight: 600; }
+.section p em { font-style: italic; }
+.story-box {
+  padding: 48px;
+  background: var(--white);
+  border: 1px solid rgba(10, 10, 10, 0.08);
+  border-left: 4px solid var(--koi-black);
+  margin: 40px 0;
+}
+.story-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.story-text {
+  font-size: 15px;
+  line-height: 1.7;
+}
+.highlight {
+  background: var(--koi-black);
+  color: var(--ivory);
+  padding: 48px;
+  margin: 60px 0;
+  position: relative;
+}
+.highlight::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--koi-black);
+}
+.highlight-text {
+  font-size: 16px;
+  line-height: 1.7;
+}
+.heritage-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-style: italic;
+  line-height: 1.8;
+  margin: 32px 0;
+  padding: 32px;
+  background: rgba(10, 10, 10, 0.03);
+  border-left: 4px solid var(--koi-black);
+}
+.final {
+  background: var(--koi-black);
+  color: var(--ivory);
+  padding: 120px 32px;
+  text-align: center;
+}
+.final h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(40px, 6vw, 70px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -1px;
+  margin-bottom: 32px;
+}
+.final-meta {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--stone);
+  text-transform: uppercase;
+}
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (max-width: 768px) {
+  nav { padding: 14px 20px; }
+  .nav-meta { display: none; }
+  .section { padding: 80px 24px; }
+  .hero { padding: 80px 24px; }
+  .final { padding: 100px 24px; }
+  .story-box { padding: 32px; }
+  .heritage-text { font-size: 18px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">PRIAURA <span>·</span> HERITAGE</div>
+  <div class="nav-meta">Brand Story · May 2026</div>
+</nav>
+
+<section class="hero">
+  <h1>From Mississippi<br>to the World</h1>
+  <p class="hero-subtitle">The story of Priaura. Cotton, craft, and family heritage.</p>
+  <div class="hero-meta">
+    <div>Tier 2 Asset <span>·</span></div>
+    <div>Brand Narrative <span>·</span></div>
+    <div>May 2026</div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">I. The Roots</div>
+  <h2>Where It Started</h2>
+  <p>Rayshun Hopson grew up in Mississippi. His family has deep roots in Meridian — roots that run back through generations. His father, Pastor Dr. Donald Ray Hopson, built a legacy of service and leadership. The Hopson name itself carries meaning: descended from builders, stonemasons, craftsmen. A family that knew how to make things.</p>
+  <p>Ray left Mississippi to pursue his vision. But he carried something essential with him: an understanding that quality lasts, that craft matters, and that everything you make should bear your name.</p>
+
+  <div class="story-box">
+    <div class="story-title">The Mississippi Cotton Story</div>
+    <div class="story-text">Priaura sources its finest fabrics from organically grown cotton in Mississippi. Not for nostalgia. For quality. Mississippi cotton — cultivated with care, harvested with precision — becomes the foundation of every Priaura garment. When you wear Priaura, you're wearing a piece of American heritage, woven through family lineage and craftsmanship.</div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">II. The Departure</div>
+  <h2>Leaving Home to Find Purpose</h2>
+  <p>Ray left Mississippi, but not to escape. He left to expand. To build. To prove that quality fashion could come from the South, could carry the South's values, could represent the South's heritage on a global stage.</p>
+  <p>His journey has been about synthesis: taking the values of his upbringing — craftsmanship, integrity, service — and applying them to modern fashion. Building something that honors where he came from while creating something entirely new.</p>
+
+  <div class="heritage-text">
+    "I left Mississippi to pursue my vision, but everything I build still carries Mississippi in it. The cotton. The values. The commitment to doing things right. Priaura isn't about escaping my past. It's about honoring it while building the future."
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">III. The Priaura Mission</div>
+  <h2>What We Build</h2>
+  <p><strong>Priaura is ready-to-wear excellence.</strong> Not haute couture. Not fast fashion. The middle path: quality that's accessible, craft that's honest, design that's intentional.</p>
+  <p>Every collection tells a story. The brand is built on seasonal drops, each one with its own narrative. The "Barkley Speed Thrills" collection draws from the energy and precision of Willow Springs Racecourse. Future collections will explore other dimensions of American excellence: heritage, innovation, culture, craft.</p>
+
+  <div class="story-box">
+    <div class="story-title">Better Threads. Better Quality.</div>
+    <div class="story-text">This isn't aspirational messaging. It's a promise. Every Priaura piece is built to outlast trends. To feel good. To look right. To tell the story of someone who knows that quality is an investment, not an expense.</div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">IV. The Brand Philosophy</div>
+  <h2>Four Principles</h2>
+
+  <div class="story-box">
+    <div class="story-title">1. Heritage Matters</div>
+    <div class="story-text">We source from Mississippi. We honor craftsmanship traditions. We understand that the best new things are built on the best old traditions.</div>
+  </div>
+
+  <div class="story-box">
+    <div class="story-title">2. Accessibility Is Essential</div>
+    <div class="story-text">Quality fashion shouldn't be gatekept. Priaura is designed for people who want excellence without apology. Four tiers of pricing (Essential/Elevated/Exceptional/Signature) built on the digital root of 8 principle — accessible entry points with paths to investment.</div>
+  </div>
+
+  <div class="story-box">
+    <div class="story-title">3. Stories Drive Design</div>
+    <div class="story-text">Every collection emerges from a story. Barkley Speed Thrills is about precision, athleticism, joy. Future collections will explore other narratives: Americana, innovation, culture, community.</div>
+  </div>
+
+  <div class="story-box">
+    <div class="story-title">4. Comfort Is Luxury</div>
+    <div class="story-text">Priaura pieces feel as good as they look. Heavyweight cotton. Breathable blends. Cuts designed for real bodies moving through real life. Luxury is indulgence, but comfort is a gift.</div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">V. Barkley: The Brand Guardian</div>
+  <h2>Why a French Bulldog?</h2>
+  <p>Barkley is not arbitrary. The French bulldog embodies Priaura's essence: loyal, joyful, grounded, unapologetically themselves. Barkley carries four crowns — symbols of wealth, loyalty, unity, and power. Barkley wears diamonds — brilliance, refinement, permanence.</p>
+  <p>In every collection, Barkley appears. Not as decoration. As brand guardian. As the physical manifestation of what Priaura stands for: confidence rooted in authenticity.</p>
+
+  <div class="highlight">
+    <div class="highlight-text">"When you see Barkley, you know exactly who this brand is. Loyal. Joyful. Elevated. Unshakeable. That's Priaura."</div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">VI. The Future</div>
+  <h2>What's Coming</h2>
+  <p><strong>Seasonal Collections:</strong> Four major drops per year, each with its own narrative and design direction. Barkley will evolve with each season — new crowns, new expressions, new stories.</p>
+  <p><strong>Expanded Categories:</strong> Starting with polos, shorts, and casualwear. Moving toward a complete lifestyle brand: accessories, footwear, outerwear. Everything built to Priaura standards.</p>
+  <p><strong>Global Presence:</strong> Priaura starts in North America. The vision is to build a global premium brand rooted in American heritage and Mississippi craft.</p>
+  <p><strong>Community:</strong> Priaura exists to build community around quality, authenticity, and excellence. That community will shape future collections.</p>
+</section>
+
+<section class="final fade-in">
+  <h2>Better Threads.<br>Better Quality.<br>Luxury is Indulgence.<br>Comfort is a Gift.</h2>
+  <div class="final-meta">
+    Priaura Brand Story & Heritage · Tier 2 Asset · v1.0 · May 2026<br>
+    <br>
+    From Mississippi to the world, carrying quality in every stitch.
+  </div>
+</section>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

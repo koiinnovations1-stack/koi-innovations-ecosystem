@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<title>Clean Check — Window Cleaning Price Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  color-scheme: light only;
+  --koi-black: #0A0A0A;
+  --cc-green: #76B043;
+  --ivory: #F4EDE0;
+  --stone: #888888;
+  --bg: #FAFAF7;
+  --white: #FFFFFF;
+}
+html { scroll-behavior: smooth; background: var(--bg); }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg) !important;
+  color: var(--koi-black);
+  line-height: 1.7;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(20px);
+  z-index: 100;
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(118, 176, 67, 0.2);
+}
+.nav-brand {
+  color: var(--ivory);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.nav-brand span { color: var(--cc-green); }
+.nav-meta {
+  color: var(--stone);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.hero {
+  min-height: 60vh;
+  background: var(--koi-black);
+  color: var(--ivory);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 32px;
+}
+.hero h1 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(48px, 8vw, 100px);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -2px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+.hero-subtitle {
+  font-size: 18px;
+  color: rgba(244, 237, 224, 0.7);
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 48px;
+  max-width: 600px;
+}
+.hero-meta {
+  display: flex;
+  gap: 32px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+.hero-meta span { color: var(--cc-green); }
+.section {
+  padding: 100px 32px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.section-eyebrow {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--cc-green);
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 5vw, 60px);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -1px;
+  margin-bottom: 40px;
+}
+.section h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 500;
+  margin: 50px 0 24px;
+}
+.section p {
+  font-size: 17px;
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+.price-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 40px 0;
+  background: var(--white);
+}
+.price-table th {
+  background: var(--koi-black);
+  color: var(--ivory);
+  padding: 16px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 14px;
+}
+.price-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(10, 10, 10, 0.08);
+  font-size: 15px;
+}
+.price-table tr:hover {
+  background: rgba(118, 176, 67, 0.05);
+}
+.price-box {
+  padding: 32px;
+  background: var(--white);
+  border: 1px solid rgba(118, 176, 67, 0.2);
+  border-left: 4px solid var(--cc-green);
+  margin: 32px 0;
+}
+.price-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--koi-black);
+}
+.price-desc {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--koi-black);
+}
+.price-amount {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--cc-green);
+  margin: 12px 0;
+}
+.highlight {
+  background: var(--koi-black);
+  color: var(--ivory);
+  padding: 48px;
+  margin: 60px 0;
+  position: relative;
+}
+.highlight::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--cc-green);
+}
+.highlight-text {
+  font-size: 16px;
+  line-height: 1.7;
+}
+.rule-box {
+  padding: 28px;
+  background: rgba(118, 176, 67, 0.05);
+  border: 1px solid rgba(118, 176, 67, 0.2);
+  margin: 24px 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+.rule-title {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--koi-black);
+}
+.final {
+  background: var(--koi-black);
+  color: var(--ivory);
+  padding: 120px 32px;
+  text-align: center;
+}
+.final h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(40px, 6vw, 70px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -1px;
+  margin-bottom: 32px;
+}
+.final-meta {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--stone);
+  text-transform: uppercase;
+}
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (max-width: 768px) {
+  nav { padding: 14px 20px; }
+  .nav-meta { display: none; }
+  .section { padding: 80px 24px; }
+  .hero { padding: 80px 24px; }
+  .final { padding: 100px 24px; }
+  .price-table { font-size: 13px; }
+  .price-table th, .price-table td { padding: 10px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">CLEAN CHECK <span>·</span> WINDOW PRICING</div>
+  <div class="nav-meta">Q2 2026 Rate Card</div>
+</nav>
+
+<section class="hero">
+  <h1>Window Cleaning Pricing</h1>
+  <p class="hero-subtitle">Premium tier. Transparent rates. Q2 2026 Rate Card.</p>
+  <div class="hero-meta">
+    <div>Tier 2 Asset <span>·</span></div>
+    <div>Pricing Guide <span>·</span></div>
+    <div>May 2026</div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">I. Positioning</div>
+  <h2>Premium Tier — Baton Rouge</h2>
+  <p>Clean Check Window Service is Tier 3 (Premium) in Baton Rouge. We do not compete on price. We compete on quality, reliability, and transparency. Our rates reflect the care we take and the expertise we bring.</p>
+
+  <div class="highlight">
+    <div class="highlight-text"><strong>The Rule:</strong> Never lead with per-window rate in client-facing contexts. Lead with minimum and scope. Per-window rate is reference only. All-ons are non-negotiable line items.</div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">II. Residential Pricing</div>
+  <h2>Standard Service Rates</h2>
+
+  <div class="price-box">
+    <div class="price-title">Standard Window</div>
+    <div class="price-amount">$12 per window</div>
+    <div class="price-desc">Single-hung or double-hung standard residential window. Interior and exterior cleaned.</div>
+  </div>
+
+  <div class="price-box">
+    <div class="price-title">Per Pane (True Divided Panes Only)</div>
+    <div class="price-amount">$5 per pane</div>
+    <div class="price-desc">True divided panes only. Internal muntins do not count as separate windows. Charge only for actual separate glass panels.</div>
+  </div>
+
+  <div class="price-box">
+    <div class="price-title">Minimum Service Charge</div>
+    <div class="price-amount">$175</div>
+    <div class="price-desc">All residential service starts at $175, regardless of number of windows. This covers travel, setup, assessment, and minimum service.</div>
+  </div>
+
+  <div class="price-box">
+    <div class="price-title">Second Story Surcharge</div>
+    <div class="price-amount">+$4 per window</div>
+    <div class="price-desc">Windows above first floor require specialized equipment and safety protocols. Add $4 per window for access above ground level.</div>
+  </div>
+
+  <h3>Add-On Services (Non-Negotiable Line Items)</h3>
+
+  <table class="price-table">
+    <tr>
+      <th>Service</th>
+      <th>Rate</th>
+      <th>Notes</th>
+    </tr>
+    <tr>
+      <td>Tracks & Sills</td>
+      <td>$5 per window</td>
+      <td>Deep cleaning of tracks and windowsills. Separate from pane cleaning.</td>
+    </tr>
+    <tr>
+      <td>Screens</td>
+      <td>$3 each</td>
+      <td>Screen cleaning or replacement. Standard cleaning included with removal/reinstall.</td>
+    </tr>
+    <tr>
+      <td>Hard Water Stains</td>
+      <td>$10–$25 per window</td>
+      <td>Mineral deposit removal. Charged per window based on severity.</td>
+    </tr>
+    <tr>
+      <td>Gutter Cleaning</td>
+      <td>$150–$300</td>
+      <td>Single-story minimum $150. Second story add $100. Per foot basis for custom quotes.</td>
+    </tr>
+    <tr>
+      <td>Frame Cleaning</td>
+      <td>+$3 per window</td>
+      <td>Interior and exterior frame detailing. Optional upgrade.</td>
+    </tr>
+  </table>
+
+  <h3>Service Packages</h3>
+
+  <div class="price-box">
+    <div class="price-title">Small Package</div>
+    <div class="price-desc">8–15 windows. Price range: $175–$250. Includes standard window service. Add-ons at listed rates.</div>
+  </div>
+
+  <div class="price-box">
+    <div class="price-title">Medium Package</div>
+    <div class="price-desc">16–30 windows. Price range: $250–$400. Includes standard window service. Volume discount applied at 15+ windows ($1/window discount).</div>
+  </div>
+
+  <div class="price-box">
+    <div class="price-title">Large Package</div>
+    <div class="price-desc">31+ windows. Price range: $400–$700+. Custom quote based on property assessment. 10% volume discount applies.</div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">III. Commercial Pricing</div>
+  <h2>Storefront & Facility Rates</h2>
+
+  <table class="price-table">
+    <tr>
+      <th>Service Type</th>
+      <th>Rate</th>
+      <th>Minimum</th>
+    </tr>
+    <tr>
+      <td>Storefront Window</td>
+      <td>$10–$15 per window</td>
+      <td>$200</td>
+    </tr>
+    <tr>
+      <td>Per Pane (Commercial)</td>
+      <td>$3–$5 per pane</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <td>High-Access (Pole, Lift)</td>
+      <td>$50–$100 hourly</td>
+      <td>$300 minimum</td>
+    </tr>
+    <tr>
+      <td>Pressure Wash (Storefront)</td>
+      <td>$150–$400</td>
+      <td>Assessment-based</td>
+    </tr>
+    <tr>
+      <td>Maintenance Contract (Monthly)</td>
+      <td>Custom quote</td>
+      <td>$400/month typical</td>
+    </tr>
+  </table>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">IV. Pricing Rules & Guidelines</div>
+  <h2>How We Quote & Bill</h2>
+
+  <div class="rule-box">
+    <div class="rule-title">Rule 1: Lead with Scope, Not Per-Window Rate</div>
+    Client-facing language: "Window service starts at $175, customized based on access, pane detail, and service level." Never lead with "$12 per window" — this invites price shopping. Lead with minimum and scope.
+  </div>
+
+  <div class="rule-box">
+    <div class="rule-title">Rule 2: Add-Ons Are Non-Negotiable</div>
+    Tracks, sills, screens, hard water = separate line items. These are NOT included in base service. Quote explicitly. No surprises.
+  </div>
+
+  <div class="rule-box">
+    <div class="rule-title">Rule 3: Double Units Count as Two Windows</div>
+    Double-hung or double-width windows = 2 windows. Not 1. Each pane system counts.
+  </div>
+
+  <div class="rule-box">
+    <div class="rule-title">Rule 4: Hard Water Stains Are Assessed On-Site</div>
+    Pricing depends on severity. Light ($10), moderate ($15), heavy ($25). Assess before quoting. Document in scope.
+  </div>
+
+  <div class="rule-box">
+    <div class="rule-title">Rule 5: Volume Discounts Apply at 15+ Windows</div>
+    15+ windows = $1/window discount. 30+ windows = $2/window discount. Applied automatically, mentioned in quote.
+  </div>
+
+  <div class="rule-box">
+    <div class="rule-title">Rule 6: Minimums Are Hard Floors</div>
+    Residential minimum $175. Commercial minimum $200. No exceptions. Travel + setup always included.
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">V. Client Communication Template</div>
+  <h2>How to Quote</h2>
+
+  <p><strong>Opening:</strong> "Clean Check window service starts at $175. We customize pricing based on three things: (1) how many windows, (2) whether any have divided panes, and (3) what add-on services you need."</p>
+
+  <p><strong>Assessment:</strong> "Let me walk through your property and give you an exact scope and price. I'll look at window condition, pane details, and any special needs like hard water stains."</p>
+
+  <p><strong>Quote Line Items:</strong></p>
+  <p>— Window service (X windows @ $12) = $X<br>
+  — Second-story surcharge (X windows @ $4) = $X<br>
+  — Tracks & sills (X windows @ $5) = $X<br>
+  — Screens (X @ $3) = $X<br>
+  <strong>Total: $X</strong></p>
+
+  <p><strong>Closing:</strong> "This price includes interior and exterior window cleaning, professional equipment, and guaranteed satisfaction. Any questions on scope or pricing?"</p>
+</section>
+
+<section class="final fade-in">
+  <h2>Premium Quality.<br>Transparent Pricing.</h2>
+  <div class="final-meta">
+    Clean Check Window Pricing Guide · Tier 2 Asset · Q2 2026<br>
+    <br>
+    We don't compete on price. We compete on quality, reliability, and honesty.
+  </div>
+</section>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

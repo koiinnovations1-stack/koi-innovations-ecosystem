@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<title>Priauratize — Wardrobe Architecture Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  color-scheme: light only;
+  --koi-black: #0A0A0A;
+  --pri-primary: #B8943E;
+  --pri-accent: #5E2129;
+  --ivory: #F4EDE0;
+  --stone: #888888;
+  --bg: #FAFAF7;
+  --white: #FFFFFF;
+}
+html { scroll-behavior: smooth; background: var(--bg); }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg) !important;
+  color: var(--koi-black);
+  line-height: 1.7;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(20px);
+  z-index: 100;
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(184, 148, 62, 0.2);
+}
+.nav-brand {
+  color: var(--ivory);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.nav-brand span { color: var(--pri-primary); }
+.nav-meta {
+  color: var(--stone);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.hero {
+  min-height: 60vh;
+  background: var(--pri-accent);
+  color: var(--ivory);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 32px;
+}
+.hero h1 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(48px, 8vw, 100px);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -2px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+.hero-subtitle {
+  font-size: 18px;
+  color: rgba(244, 237, 224, 0.7);
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 48px;
+  max-width: 600px;
+}
+.hero-meta {
+  display: flex;
+  gap: 32px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+.hero-meta span { color: var(--pri-primary); }
+.section {
+  padding: 100px 32px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.section-eyebrow {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--pri-primary);
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 5vw, 60px);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -1px;
+  margin-bottom: 40px;
+}
+.section h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 500;
+  margin: 50px 0 24px;
+}
+.section p {
+  font-size: 17px;
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+.section p strong { font-weight: 600; }
+.arch-box {
+  padding: 40px;
+  background: var(--white);
+  border: 1px solid rgba(10, 10, 10, 0.08);
+  border-left: 4px solid var(--pri-primary);
+  margin: 32px 0;
+}
+.arch-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.arch-content {
+  font-size: 15px;
+  line-height: 1.7;
+}
+.tier-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+  margin: 40px 0;
+}
+.tier-card {
+  padding: 32px;
+  background: var(--white);
+  border: 1px solid rgba(10, 10, 10, 0.08);
+}
+.tier-label {
+  font-size: 11px;
+  color: var(--pri-primary);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.tier-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.tier-items {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--stone);
+}
+.highlight {
+  background: var(--pri-accent);
+  color: var(--ivory);
+  padding: 48px;
+  margin: 60px 0;
+  position: relative;
+}
+.highlight::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--pri-primary);
+}
+.highlight-text {
+  font-size: 16px;
+  line-height: 1.7;
+}
+.checklist {
+  padding: 32px;
+  background: rgba(184, 148, 62, 0.05);
+  border: 1px solid rgba(184, 148, 62, 0.2);
+  margin: 32px 0;
+}
+.checklist-title {
+  font-weight: 600;
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+.checklist-item {
+  margin-bottom: 12px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.final {
+  background: var(--pri-accent);
+  color: var(--ivory);
+  padding: 120px 32px;
+  text-align: center;
+}
+.final h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(40px, 6vw, 70px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -1px;
+  margin-bottom: 32px;
+}
+.final-meta {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--stone);
+  text-transform: uppercase;
+}
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (max-width: 768px) {
+  nav { padding: 14px 20px; }
+  .nav-meta { display: none; }
+  .section { padding: 80px 24px; }
+  .hero { padding: 80px 24px; }
+  .final { padding: 100px 24px; }
+  .tier-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">PRIAURATIZE <span>·</span> WARDROBE GUIDE</div>
+  <div class="nav-meta">Architecture Your Style</div>
+</nav>
+
+<section class="hero">
+  <h1>Wardrobe Architecture</h1>
+  <p class="hero-subtitle">How to build with Priauratize. Foundation, expansion, mastery. Step by step.</p>
+  <div class="hero-meta">
+    <div>Tier 2 Asset <span>·</span></div>
+    <div>Client Guide <span>·</span></div>
+    <div>May 2026</div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">I. The Philosophy</div>
+  <h2>Building, Not Buying</h2>
+  <p>Building a wardrobe with Priauratize is not shopping. It is architecture. You are designing how you present yourself to the world, one intentional piece at a time.</p>
+  <p>A Priauratize wardrobe is built on the Triple-S framework: Structure (how it fits), Stitch (how it's made), Style (what it expresses). Each piece serves a purpose. Each addition strengthens the whole.</p>
+
+  <div class="highlight">
+    <div class="highlight-text"><strong>The Principle:</strong> A wardrobe is an ecosystem. Pieces work together. Each suit you add should work with what you already own, expressing a coherent vision of who you are.</div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">II. The Three Phases</div>
+  <h2>Foundation → Expansion → Mastery</h2>
+
+  <div class="arch-box">
+    <div class="arch-title">Phase 1: Foundation</div>
+    <div class="arch-content">You own 1-3 core suits. Navy. Gray. Black. These are your foundation. They work with everything. They express neutrality so you can control how people perceive you.</div>
+  </div>
+
+  <div class="arch-box">
+    <div class="arch-title">Phase 2: Expansion</div>
+    <div class="arch-content">Now you add character. Patterned suiting. Textured fabrics. Colors that match your coloring. Each new suit should make you feel more yourself, not less.</div>
+  </div>
+
+  <div class="arch-box">
+    <div class="arch-title">Phase 3: Mastery</div>
+    <div class="arch-content">You own 8-12 core suits. Your wardrobe is complete. You can dress for any situation and never repeat. You are fully yourself in every space.</div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">III. Construction Tiers</div>
+  <h2>Quality Matches Investment</h2>
+
+  <div class="tier-grid">
+    <div class="tier-card">
+      <div class="tier-label">Essential</div>
+      <div class="tier-name">Foundation</div>
+      <div class="tier-items">Your first suit. Quality baseline. Priauratize standard: zero compromise on fit or fabric, entry-level price point. Best for: Navy, Gray, Black foundational suiting.</div>
+    </div>
+    <div class="tier-card">
+      <div class="tier-label">Elevated</div>
+      <div class="tier-name">Standard</div>
+      <div class="tier-items">Most Priauratize clients live here. Premium fabrics. Refined construction. This is the Priauratize experience. Best for: building your expansion phase.</div>
+    </div>
+    <div class="tier-card">
+      <div class="tier-label">Exceptional</div>
+      <div class="tier-name">Investment</div>
+      <div class="tier-items">Specialty fabrics. Heirloom construction. Hand-finished details. These suits get better with age. Best for: signature pieces. Statement suiting.</div>
+    </div>
+    <div class="tier-card">
+      <div class="tier-label">Signature</div>
+      <div class="tier-name">Masterpiece</div>
+      <div class="tier-items">Limited edition. Collaboration. The absolute best. One-of-a-kind or severely limited. Best for: your most important garments.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">IV. The Build Plan</div>
+  <h2>Your 12-Suit Wardrobe</h2>
+
+  <p><strong>Suits 1-3 (Foundation): Navy, Gray, Black</strong> — Wear these 80% of the time. They work everywhere. They ground your style.</p>
+
+  <p><strong>Suits 4-6 (Character): Charcoal Texture, Burgundy Subtle, Olive Tone</strong> — These add dimension. Still neutral enough to be versatile. Bold enough to express yourself.</p>
+
+  <p><strong>Suits 7-9 (Expression): Statement Pattern, Rich Brown, Deep Blue</strong> — Now you're fully expressed. These are conversation starters. They say: I know who I am.</p>
+
+  <p><strong>Suits 10-12 (Mastery): Seasonal, Limited Edition, Ceremonial</strong> — Your signature pieces. Event suiting. Collaboration pieces. Suits you return to every year because they never go out of style.</p>
+
+  <div class="checklist">
+    <div class="checklist-title">Your First Conversation with Priauratize</div>
+    <div class="checklist-item">✓ Where do you move? (Boardroom, Creative, Community, Formal, Casual)</div>
+    <div class="checklist-item">✓ How do you want to feel? (Powerful, Grounded, Creative, Approachable, Authoritative)</div>
+    <div class="checklist-item">✓ What's your coloring? (Warm, Cool, Neutral)</div>
+    <div class="checklist-item">✓ What are your budget phases? (Foundation / Expansion / Mastery timeline)</div>
+    <div class="checklist-item">✓ What fabrics make you feel best? (Structure, Weight, Hand)</div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">V. The Maintenance Promise</div>
+  <h2>Your Suit Lasts Forever</h2>
+  <p>A Priauratize suit is built to last 20+ years. We stand behind every stitch. Alterations are part of the relationship. Your weight changes. Your life changes. Your suit evolves with you.</p>
+  <p>Priauratize offers: Annual cleaning & pressing. Repairs included for the first 5 years. Fabric preservation. Pattern adjustments for life changes. Your suit is an investment. We protect it.</p>
+</section>
+
+<section class="final fade-in">
+  <h2>Build Your<br>Wardrobe.</h2>
+  <div class="final-meta">
+    Priauratize Wardrobe Guide · Tier 2 Asset · v1.0 · May 2026<br>
+    <br>
+    Structure serves style. Style serves aura. Your suit serves you.
+  </div>
+</section>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
