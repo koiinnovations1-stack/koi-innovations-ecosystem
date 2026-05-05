@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<title>Priaura — Limited Edition VIP Access</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  color-scheme: light only;
+  --koi-black: #0A0A0A;
+  --ivory: #F4EDE0;
+  --stone: #888888;
+  --white: #FFFFFF;
+  --accent: #D4A84A;
+}
+html { scroll-behavior: smooth; background: var(--koi-black); }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--koi-black) !important;
+  color: var(--koi-black);
+  line-height: 1.6;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+.flyer-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--koi-black);
+  padding: 20px;
+}
+.flyer {
+  width: 100%;
+  aspect-ratio: 8.5 / 11;
+  background: var(--koi-black);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid var(--accent);
+}
+.flyer-header {
+  background: var(--koi-black);
+  color: var(--ivory);
+  padding: 48px 32px;
+  text-align: center;
+  border-bottom: 1px solid var(--accent);
+}
+.vip-badge {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+.flyer-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 56px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -2px;
+  color: var(--ivory);
+  margin-bottom: 8px;
+}
+.flyer-subtitle {
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+.flyer-body {
+  flex: 1;
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: var(--ivory);
+}
+.vip-content {
+  text-align: center;
+  margin-bottom: 32px;
+}
+.access-label {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+.access-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+.access-desc {
+  font-size: 14px;
+  line-height: 1.7;
+  max-width: 500px;
+  margin: 0 auto;
+  color: rgba(244, 237, 224, 0.8);
+}
+.benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 40px 0;
+  padding: 32px 0;
+  border-top: 1px solid var(--accent);
+  border-bottom: 1px solid var(--accent);
+}
+.benefit-item {
+  font-size: 13px;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+.benefit-check {
+  color: var(--accent);
+  font-weight: 700;
+  margin-right: 6px;
+}
+.urgency {
+  text-align: center;
+  padding: 24px;
+  background: rgba(212, 168, 74, 0.1);
+  border: 1px solid var(--accent);
+  margin-bottom: 24px;
+}
+.urgency-label {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+.urgency-text {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+.cta-section {
+  text-align: center;
+}
+.cta-text {
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: var(--stone);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+.cta-button {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--koi-black);
+  padding: 12px 40px;
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.flyer-footer {
+  background: rgba(212, 168, 74, 0.1);
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--accent);
+  border-top: 1px solid var(--accent);
+}
+@media print {
+  .flyer-container { padding: 0; margin: 0; background: var(--koi-black); }
+  .flyer { border: 2px solid var(--accent); }
+  body { background: var(--koi-black); }
+}
+@media (max-width: 768px) {
+  .flyer { aspect-ratio: auto; }
+  .flyer-header { padding: 36px 20px; }
+  .flyer-title { font-size: 40px; }
+  .flyer-body { padding: 30px 20px; }
+  .access-title { font-size: 32px; }
+}
+</style>
+</head>
+<body>
+
+<div class="flyer-container">
+  <div class="flyer">
+    <div class="flyer-header">
+      <div class="vip-badge">VIP Access</div>
+      <h1 class="flyer-title">Members<br>Only</h1>
+      <p class="flyer-subtitle">Exclusive Limited Editions</p>
+    </div>
+
+    <div class="flyer-body">
+      <div class="vip-content">
+        <p class="access-label">Signature Tier</p>
+        <h2 class="access-title">Access the Unreleased</h2>
+        <p class="access-desc">
+          Signature Tier members get first access to limited editions, collaboration pieces, and one-of-a-kind suiting before public release.
+        </p>
+      </div>
+
+      <div class="benefits">
+        <div class="benefit-item">
+          <span class="benefit-check">✓</span>
+          Early access to limited drops (48 hours before public)
+        </div>
+        <div class="benefit-item">
+          <span class="benefit-check">✓</span>
+          Exclusive color options not available to standard customers
+        </div>
+        <div class="benefit-item">
+          <span class="benefit-check">✓</span>
+          VIP pricing on all signature collection items
+        </div>
+        <div class="benefit-item">
+          <span class="benefit-check">✓</span>
+          Priority custom orders and fast-track tailoring
+        </div>
+        <div class="benefit-item">
+          <span class="benefit-check">✓</span>
+          Invitation-only events and VIP experiences
+        </div>
+      </div>
+
+      <div class="urgency">
+        <p class="urgency-label">Limited Spots</p>
+        <div class="urgency-text">Only 100 Signature Tier members accepted per year.</div>
+      </div>
+
+      <div class="cta-section">
+        <p class="cta-text">Next intake: June 2026</p>
+        <a href="#" class="cta-button">Apply for Access</a>
+      </div>
+    </div>
+
+    <div class="flyer-footer">
+      PRIAURA SIGNATURE · VIP MEMBERS ONLY · PRIAURA.COM
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

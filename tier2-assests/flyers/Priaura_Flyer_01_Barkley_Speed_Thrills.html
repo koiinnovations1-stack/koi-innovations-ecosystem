@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<title>Priaura — Barkley Speed Thrills</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  color-scheme: light only;
+  --koi-black: #0A0A0A;
+  --ivory: #F4EDE0;
+  --stone: #888888;
+  --white: #FFFFFF;
+}
+html { scroll-behavior: smooth; background: var(--white); }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--white) !important;
+  color: var(--koi-black);
+  line-height: 1.6;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+.flyer-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--white);
+  padding: 20px;
+}
+.flyer {
+  width: 100%;
+  aspect-ratio: 8.5 / 11;
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+}
+.flyer-header {
+  background: var(--koi-black);
+  color: var(--ivory);
+  padding: 40px 32px;
+  text-align: center;
+}
+.flyer-logo {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.flyer-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 56px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -2px;
+  margin-bottom: 12px;
+}
+.flyer-subtitle {
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+.flyer-body {
+  flex: 1;
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.flyer-content {
+  text-align: center;
+}
+.collection-descriptor {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+.tagline {
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-bottom: 24px;
+}
+.description {
+  font-size: 15px;
+  line-height: 1.7;
+  max-width: 500px;
+  margin: 0 auto 40px;
+  color: #555;
+}
+.features {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin: 40px 0;
+  font-size: 13px;
+  text-align: center;
+}
+.feature {
+  flex: 1;
+}
+.feature-label {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.feature-value {
+  color: var(--stone);;
+  font-size: 12px;
+}
+.cta-section {
+  text-align: center;
+  padding: 32px 0;
+  border-top: 1px solid #e0e0e0;
+}
+.cta-text {
+  font-size: 14px;
+  margin-bottom: 16px;
+  color: var(--stone);
+}
+.cta-button {
+  display: inline-block;
+  background: var(--koi-black);
+  color: var(--ivory);
+  padding: 12px 40px;
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.flyer-footer {
+  background: #f8f8f8;
+  padding: 20px 32px;
+  text-align: center;
+  border-top: 1px solid #e0e0e0;
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: var(--stone);
+}
+@media print {
+  .flyer-container { padding: 0; margin: 0; }
+  .flyer { border: none; }
+  body { background: white; }
+}
+@media (max-width: 768px) {
+  .flyer { aspect-ratio: auto; }
+  .flyer-header { padding: 30px 20px; }
+  .flyer-title { font-size: 40px; }
+  .flyer-body { padding: 30px 20px; }
+  .features { flex-direction: column; gap: 16px; }
+}
+</style>
+</head>
+<body>
+
+<div class="flyer-container">
+  <div class="flyer">
+    <div class="flyer-header">
+      <div class="flyer-logo">PRIAURA</div>
+      <h1 class="flyer-title">BARKLEY<br>SPEED<br>THRILLS</h1>
+      <p class="flyer-subtitle">Reserved Collection Now Live</p>
+    </div>
+
+    <div class="flyer-body">
+      <div class="flyer-content">
+        <div class="collection-descriptor">Precision. Athleticism. Joy.</div>
+        <p class="tagline">Embroidered Polo + Drawstring Shorts</p>
+        
+        <p class="description">
+          Inspired by the energy of Willow Springs Racecourse. Hand-embroidered French bulldog mascot. Limited edition. Heavyweight Cotton Terry. Four tiers. One vision.
+        </p>
+
+        <div class="features">
+          <div class="feature">
+            <div class="feature-label">Tier</div>
+            <div class="feature-value">Elevated</div>
+          </div>
+          <div class="feature">
+            <div class="feature-label">Material</div>
+            <div class="feature-value">HWT Cotton Terry</div>
+          </div>
+          <div class="feature">
+            <div class="feature-label">Price</div>
+            <div class="feature-value">$251 set</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-section">
+        <p class="cta-text">Limited availability. Secure yours now.</p>
+        <a href="#" class="cta-button">Shop Collection</a>
+      </div>
+    </div>
+
+    <div class="flyer-footer">
+      PRIAURA · BETTER THREADS · BETTER QUALITY · PRIAURA.COM
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

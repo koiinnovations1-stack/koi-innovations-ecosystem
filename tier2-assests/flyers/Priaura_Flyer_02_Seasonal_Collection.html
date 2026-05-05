@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<title>Priaura — New Season Drops</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  color-scheme: light only;
+  --koi-black: #0A0A0A;
+  --ivory: #F4EDE0;
+  --stone: #888888;
+  --white: #FFFFFF;
+}
+html { scroll-behavior: smooth; background: var(--white); }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--white) !important;
+  color: var(--koi-black);
+  line-height: 1.6;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+.flyer-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--white);
+  padding: 20px;
+}
+.flyer {
+  width: 100%;
+  aspect-ratio: 8.5 / 11;
+  background: linear-gradient(135deg, var(--white) 0%, #f5f5f5 100%);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+}
+.flyer-header {
+  background: var(--koi-black);
+  color: var(--ivory);
+  padding: 40px 32px;
+  text-align: center;
+}
+.flyer-logo {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.flyer-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -1px;
+  margin-bottom: 12px;
+}
+.flyer-subtitle {
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+.flyer-body {
+  flex: 1;
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.seasonal-message {
+  text-align: center;
+  margin-bottom: 32px;
+}
+.season-label {
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-bottom: 12px;
+}
+.collection-intro {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+.collection-description {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #666;
+  max-width: 450px;
+  margin: 0 auto;
+}
+.three-drops {
+  display: flex;
+  justify-content: space-around;
+  gap: 16px;
+  margin: 40px 0;
+  padding: 32px 0;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+}
+.drop-item {
+  text-align: center;
+  flex: 1;
+}
+.drop-month {
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-bottom: 8px;
+}
+.drop-name {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.cta-section {
+  text-align: center;
+}
+.cta-text {
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: var(--stone);
+  margin-bottom: 16px;
+}
+.cta-button {
+  display: inline-block;
+  background: var(--koi-black);
+  color: var(--ivory);
+  padding: 12px 40px;
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.flyer-footer {
+  background: var(--koi-black);
+  color: var(--ivory);
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+@media print {
+  .flyer-container { padding: 0; margin: 0; }
+  .flyer { border: none; background: white; }
+  body { background: white; }
+}
+@media (max-width: 768px) {
+  .flyer { aspect-ratio: auto; }
+  .flyer-header { padding: 30px 20px; }
+  .flyer-title { font-size: 36px; }
+  .flyer-body { padding: 30px 20px; }
+  .three-drops { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<div class="flyer-container">
+  <div class="flyer">
+    <div class="flyer-header">
+      <div class="flyer-logo">PRIAURA</div>
+      <h1 class="flyer-title">New Season<br>Drops</h1>
+      <p class="flyer-subtitle">Four Collections. One Vision.</p>
+    </div>
+
+    <div class="flyer-body">
+      <div class="seasonal-message">
+        <p class="season-label">Spring/Summer 2026</p>
+        <h2 class="collection-intro">Four seasonal drops.<br>Each with its own story.</h2>
+        <p class="collection-description">
+          Priaura releases four major collections each year. Each collection emerges from a story. Each one evolves Barkley. Each one matters.
+        </p>
+      </div>
+
+      <div class="three-drops">
+        <div class="drop-item">
+          <div class="drop-month">March</div>
+          <div class="drop-name">Awakening</div>
+        </div>
+        <div class="drop-item">
+          <div class="drop-month">June</div>
+          <div class="drop-name">Elevation</div>
+        </div>
+        <div class="drop-item">
+          <div class="drop-month">September</div>
+          <div class="drop-name">Expression</div>
+        </div>
+      </div>
+
+      <div class="cta-section">
+        <p class="cta-text">Stay tuned. Drops landing soon.</p>
+        <a href="#" class="cta-button">Join Our List</a>
+      </div>
+    </div>
+
+    <div class="flyer-footer">
+      PRIAURA.COM · BETTER THREADS · BETTER QUALITY
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
