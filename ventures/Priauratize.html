@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<meta name="supported-color-schemes" content="light">
+<title>Priauratize — Luxury Atelier</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  color-scheme: light only;
+  --koi-black: #0A0A0A;
+  --koi-gold: #C8A24B;
+  --ivory: #F4EDE0;
+  --stone: #888888;
+  --bg: #FAFAF7;
+  --white: #FFFFFF;
+  --pri-primary: #B8943E;
+  --pri-accent: #5E2129;
+}
+
+html { scroll-behavior: smooth; background: var(--bg); }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg) !important;
+  color: var(--koi-black);
+  line-height: 1.7;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(20px);
+  z-index: 100;
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(200, 162, 75, 0.2);
+}
+
+.nav-brand {
+  color: var(--ivory);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.nav-brand span { color: var(--pri-primary); }
+
+.nav-venture {
+  color: var(--stone);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.hero {
+  min-height: 80vh;
+  background: var(--pri-accent);
+  color: var(--ivory);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 32px;
+  position: relative;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 30%, rgba(184, 148, 62, 0.15), transparent 60%);
+  pointer-events: none;
+}
+
+.hero-eyebrow {
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: var(--pri-primary);
+  text-transform: uppercase;
+  margin-bottom: 32px;
+  font-weight: 500;
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(56px, 10vw, 120px);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -2px;
+  margin-bottom: 32px;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.hero-subtitle {
+  font-size: clamp(18px, 2.5vw, 24px);
+  color: rgba(244, 237, 224, 0.8);
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  margin-bottom: 48px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+}
+
+.hero-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(16px, 2vw, 20px);
+  color: var(--pri-primary);
+  font-style: italic;
+  letter-spacing: 1px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  border-top: 1px solid rgba(184, 148, 62, 0.3);
+  border-bottom: 1px solid rgba(184, 148, 62, 0.3);
+  padding: 20px 40px;
+  margin-bottom: 80px;
+}
+
+.hero-meta {
+  display: flex;
+  gap: 32px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--stone);
+  position: relative;
+  z-index: 2;
+}
+
+.hero-meta span { color: var(--pri-primary); }
+
+.section {
+  padding: 100px 32px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.section-eyebrow {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--pri-primary);
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -1px;
+  margin-bottom: 40px;
+  color: var(--koi-black);
+}
+
+.section h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 500;
+  margin: 48px 0 24px;
+  color: var(--koi-black);
+}
+
+.section p {
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--koi-black);
+  margin-bottom: 24px;
+}
+
+.section p strong { font-weight: 600; color: var(--koi-black); }
+
+.highlight {
+  background: var(--pri-accent);
+  color: var(--ivory);
+  padding: 60px;
+  margin: 60px 0;
+  position: relative;
+}
+
+.highlight::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--pri-primary);
+}
+
+.highlight-label {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--pri-primary);
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.highlight-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 3.5vw, 38px);
+  font-style: italic;
+  line-height: 1.3;
+  color: var(--ivory);
+  font-weight: 400;
+}
+
+.pillar {
+  padding: 32px;
+  background: var(--white);
+  border: 1px solid rgba(10, 10, 10, 0.08);
+  border-left: 4px solid var(--pri-primary);
+  margin: 24px 0;
+}
+
+.pillar-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--koi-black);
+  margin-bottom: 12px;
+}
+
+.pillar-desc {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--koi-black);
+}
+
+.framework {
+  margin: 48px 0;
+}
+
+.framework-level {
+  margin: 32px 0;
+  padding: 24px;
+  background: var(--white);
+  border: 1px solid rgba(10, 10, 10, 0.08);
+}
+
+.framework-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--koi-black);
+  margin-bottom: 12px;
+}
+
+.framework-items {
+  font-size: 14px;
+  color: var(--koi-black);
+  line-height: 1.8;
+}
+
+.final {
+  background: var(--pri-accent);
+  color: var(--ivory);
+  padding: 160px 32px;
+  text-align: center;
+}
+
+.final h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(40px, 6vw, 80px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -1px;
+  margin-bottom: 32px;
+}
+
+.final-tagline {
+  font-size: 15px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--pri-primary);
+  font-weight: 500;
+  margin-bottom: 64px;
+}
+
+.final-meta {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--stone);
+  text-transform: uppercase;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  nav { padding: 14px 20px; }
+  .nav-venture { display: none; }
+  .section { padding: 80px 24px; }
+  .hero { padding: 80px 24px; }
+  .final { padding: 100px 24px; }
+  .highlight { padding: 40px 28px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">KOI <span>·</span> INNOVATIONS</div>
+  <div class="nav-venture">Priauratize · Luxury Atelier</div>
+</nav>
+
+<section class="hero">
+  <div class="hero-eyebrow">Image Tier · Venture 01</div>
+  <h1>Priauratize</h1>
+  <p class="hero-subtitle">Luxury atelier. Bespoke tailoring. Intentional craft.</p>
+  <div class="hero-tagline">It fits you. Putting your aura first.</div>
+  <div class="hero-meta">
+    <div>Atelier Voice <span>·</span></div>
+    <div>Bespoke Framework <span>·</span></div>
+    <div>Premium Positioning</div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">I. What Is Priauratize</div>
+  <h2>The Craft of Becoming</h2>
+  <p class="lead">Priauratize is not a clothing store. It is an atelier — a place where bespoke tailoring serves the deeper work of self-discovery and intentional presentation.</p>
+  <p>Every person has an aura — the truth they emit when they walk into a room. Priauratize exists to make that aura visible and intentional through the craft of tailoring. We do not dress bodies. We dress the people inside the bodies, and we do it with precision, intention, and care.</p>
+  
+  <div class="highlight">
+    <div class="highlight-label">The Principle</div>
+    <div class="highlight-quote">"Structure serves style. Style serves aura. Aura serves truth."</div>
+  </div>
+
+  <p>This is atelier-level work. Not fast fashion. Not mass production. Not "good enough." We work with clients who understand that premium is an investment in becoming who they already are. We serve people who know that how you dress shapes how you move through the world.</p>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">II. The Triple-S Framework</div>
+  <h2>Structure · Stitch · Style</h2>
+  <p>Priauratize's operating philosophy, expressed through three pillars of craft:</p>
+
+  <div class="pillar">
+    <div class="pillar-title">Structure</div>
+    <div class="pillar-desc">The engineering beneath the garment. How the suit is cut. How the seams hold. How the proportions honor the body. Structure is invisible — until it's missing. We build structure that makes movement effortless.</div>
+  </div>
+
+  <div class="pillar">
+    <div class="pillar-title">Stitch</div>
+    <div class="pillar-desc">The craft of assembly. Hand-stitched details. Precision finishing. The quality of a stitch reveals the mind of the maker. We stitch with intention, knowing that every detail is a sentence we are speaking about care.</div>
+  </div>
+
+  <div class="pillar">
+    <div class="pillar-title">Style</div>
+    <div class="pillar-desc">The expression of identity. How the garment speaks for the wearer. Not trend-chasing. Timeless design that honors the person inside. Style that lasts because it is true.</div>
+  </div>
+
+  <p style="margin-top: 48px;"><strong>Together: A suit that fits structurally, finished with craft, expressing the client's authentic style.</strong> This is what Priauratize delivers.</p>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">III. How We Work</div>
+  <h2>The Atelier Process</h2>
+
+  <div class="framework">
+    <div class="framework-level">
+      <div class="framework-title">Discovery</div>
+      <div class="framework-items">Understand the client. Who are they becoming? What is their aura? What do they move through — boardrooms, creative spaces, communities? What do they need to feel like themselves?</div>
+    </div>
+
+    <div class="framework-level">
+      <div class="framework-title">Design</div>
+      <div class="framework-items">Propose the structure. Cut, proportion, fit. Show how the garment will honor their body and their movement. Get explicit consent on every detail.</div>
+    </div>
+
+    <div class="framework-level">
+      <div class="framework-title">Craft</div>
+      <div class="framework-items">Build with precision. Every stitch is a choice. Every detail is intentional. Quality is non-negotiable. This takes time — and we do not rush.</div>
+    </div>
+
+    <div class="framework-level">
+      <div class="framework-title">Delivery</div>
+      <div class="framework-items">The garment arrives. The client wears it. We see the moment they realize: this is not just clothing. This is armor. This is confidence. This is becoming.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">IV. Positioning & Voice</div>
+  <h2>Premium Atelier Positioning</h2>
+  <p><strong>Atelier voice:</strong> Refined. Intentional. Sophisticated. Craft as spiritual practice. Sensory detail. Narrative-driven.</p>
+  <p>We do not compete on price. We compete on intelligence, intentionality, and craft. Our suits are expensive because they are good. We stay expensive because we never compromise to be cheap.</p>
+
+  <h3>What Clients Choose Priauratize For</h3>
+  <p><strong>1. Precision fit.</strong> Not standard sizes. Custom proportions that honor your body.</p>
+  <p><strong>2. Craft visibility.</strong> You see the stitch. You understand the engineering. You know what you are paying for.</p>
+  <p><strong>3. Longevity.</strong> A Priauratize suit lasts decades. It gets better with age. It becomes part of your armor.</p>
+  <p><strong>4. Intentionality.</strong> Every detail is chosen. Nothing is accident. The suit speaks for you before you open your mouth.</p>
+  <p><strong>5. Transformation.</strong> Wearing a suit from Priauratize changes how you move. Clients report standing taller. Speaking with more authority. Feeling like themselves.</p>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">V. How Priauratize Serves the Ecosystem</div>
+  <h2>Image Tier Function</h2>
+  <p>Priauratize represents the IMAGE TIER in the Koi Innovations ecosystem — how a culture presents itself. Every client who wears a Priauratize suit carries that presentation into their world. Board rooms. Creative spaces. Communities. They radiate intentionality.</p>
+  <p>Priauratize also advises the other ventures. How does Clean Check present itself? What does an executive of Hopson Logistics look like? What is the aura of Koi Innovations in the room? Priauratize consults on this across the ecosystem.</p>
+</section>
+
+<section class="final fade-in">
+  <h2>It Fits You</h2>
+  <div class="final-tagline">Putting Your Aura First</div>
+  <div class="final-meta">
+    Priauratize · Luxury Atelier · v1.0 · May 2026<br>
+    <br>
+    Structure serves style. Style serves aura. Aura serves truth.
+  </div>
+</section>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
