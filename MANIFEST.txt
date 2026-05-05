@@ -1,0 +1,156 @@
+═══════════════════════════════════════════════════════════════════════════════
+KOI INNOVATIONS ECOSYSTEM — COMPLETE FILE MANIFEST
+═══════════════════════════════════════════════════════════════════════════════
+
+Total Files: 33 (30 documents + 3 infrastructure files)
+
+═══════════════════════════════════════════════════════════════════════════════
+ROOT LEVEL (3 files)
+═══════════════════════════════════════════════════════════════════════════════
+
+☐ index.html                           Main hub, Three Doors gateway, full directory
+☐ README.md                            Setup instructions, folder structure, maintenance guide
+☐ .gitignore                           Git ignore rules for GitHub
+
+═══════════════════════════════════════════════════════════════════════════════
+GOVERNANCE (5 documents)
+═══════════════════════════════════════════════════════════════════════════════
+
+governance/
+  ☐ KOI_Innovations_Master.html        Complete doctrine, 14 sections, brand symbolism
+  ☐ KOI_Portfolio.html                 Three Doors pitch, external positioning
+  ☐ KOI_Codex.html                     75+ page ops manual, Ten Principles, decision hierarchy
+  ☐ KOI_Brand_Kits.html                Brand standards, color system, voice tiers
+  ☐ KOI_Document_Registry.html         Master index of all 30 documents
+
+═══════════════════════════════════════════════════════════════════════════════
+VENTURES — IMAGE TIER (3 documents)
+═══════════════════════════════════════════════════════════════════════════════
+
+ventures/image-tier/
+  ☐ Priauratize.html                   Luxury atelier, Triple-S™, custom suiting
+  ☐ Priaura.html                       Ready-to-wear, Mississippi cotton, Barkley
+  ☐ Homes_of_Aura.html                 Residential & retreat architecture
+
+═══════════════════════════════════════════════════════════════════════════════
+VENTURES — OPERATIONS TIER (4 documents)
+═══════════════════════════════════════════════════════════════════════════════
+
+ventures/operations-tier/
+  ☐ Clean_Check.html                   Service governance, 8 Pillars, SAM.gov registered
+  ☐ Fast_Freddy.html                   Rapid execution, last-mile delivery
+  ☐ Hopson_Logistics.html              Supply chain, route optimization
+  ☐ Virtechz.html                      AI & technology infrastructure
+
+═══════════════════════════════════════════════════════════════════════════════
+VENTURES — CULTURE TIER (5 documents)
+═══════════════════════════════════════════════════════════════════════════════
+
+ventures/culture-tier/
+  ☐ Filet_Me_On.html                   Culinary craft, premium dining
+  ☐ TipsyTAB.html                      Beverage discovery, joy, community
+  ☐ The_Groove.html                    Discourse, thought leadership, voice
+  ☐ INDIGO.html                        Capital & equity, investment vehicle
+  ☐ Black_Alumni_Gala.html             Ceremony, legacy, annual celebration
+
+═══════════════════════════════════════════════════════════════════════════════
+LIBRARY MODULES (2 documents)
+═══════════════════════════════════════════════════════════════════════════════
+
+library/
+  ☐ Library_Module_00.html             Philosophical foundation, new hire training
+  ☐ Library_Module_01.html             Clean Check 8 Pillars, 50-60 page ops manual
+
+═══════════════════════════════════════════════════════════════════════════════
+TIER 2 ASSETS — GUIDES (6 documents)
+═══════════════════════════════════════════════════════════════════════════════
+
+tier2-assets/guides/
+  ☐ Priaura_Mascot_Guide.html          Barkley identity system, usage rules
+  ☐ Priauratize_Wardrobe_Guide.html    How to build with Priauratize, three phases
+  ☐ Clean_Check_Window_Pricing_Guide.html  Q2 2026 rates, transparent pricing
+  ☐ Ray_Approved_Affiliate_Platform_Guide.html  Creator ecosystem, multi-platform
+  ☐ Clean_Check_EVS_Framework.html     Healthcare consulting, three-phase model
+  ☐ Priaura_Brand_Story_Heritage.html  From Mississippi to the world, legacy narrative
+
+═══════════════════════════════════════════════════════════════════════════════
+TIER 2 ASSETS — TESTIMONIES (1 document)
+═══════════════════════════════════════════════════════════════════════════════
+
+tier2-assets/testimonies/
+  ☐ Priauratize_Client_Testimonies.html  Six client stories, real transformations
+
+═══════════════════════════════════════════════════════════════════════════════
+TIER 2 ASSETS — FLYERS (4 documents)
+═══════════════════════════════════════════════════════════════════════════════
+
+tier2-assets/flyers/
+  ☐ Priaura_Flyer_01_Barkley_Speed_Thrills.html  Launch flyer, Reserved Collection
+  ☐ Priaura_Flyer_02_Seasonal_Collection.html    Drop schedule, four collections
+  ☐ Priaura_Flyer_03_Polos_and_Shorts.html       Category promotion, product details
+  ☐ Priaura_Flyer_04_Limited_Edition_VIP.html    Signature tier, VIP access, exclusive benefits
+
+═══════════════════════════════════════════════════════════════════════════════
+VERIFICATION CHECKLIST
+═══════════════════════════════════════════════════════════════════════════════
+
+Before uploading to GitHub, verify:
+
+☐ All 30 HTML documents present
+☐ All 3 infrastructure files (index.html, README.md, .gitignore)
+☐ Folder structure matches exactly:
+  - governance/ (5 files)
+  - ventures/image-tier/ (3 files)
+  - ventures/operations-tier/ (4 files)
+  - ventures/culture-tier/ (5 files)
+  - library/ (2 files)
+  - tier2-assets/guides/ (6 files)
+  - tier2-assets/testimonies/ (1 file)
+  - tier2-assets/flyers/ (4 files)
+
+☐ All links in index.html are correct (relative paths)
+☐ No broken file references
+
+═══════════════════════════════════════════════════════════════════════════════
+DOCUMENT BREAKDOWN BY TYPE
+═══════════════════════════════════════════════════════════════════════════════
+
+Core Foundation:      5 documents (governance)
+Operating Ventures:  12 documents (3 tiers)
+Training Materials:   2 documents (library)
+Client Guides:        6 documents (tier 2 guides)
+Case Studies:         1 document (testimonies)
+Marketing Collateral: 4 documents (flyers)
+Infrastructure:       3 files (setup & management)
+
+TOTAL:               33 items | 30 content documents
+
+═══════════════════════════════════════════════════════════════════════════════
+DEPLOYMENT TARGET
+═══════════════════════════════════════════════════════════════════════════════
+
+Repository: https://github.com/koiinnovations1-stack/koi-innovations-ecosystem
+Live Site:  https://koiinnovations.com (via Netlify)
+Hosting:    Netlify (auto-deploy from GitHub)
+Domain:     Custom domain (koiinnovations.com)
+Analytics:  Google Analytics (GA4, Measurement ID configured in index.html)
+
+═══════════════════════════════════════════════════════════════════════════════
+NEXT STEPS
+═══════════════════════════════════════════════════════════════════════════════
+
+1. Verify all files in this manifest
+2. Create GitHub repo: koi-innovations-ecosystem
+3. Upload all files maintaining exact folder structure
+4. Connect to Netlify
+5. Point koiinnovations.com to Netlify
+6. Configure Google Analytics in index.html
+7. Test all links at https://koiinnovations.com
+
+═══════════════════════════════════════════════════════════════════════════════
+
+Built: May 2026
+System: Koi Method — Architectural Visionary
+Philosophy: By Design — Everything, with intentionality.
+
+═══════════════════════════════════════════════════════════════════════════════

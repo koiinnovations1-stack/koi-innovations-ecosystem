@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<title>Koi Innovations — Ecosystem Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+<!-- End Google Analytics -->
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  color-scheme: light only;
+  --koi-black: #0A0A0A;
+  --koi-gold: #C8A24B;
+  --ivory: #F4EDE0;
+  --stone: #888888;
+  --bg: #FAFAF7;
+  --white: #FFFFFF;
+}
+html { scroll-behavior: smooth; background: var(--bg); }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg) !important;
+  color: var(--koi-black);
+  line-height: 1.7;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(20px);
+  z-index: 100;
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(200, 162, 75, 0.2);
+}
+.nav-brand {
+  color: var(--ivory);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.nav-brand span { color: var(--koi-gold); }
+.nav-links {
+  display: flex;
+  gap: 32px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.nav-links a {
+  color: var(--stone);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.nav-links a:hover { color: var(--koi-gold); }
+.hero {
+  min-height: 100vh;
+  background: var(--koi-black);
+  color: var(--ivory);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 32px;
+  text-align: center;
+  margin-top: 60px;
+}
+.hero h1 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(48px, 10vw, 120px);
+  font-weight: 500;
+  line-height: 0.9;
+  letter-spacing: -2px;
+  margin-bottom: 32px;
+}
+.hero-subtitle {
+  font-size: 18px;
+  color: rgba(244, 237, 224, 0.7);
+  font-weight: 300;
+  margin-bottom: 80px;
+  max-width: 600px;
+}
+.three-doors {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 80px;
+}
+.door {
+  padding: 60px 40px;
+  background: rgba(244, 237, 224, 0.05);
+  border: 1px solid rgba(200, 162, 75, 0.3);
+  border-left: 4px solid var(--koi-gold);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 320px;
+}
+.door:hover {
+  background: rgba(200, 162, 75, 0.1);
+  border-left-width: 6px;
+  transform: translateY(-4px);
+}
+.door-number {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 64px;
+  font-weight: 500;
+  color: var(--koi-gold);
+  margin-bottom: 16px;
+}
+.door-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+.door-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(244, 237, 224, 0.8);
+  flex-grow: 1;
+  margin-bottom: 24px;
+}
+.door-cta {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--koi-gold);
+  font-weight: 600;
+}
+.directory-section {
+  padding: 100px 32px;
+  background: var(--bg);
+}
+.directory-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.section-eyebrow {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--koi-gold);
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.section-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(36px, 5vw, 60px);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -1px;
+  margin-bottom: 60px;
+}
+.doc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+  margin-bottom: 80px;
+}
+.doc-card {
+  padding: 32px;
+  background: var(--white);
+  border: 1px solid rgba(10, 10, 10, 0.08);
+  border-left: 4px solid var(--koi-gold);
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+.doc-card:hover {
+  background: var(--white);
+  border-left-width: 6px;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(10, 10, 10, 0.1);
+}
+.doc-category {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--koi-gold);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.doc-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+.doc-desc {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--stone);
+}
+.footer {
+  background: var(--koi-black);
+  color: var(--ivory);
+  padding: 60px 32px;
+  text-align: center;
+  border-top: 1px solid rgba(200, 162, 75, 0.2);
+}
+.footer-content {
+  max-width: 900px;
+  margin: 0 auto;
+  margin-bottom: 40px;
+}
+.footer-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 36px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  line-height: 1.1;
+}
+.footer-text {
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(244, 237, 224, 0.7);
+  margin-bottom: 32px;
+}
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 40px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.footer-links a {
+  color: var(--koi-gold);
+  text-decoration: none;
+}
+.footer-meta {
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--stone);
+  text-transform: uppercase;
+}
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (max-width: 768px) {
+  nav { padding: 12px 20px; }
+  .nav-links { display: none; }
+  .hero { padding: 80px 20px; margin-top: 50px; }
+  .hero h1 { margin-bottom: 24px; }
+  .three-doors { gap: 20px; }
+  .door { padding: 40px 24px; min-height: 280px; }
+  .directory-section { padding: 80px 20px; }
+  .doc-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">KOI <span>INNOVATIONS</span></div>
+  <div class="nav-links">
+    <a href="#directory">Directory</a>
+    <a href="#governance">Governance</a>
+    <a href="#ventures">Ventures</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <h1>Koi Innovations<br>Ecosystem</h1>
+  <p class="hero-subtitle">Twelve ventures. Twelve domains. One architectural vision. By Design — Everything, with intentionality.</p>
+  
+  <div class="three-doors">
+    <a href="#work-with-us" class="door">
+      <div>
+        <div class="door-number">I</div>
+        <div class="door-title">Work<br>With Us</div>
+        <p class="door-desc">Consulting, services, and governance solutions. Clean Check. Aesthete Spaces. The Groove.</p>
+      </div>
+      <div class="door-cta">Explore Services →</div>
+    </a>
+    
+    <a href="#build-with-us" class="door">
+      <div>
+        <div class="door-number">II</div>
+        <div class="door-title">Build<br>With Us</div>
+        <p class="door-desc">Partnerships, licensing, and co-creation. Priauratize. Priaura. Homes of Aura.</p>
+      </div>
+      <div class="door-cta">Explore Partnerships →</div>
+    </a>
+    
+    <a href="#invest-with-us" class="door">
+      <div>
+        <div class="door-number">III</div>
+        <div class="door-title">Invest<br>With Us</div>
+        <p class="door-desc">Capital, equity, and wealth creation. INDIGO. Strategic ventures. Long-term vision.</p>
+      </div>
+      <div class="door-cta">Explore Opportunities →</div>
+    </a>
+  </div>
+</section>
+
+<section class="directory-section" id="directory">
+  <div class="directory-container">
+    <div class="section-eyebrow">Complete Directory</div>
+    <h2 class="section-title">All 30 Documents</h2>
+
+    <!-- Governance -->
+    <div id="governance">
+      <div class="section-eyebrow">Foundation</div>
+      <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 500; margin-bottom: 40px;">Governance & Architecture</h3>
+      
+      <div class="doc-grid fade-in">
+        <a href="governance/KOI_Innovations_Master.html" class="doc-card">
+          <div class="doc-category">Doctrine</div>
+          <div class="doc-title">Koi Master</div>
+          <div class="doc-desc">Complete doctrine. 14 sections. Brand symbolism. Operating philosophy.</div>
+        </a>
+        <a href="governance/KOI_Portfolio.html" class="doc-card">
+          <div class="doc-category">Pitch</div>
+          <div class="doc-title">Koi Portfolio</div>
+          <div class="doc-desc">Three Doors pitch. External positioning. 15 pages.</div>
+        </a>
+        <a href="governance/KOI_Codex.html" class="doc-card">
+          <div class="doc-category">Operations</div>
+          <div class="doc-title">Koi Codex</div>
+          <div class="doc-desc">75+ page ops manual. Ten principles. Decision hierarchy.</div>
+        </a>
+        <a href="governance/KOI_Brand_Kits.html" class="doc-card">
+          <div class="doc-category">Standards</div>
+          <div class="doc-title">Brand Kits</div>
+          <div class="doc-desc">Complete brand standards. Color system. Voice tiers. Usage rules.</div>
+        </a>
+        <a href="governance/KOI_Document_Registry.html" class="doc-card">
+          <div class="doc-category">Index</div>
+          <div class="doc-title">Document Registry</div>
+          <div class="doc-desc">Master index. 30 documents. Organization system.</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Ventures -->
+    <div id="ventures" style="margin-top: 100px;">
+      <div class="section-eyebrow">12 Ventures</div>
+      <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 500; margin-bottom: 40px;">Image Tier</h3>
+      
+      <div class="doc-grid fade-in">
+        <a href="ventures/image-tier/Priauratize.html" class="doc-card">
+          <div class="doc-category">Luxury Atelier</div>
+          <div class="doc-title">Priauratize</div>
+          <div class="doc-desc">Bespoke tailoring. Triple-S™ framework. Custom suiting.</div>
+        </a>
+        <a href="ventures/image-tier/Priaura.html" class="doc-card">
+          <div class="doc-category">Ready-to-Wear</div>
+          <div class="doc-title">Priaura</div>
+          <div class="doc-desc">Heritage fashion. Mississippi cotton. Barkley mascot.</div>
+        </a>
+        <a href="ventures/image-tier/Homes_of_Aura.html" class="doc-card">
+          <div class="doc-category">Architecture</div>
+          <div class="doc-title">Homes of Aura</div>
+          <div class="doc-desc">Residential & retreat architecture. Intentional design.</div>
+        </a>
+      </div>
+
+      <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 500; margin: 80px 0 40px;">Operations Tier</h3>
+      
+      <div class="doc-grid fade-in">
+        <a href="ventures/operations-tier/Clean_Check.html" class="doc-card">
+          <div class="doc-category">Service Governance</div>
+          <div class="doc-title">Clean Check</div>
+          <div class="doc-desc">Property services. 8 Pillars. SAM.gov registered.</div>
+        </a>
+        <a href="ventures/operations-tier/Fast_Freddy.html" class="doc-card">
+          <div class="doc-category">Rapid Execution</div>
+          <div class="doc-title">Fast Freddy</div>
+          <div class="doc-desc">Speed + reliability. Last-mile delivery. Amber excellence.</div>
+        </a>
+        <a href="ventures/operations-tier/Hopson_Logistics.html" class="doc-card">
+          <div class="doc-category">Trade Routes</div>
+          <div class="doc-title">Hopson Logistics</div>
+          <div class="doc-desc">Reliable supply chains. Route optimization. Orange precision.</div>
+        </a>
+        <a href="ventures/operations-tier/Virtechz.html" class="doc-card">
+          <div class="doc-category">AI & Technology</div>
+          <div class="doc-title">Virtechz</div>
+          <div class="doc-desc">Technology infrastructure. AI integration. Innovation vessel.</div>
+        </a>
+      </div>
+
+      <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 500; margin: 80px 0 40px;">Culture Tier</h3>
+      
+      <div class="doc-grid fade-in">
+        <a href="ventures/culture-tier/Filet_Me_On.html" class="doc-card">
+          <div class="doc-category">Culinary</div>
+          <div class="doc-title">Filet Me On</div>
+          <div class="doc-desc">Culinary craft. Premium dining. Gathering spaces.</div>
+        </a>
+        <a href="ventures/culture-tier/TipsyTAB.html" class="doc-card">
+          <div class="doc-category">Discovery</div>
+          <div class="doc-title">TipsyTAB</div>
+          <div class="doc-desc">Joy discovery. Beverage exploration. Community joy.</div>
+        </a>
+        <a href="ventures/culture-tier/The_Groove.html" class="doc-card">
+          <div class="doc-category">Discourse</div>
+          <div class="doc-title">The Groove</div>
+          <div class="doc-desc">Voice & conversation. Thought leadership. Cultural discourse.</div>
+        </a>
+        <a href="ventures/culture-tier/INDIGO.html" class="doc-card">
+          <div class="doc-category">Capital & Equity</div>
+          <div class="doc-title">INDIGO</div>
+          <div class="doc-desc">Wealth creation. Investment vehicle. Long-term capital.</div>
+        </a>
+        <a href="ventures/culture-tier/Black_Alumni_Gala.html" class="doc-card">
+          <div class="doc-category">Ceremony</div>
+          <div class="doc-title">Black Alumni Gala</div>
+          <div class="doc-desc">Memory & legacy. Annual ceremony. Community celebration.</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Library -->
+    <div style="margin-top: 100px;">
+      <div class="section-eyebrow">Library Modules</div>
+      <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 500; margin-bottom: 40px;">Training & Operations</h3>
+      
+      <div class="doc-grid fade-in">
+        <a href="library/Library_Module_00.html" class="doc-card">
+          <div class="doc-category">Philosophy</div>
+          <div class="doc-title">Module 00</div>
+          <div class="doc-desc">Philosophical foundation. New hire training. Core principles.</div>
+        </a>
+        <a href="library/Library_Module_01.html" class="doc-card">
+          <div class="doc-category">Operations</div>
+          <div class="doc-title">Module 01</div>
+          <div class="doc-desc">Clean Check 8 Pillars. Complete ops manual. 50-60 pages.</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Tier 2 Assets -->
+    <div style="margin-top: 100px;">
+      <div class="section-eyebrow">Tier 2 Assets</div>
+      <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 500; margin-bottom: 40px;">Guides & Resources</h3>
+      
+      <div class="doc-grid fade-in">
+        <a href="tier2-assets/guides/Priaura_Mascot_Guide.html" class="doc-card">
+          <div class="doc-category">Brand</div>
+          <div class="doc-title">Barkley Guide</div>
+          <div class="doc-desc">Mascot identity system. Usage rules. Brand guardian.</div>
+        </a>
+        <a href="tier2-assets/guides/Priauratize_Wardrobe_Guide.html" class="doc-card">
+          <div class="doc-category">Client Guide</div>
+          <div class="doc-title">Wardrobe Architecture</div>
+          <div class="doc-desc">How to build with Priauratize. Three phases. 12-suit system.</div>
+        </a>
+        <a href="tier2-assets/guides/Clean_Check_Window_Pricing_Guide.html" class="doc-card">
+          <div class="doc-category">Pricing</div>
+          <div class="doc-title">Window Service Rates</div>
+          <div class="doc-desc">Q2 2026 rate card. Premium tier. Transparent pricing.</div>
+        </a>
+        <a href="tier2-assets/guides/Ray_Approved_Affiliate_Platform_Guide.html" class="doc-card">
+          <div class="doc-category">Commerce</div>
+          <div class="doc-title">Ray Approved Platform</div>
+          <div class="doc-desc">Creator affiliate system. Multi-platform. Commission tracking.</div>
+        </a>
+        <a href="tier2-assets/guides/Clean_Check_EVS_Framework.html" class="doc-card">
+          <div class="doc-category">Healthcare</div>
+          <div class="doc-title">EVS Consulting</div>
+          <div class="doc-desc">Three-phase transformation. Healthcare governance. Five pillars.</div>
+        </a>
+        <a href="tier2-assets/guides/Priaura_Brand_Story_Heritage.html" class="doc-card">
+          <div class="doc-category">Narrative</div>
+          <div class="doc-title">Brand Story</div>
+          <div class="doc-desc">From Mississippi to the world. Heritage. Legacy.</div>
+        </a>
+      </div>
+
+      <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 500; margin: 80px 0 40px;">Testimonies & Marketing</h3>
+      
+      <div class="doc-grid fade-in">
+        <a href="tier2-assets/testimonies/Priauratize_Client_Testimonies.html" class="doc-card">
+          <div class="doc-category">Social Proof</div>
+          <div class="doc-title">Client Stories</div>
+          <div class="doc-desc">Six transformations. Real impact. Uncompromising authenticity.</div>
+        </a>
+      </div>
+
+      <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 500; margin: 80px 0 40px;">Flyers & Collateral</h3>
+      
+      <div class="doc-grid fade-in">
+        <a href="tier2-assets/flyers/Priaura_Flyer_01_Barkley_Speed_Thrills.html" class="doc-card">
+          <div class="doc-category">Campaign</div>
+          <div class="doc-title">Barkley Speed Thrills</div>
+          <div class="doc-desc">Launch flyer. Reserved collection. Printable/digital.</div>
+        </a>
+        <a href="tier2-assets/flyers/Priaura_Flyer_02_Seasonal_Collection.html" class="doc-card">
+          <div class="doc-category">Campaign</div>
+          <div class="doc-title">Seasonal Drops</div>
+          <div class="doc-desc">Drop schedule. Four collections. Seasonal announcement.</div>
+        </a>
+        <a href="tier2-assets/flyers/Priaura_Flyer_03_Polos_and_Shorts.html" class="doc-card">
+          <div class="doc-category">Product</div>
+          <div class="doc-title">Polos & Shorts</div>
+          <div class="doc-desc">Category promotion. Product details. Collections.</div>
+        </a>
+        <a href="tier2-assets/flyers/Priaura_Flyer_04_Limited_Edition_VIP.html" class="doc-card">
+          <div class="doc-category">VIP</div>
+          <div class="doc-title">Signature Members</div>
+          <div class="doc-desc">VIP access. Limited edition. Exclusive benefits.</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="footer">
+  <div class="footer-content">
+    <h2 class="footer-title">Koi Innovations<br>Complete Ecosystem</h2>
+    <p class="footer-text">Thirty documents. Twelve ventures. One architectural vision. Governance-first. Intentionality throughout. Everything by design.</p>
+  </div>
+  <div class="footer-links">
+    <a href="#governance">Governance</a>
+    <a href="#ventures">Ventures</a>
+    <a href="#directory">Directory</a>
+  </div>
+  <div class="footer-meta">
+    Koi Innovations Ecosystem Hub · May 2026 · koiinnovations.com
+  </div>
+</section>
+
+<script>
+// Fade in on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Smooth scroll for door links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const href = this.getAttribute('href');
+    if (href === '#' || href === '#work-with-us' || href === '#build-with-us' || href === '#invest-with-us') {
+      return;
+    }
+    e.preventDefault();
+    const target = document.querySelector(href);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+
+</body>
+</html>
