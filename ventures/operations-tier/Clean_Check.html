@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<title>Clean Check — Service Governance</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  color-scheme: light only;
+  --koi-black: #0A0A0A;
+  --koi-gold: #C8A24B;
+  --ivory: #F4EDE0;
+  --stone: #888888;
+  --bg: #FAFAF7;
+  --white: #FFFFFF;
+  --cc-green: #76B043;
+}
+html { scroll-behavior: smooth; background: var(--bg); }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg) !important;
+  color: var(--koi-black);
+  line-height: 1.7;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(20px);
+  z-index: 100;
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(200, 162, 75, 0.2);
+}
+.nav-brand {
+  color: var(--ivory);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.nav-brand span { color: var(--cc-green); }
+.nav-venture {
+  color: var(--stone);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.hero {
+  min-height: 80vh;
+  background: var(--koi-black);
+  color: var(--ivory);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 32px;
+  position: relative;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 30%, rgba(118, 176, 67, 0.12), transparent 60%);
+  pointer-events: none;
+}
+.hero-eyebrow {
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: var(--cc-green);
+  text-transform: uppercase;
+  margin-bottom: 32px;
+  font-weight: 500;
+  position: relative;
+  z-index: 2;
+}
+.hero h1 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(56px, 10vw, 120px);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -2px;
+  margin-bottom: 32px;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+.hero-subtitle {
+  font-size: clamp(18px, 2.5vw, 24px);
+  color: rgba(244, 237, 224, 0.8);
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  margin-bottom: 48px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+}
+.hero-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(16px, 2vw, 20px);
+  color: var(--cc-green);
+  font-style: italic;
+  letter-spacing: 1px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  border-top: 1px solid rgba(118, 176, 67, 0.3);
+  border-bottom: 1px solid rgba(118, 176, 67, 0.3);
+  padding: 20px 40px;
+  margin-bottom: 80px;
+}
+.hero-meta {
+  display: flex;
+  gap: 32px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--stone);
+  position: relative;
+  z-index: 2;
+}
+.hero-meta span { color: var(--cc-green); }
+.section {
+  padding: 100px 32px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.section-eyebrow {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--cc-green);
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -1px;
+  margin-bottom: 40px;
+  color: var(--koi-black);
+}
+.section h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 500;
+  margin: 48px 0 24px;
+  color: var(--koi-black);
+}
+.section p {
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--koi-black);
+  margin-bottom: 24px;
+}
+.section p strong { font-weight: 600; color: var(--koi-black); }
+.highlight {
+  background: var(--koi-black);
+  color: var(--ivory);
+  padding: 60px;
+  margin: 60px 0;
+  position: relative;
+}
+.highlight::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--cc-green);
+}
+.highlight-label {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--cc-green);
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+.highlight-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 3.5vw, 38px);
+  font-style: italic;
+  line-height: 1.3;
+  color: var(--ivory);
+  font-weight: 400;
+}
+.pillar {
+  padding: 32px;
+  background: var(--white);
+  border: 1px solid rgba(10, 10, 10, 0.08);
+  border-left: 4px solid var(--cc-green);
+  margin: 24px 0;
+}
+.pillar-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--koi-black);
+  margin-bottom: 12px;
+}
+.pillar-desc {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--koi-black);
+}
+.final {
+  background: var(--koi-black);
+  color: var(--ivory);
+  padding: 160px 32px;
+  text-align: center;
+}
+.final h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(40px, 6vw, 80px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -1px;
+  margin-bottom: 32px;
+}
+.final-tagline {
+  font-size: 15px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--cc-green);
+  font-weight: 500;
+  margin-bottom: 64px;
+}
+.final-meta {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--stone);
+  text-transform: uppercase;
+}
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (max-width: 768px) {
+  nav { padding: 14px 20px; }
+  .nav-venture { display: none; }
+  .section { padding: 80px 24px; }
+  .hero { padding: 80px 24px; }
+  .final { padding: 100px 24px; }
+  .highlight { padding: 40px 28px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">KOI <span>·</span> INNOVATIONS</div>
+  <div class="nav-venture">Clean Check · Service Governance</div>
+</nav>
+
+<section class="hero">
+  <div class="hero-eyebrow">Operations Tier · Venture 04</div>
+  <h1>Clean Check</h1>
+  <p class="hero-subtitle">Service industry governance. Property & facility stewardship.</p>
+  <div class="hero-tagline">Setting the Standard. Delivering the Service.</div>
+  <div class="hero-meta">
+    <div>Architect Voice <span>·</span></div>
+    <div>B2B Services <span>·</span></div>
+    <div>Governance-First</div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">I. What Is Clean Check</div>
+  <h2>Governance in Service</h2>
+  <p>Clean Check is not a cleaning company. Clean Check is a Service Industry Governance & Solutions Body. We do not compete on price. We compete on standards, systems, and accountability.</p>
+
+  <div class="highlight">
+    <div class="highlight-label">The Principle</div>
+    <div class="highlight-quote">"Your property. Our priority. Setting the standard for facility stewardship."</div>
+  </div>
+
+  <p>Every property tells a story. Clean Check ensures that story reflects excellence. From medical facilities to corporate properties to multifamily housing, we bring governance-first thinking to every engagement.</p>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">II. Core Capabilities</div>
+  <h2>Full-Spectrum Service</h2>
+
+  <div class="pillar">
+    <div class="pillar-title">Residential Services</div>
+    <div class="pillar-desc">Multifamily properties. Property management consultation. Full renovation support. Quality assurance at scale.</div>
+  </div>
+
+  <div class="pillar">
+    <div class="pillar-title">Commercial Services</div>
+    <div class="pillar-desc">Corporate facilities. Medical centers. Hospitality. Customized service plans built on assessment.</div>
+  </div>
+
+  <div class="pillar">
+    <div class="pillar-title">Specialized Services</div>
+    <div class="pillar-desc">Window cleaning (premium tier). EVS consulting. Renovation oversight. Facility governance systems.</div>
+  </div>
+
+  <div class="pillar">
+    <div class="pillar-title">Federal Contracting</div>
+    <div class="pillar-desc">SAM.gov registered. Federal contracting eligible. Government-level accountability and documentation.</div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">III. How We Operate</div>
+  <h2>Governance First</h2>
+  <p><strong>Assessment before service:</strong> We evaluate your property and systems. We propose what's needed, not what's easiest.</p>
+  <p><strong>Standards, not shortcuts:</strong> Every Clean Check engagement follows our 8 Pillars framework for facility stewardship.</p>
+  <p><strong>Documentation & accountability:</strong> You know what's being done, why, and how we measure success.</p>
+  <p><strong>Scalable excellence:</strong> From single-property clients to multifamily portfolios, our standards hold.</p>
+</section>
+
+<section class="final fade-in">
+  <h2>Your Property.<br>Our Priority.</h2>
+  <div class="final-tagline">Setting the Standard. Delivering the Service.</div>
+  <div class="final-meta">
+    Clean Check · Service Governance · v1.0 · May 2026<br>
+    HQ: 38305 Meadow Rue Dr., Prairieville, LA 70769 · (769) 249-8488<br>
+    <br>
+    Governance over hustle. Standards over shortcuts.
+  </div>
+</section>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

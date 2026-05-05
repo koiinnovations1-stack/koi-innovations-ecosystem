@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<title>Fast Freddy — Rapid Execution</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  color-scheme: light only;
+  --koi-black: #0A0A0A;
+  --koi-gold: #C8A24B;
+  --ivory: #F4EDE0;
+  --stone: #888888;
+  --bg: #FAFAF7;
+  --white: #FFFFFF;
+  --ff-amber: #E8A13A;
+}
+html { scroll-behavior: smooth; background: var(--bg); }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg) !important;
+  color: var(--koi-black);
+  line-height: 1.7;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(20px);
+  z-index: 100;
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(200, 162, 75, 0.2);
+}
+.nav-brand {
+  color: var(--ivory);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.nav-brand span { color: var(--ff-amber); }
+.nav-venture {
+  color: var(--stone);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.hero {
+  min-height: 80vh;
+  background: var(--koi-black);
+  color: var(--ivory);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 32px;
+  position: relative;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 30%, rgba(232, 161, 58, 0.12), transparent 60%);
+  pointer-events: none;
+}
+.hero-eyebrow {
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: var(--ff-amber);
+  text-transform: uppercase;
+  margin-bottom: 32px;
+  font-weight: 500;
+  position: relative;
+  z-index: 2;
+}
+.hero h1 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(56px, 10vw, 120px);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -2px;
+  margin-bottom: 32px;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+.hero-subtitle {
+  font-size: clamp(18px, 2.5vw, 24px);
+  color: rgba(244, 237, 224, 0.8);
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  margin-bottom: 48px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+}
+.hero-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(16px, 2vw, 20px);
+  color: var(--ff-amber);
+  font-style: italic;
+  letter-spacing: 1px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  border-top: 1px solid rgba(232, 161, 58, 0.3);
+  border-bottom: 1px solid rgba(232, 161, 58, 0.3);
+  padding: 20px 40px;
+  margin-bottom: 80px;
+}
+.hero-meta {
+  display: flex;
+  gap: 32px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--stone);
+  position: relative;
+  z-index: 2;
+}
+.hero-meta span { color: var(--ff-amber); }
+.section {
+  padding: 100px 32px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.section-eyebrow {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--ff-amber);
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -1px;
+  margin-bottom: 40px;
+  color: var(--koi-black);
+}
+.section h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 500;
+  margin: 48px 0 24px;
+  color: var(--koi-black);
+}
+.section p {
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--koi-black);
+  margin-bottom: 24px;
+}
+.section p strong { font-weight: 600; color: var(--koi-black); }
+.highlight {
+  background: var(--koi-black);
+  color: var(--ivory);
+  padding: 60px;
+  margin: 60px 0;
+  position: relative;
+}
+.highlight::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--ff-amber);
+}
+.highlight-label {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--ff-amber);
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+.highlight-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 3.5vw, 38px);
+  font-style: italic;
+  line-height: 1.3;
+  color: var(--ivory);
+  font-weight: 400;
+}
+.pillar {
+  padding: 32px;
+  background: var(--white);
+  border: 1px solid rgba(10, 10, 10, 0.08);
+  border-left: 4px solid var(--ff-amber);
+  margin: 24px 0;
+}
+.pillar-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--koi-black);
+  margin-bottom: 12px;
+}
+.pillar-desc {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--koi-black);
+}
+.final {
+  background: var(--koi-black);
+  color: var(--ivory);
+  padding: 160px 32px;
+  text-align: center;
+}
+.final h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(40px, 6vw, 80px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -1px;
+  margin-bottom: 32px;
+}
+.final-meta {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--stone);
+  text-transform: uppercase;
+}
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (max-width: 768px) {
+  nav { padding: 14px 20px; }
+  .nav-venture { display: none; }
+  .section { padding: 80px 24px; }
+  .hero { padding: 80px 24px; }
+  .final { padding: 100px 24px; }
+  .highlight { padding: 40px 28px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">KOI <span>·</span> INNOVATIONS</div>
+  <div class="nav-venture">Fast Freddy · Rapid Execution</div>
+</nav>
+
+<section class="hero">
+  <div class="hero-eyebrow">Operations Tier · Venture 05</div>
+  <h1>Fast Freddy</h1>
+  <p class="hero-subtitle">Speed without sacrifice. Rapid-turnaround services done right.</p>
+  <div class="hero-tagline">Quick. Reliable. Intentional.</div>
+  <div class="hero-meta">
+    <div>Host Voice <span>·</span></div>
+    <div>Service Delivery <span>·</span></div>
+    <div>Rapid Execution</div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">I. What Is Fast Freddy</div>
+  <h2>Speed Meets Craft</h2>
+  <p>Fast Freddy operates at the intersection of speed and quality. We understand that some services need to happen quickly, without sacrificing the intentionality Koi represents.</p>
+
+  <div class="highlight">
+    <div class="highlight-label">The Principle</div>
+    <div class="highlight-quote">"Fast is only good if it's right. We deliver both."</div>
+  </div>
+
+  <p>From same-day service calls to rapid deployment, Fast Freddy brings the governance-first thinking of Clean Check with the responsiveness modern operations demand.</p>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">II. Service Focus</div>
+  <h2>Rapid-Turnaround Solutions</h2>
+
+  <div class="pillar">
+    <div class="pillar-title">Emergency Response</div>
+    <div class="pillar-desc">When systems fail, we move fast. Same-day assessment. Clear communication. Solutions-oriented thinking.</div>
+  </div>
+
+  <div class="pillar">
+    <div class="pillar-title">Short-Term Projects</div>
+    <div class="pillar-desc">Projects with compressed timelines. Turnaround events. Seasonal deployments. No corners cut.</div>
+  </div>
+
+  <div class="pillar">
+    <div class="pillar-title">Operational Support</div>
+    <div class="pillar-desc">Temporary staffing. Surge capacity. Backup systems. We scale to meet need.</div>
+  </div>
+</section>
+
+<section class="final fade-in">
+  <h2>Quick. Reliable.<br>Intentional.</h2>
+  <div class="final-meta">
+    Fast Freddy · Rapid Execution · v1.0 · May 2026<br>
+    <br>
+    Speed without sacrifice. Rapid turnaround, Koi quality.
+  </div>
+</section>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
