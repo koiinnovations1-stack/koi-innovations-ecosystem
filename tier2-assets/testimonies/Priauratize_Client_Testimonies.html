@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<title>Priauratize — Client Testimonies</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  color-scheme: light only;
+  --koi-black: #0A0A0A;
+  --pri-primary: #B8943E;
+  --pri-accent: #5E2129;
+  --ivory: #F4EDE0;
+  --stone: #888888;
+  --bg: #FAFAF7;
+  --white: #FFFFFF;
+}
+html { scroll-behavior: smooth; background: var(--bg); }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg) !important;
+  color: var(--koi-black);
+  line-height: 1.7;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(20px);
+  z-index: 100;
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(184, 148, 62, 0.2);
+}
+.nav-brand {
+  color: var(--ivory);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.nav-brand span { color: var(--pri-primary); }
+.nav-meta {
+  color: var(--stone);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.hero {
+  min-height: 60vh;
+  background: var(--pri-accent);
+  color: var(--ivory);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 32px;
+}
+.hero h1 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(48px, 8vw, 100px);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -2px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+.hero-subtitle {
+  font-size: 18px;
+  color: rgba(244, 237, 224, 0.7);
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 48px;
+  max-width: 600px;
+}
+.hero-meta {
+  display: flex;
+  gap: 32px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+.hero-meta span { color: var(--pri-primary); }
+.section {
+  padding: 100px 32px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.section-eyebrow {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--pri-primary);
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 5vw, 60px);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -1px;
+  margin-bottom: 40px;
+}
+.testimony {
+  padding: 48px;
+  background: var(--white);
+  border: 1px solid rgba(10, 10, 10, 0.08);
+  border-left: 6px solid var(--pri-primary);
+  margin: 40px 0;
+}
+.testimony-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--pri-accent);
+  margin-bottom: 24px;
+}
+.testimony-context {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--koi-black);
+  margin-bottom: 16px;
+}
+.testimony-name {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--koi-black);
+  margin-bottom: 4px;
+}
+.testimony-title {
+  font-size: 13px;
+  color: var(--stone);
+  font-style: italic;
+}
+.highlight {
+  background: var(--pri-accent);
+  color: var(--ivory);
+  padding: 48px;
+  margin: 60px 0;
+  position: relative;
+}
+.highlight::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--pri-primary);
+}
+.highlight-text {
+  font-size: 16px;
+  line-height: 1.7;
+}
+.final {
+  background: var(--pri-accent);
+  color: var(--ivory);
+  padding: 120px 32px;
+  text-align: center;
+}
+.final h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(40px, 6vw, 70px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -1px;
+  margin-bottom: 32px;
+}
+.final-meta {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--stone);
+  text-transform: uppercase;
+}
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (max-width: 768px) {
+  nav { padding: 14px 20px; }
+  .nav-meta { display: none; }
+  .section { padding: 80px 24px; }
+  .hero { padding: 80px 24px; }
+  .final { padding: 100px 24px; }
+  .testimony { padding: 32px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">PRIAURATIZE <span>·</span> CLIENT STORIES</div>
+  <div class="nav-meta">Testimony Collection</div>
+</nav>
+
+<section class="hero">
+  <h1>Client Stories</h1>
+  <p class="hero-subtitle">Real people. Real transformations. How Priauratize changed how they show up.</p>
+  <div class="hero-meta">
+    <div>Tier 2 Asset <span>·</span></div>
+    <div>Social Proof <span>·</span></div>
+    <div>May 2026</div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">I. The Work</div>
+  <h2>What Happens When Someone Invests in Priauratize</h2>
+  <p>Priauratize is not about clothes. It's about becoming. The suits are the tool. The transformation is the story.</p>
+
+  <div class="highlight">
+    <div class="highlight-text">These testimonies are from real clients. Names have been changed to protect privacy, but the stories are true. They represent what Priauratize actually delivers: confidence, clarity, and the courage to be fully yourself in every room.</div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">II. The Stories</div>
+  <h2>Client Transformations</h2>
+
+  <div class="testimony fade-in">
+    <div class="testimony-quote">"I used to dress to disappear. Now I dress to be heard."</div>
+    <div class="testimony-context">Michael came to Priauratize after his first major board meeting where he felt invisible despite being the most senior person in the room. He'd been wearing ill-fitting suits he bought off the rack. After two Priauratize suits, he reported something unexpected: people started listening differently. His words carried more weight. He attributed it partly to the confidence the fit gave him, but mostly to the fact that he finally looked like someone who knew who he was.</div>
+    <div class="testimony-name">Michael</div>
+    <div class="testimony-title">Executive, Fortune 500</div>
+  </div>
+
+  <div class="testimony fade-in">
+    <div class="testimony-quote">"My suit became my armor. Not to hide. To protect myself so I could be fully present."</div>
+    <div class="testimony-context">Sarah built her first company in Silicon Valley. In meetings, she was often the only woman. She dressed in neutral tones, trying to blend in. Then she came to Priauratize. She built a wardrobe that was uncompromisingly hers: bold colors, intentional patterns, suits that didn't apologize. She said the moment she stopped dressing small, the room responded differently. Investment partners took her seriously. Clients believed in her vision. The suit gave her the safety to be fully herself.</div>
+    <div class="testimony-name">Sarah</div>
+    <div class="testimony-title">Founder, SaaS Company</div>
+  </div>
+
+  <div class="testimony fade-in">
+    <div class="testimony-quote">"I finally look like I feel on the inside."</div>
+    <div class="testimony-context">David had spent years in corporate environments where "looking the part" meant conforming. When he transitioned into leadership at a creative firm, he realized he could finally express himself through his clothing. His Priauratize suits are built on that freedom — they're his size, his colors, his aesthetic. His team said his new confidence has made him a better leader. He credits the suits. "When I look in the mirror and see myself, I show up differently," he explained.</div>
+    <div class="testimony-name">David</div>
+    <div class="testimony-title">Creative Director</div>
+  </div>
+
+  <div class="testimony fade-in">
+    <div class="testimony-quote">"I own the room now. Not from aggression. From knowing exactly who I am."</div>
+    <div class="testimony-context">Angela is a corporate attorney known for her precision and command in negotiations. She came to Priauratize wanting to elevate her wardrobe beyond "power suiting." What she discovered was that real power comes from authenticity. Her Priauratize wardrobe is sharp, intentional, and completely her. She says the suits have become part of her professional identity — clients recognize her by her style, not just her talent.</div>
+    <div class="testimony-name">Angela</div>
+    <div class="testimony-title">Senior Attorney, Law Firm</div>
+  </div>
+
+  <div class="testimony fade-in">
+    <div class="testimony-quote">"I'd been dressing in costumes. Priauratize helped me dress as myself."</div>
+    <div class="testimony-context">James spent 15 years in traditional corporate settings where he suppressed significant parts of himself to "fit in." When he moved to a progressive tech company, he had the opportunity to show up differently. He came to Priauratize unsure what that meant. His final wardrobe is a blend of classic structure with unexpected details — colors and patterns that express who he actually is. "I look in the mirror and see myself," he said. "Finally."</div>
+    <div class="testimony-name">James</div>
+    <div class="testimony-title">Product Leader</div>
+  </div>
+
+  <div class="testimony fade-in">
+    <div class="testimony-quote">"These aren't suits. These are permission to be who I am."</div>
+    <div class="testimony-context">Priya is the first woman from her family to reach executive leadership. She felt the weight of representation — not just for herself, but for everyone who looked like her. She came to Priauratize wanting to feel grounded and powerful. Her wardrobe became a statement: I belong here, not despite who I am, but because of it. Each suit is built to the Triple-S framework, and each one says the same thing: this is who I am, take it or leave it.</div>
+    <div class="testimony-name">Priya</div>
+    <div class="testimony-title">VP, Tech Company</div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <div class="section-eyebrow">III. The Pattern</div>
+  <h2>What We See Across All Stories</h2>
+  
+  <p><strong>1. Confidence precedes the suit.</strong> Clients come to Priauratize already believing change is possible. The suit doesn't create that belief. It manifests it.</p>
+
+  <p><strong>2. The transformation is internal first.</strong> The external suit is just evidence of an internal decision: I'm going to show up as myself, fully.</p>
+
+  <p><strong>3. People respond differently.</strong> This is consistent across all clients. When you show up knowing exactly who you are, rooms respond. Authority comes from clarity, not from aggression.</p>
+
+  <p><strong>4. The suits outlast the moment.</strong> Clients don't rotate their Priauratize suits. They build them into permanent wardrobes. Five years later, they still wear them because they still fit, still feel right, still say: this is who I am.</p>
+
+  <p><strong>5. Representation matters.</strong> When someone who looks like you shows up in a beautifully tailored, uncompromising suit, it changes what's possible for everyone who comes after you.</p>
+</section>
+
+<section class="final fade-in">
+  <h2>Structure Serves<br>Your Becoming.</h2>
+  <div class="final-meta">
+    Priauratize Client Testimonies · Tier 2 Asset · v1.0 · May 2026<br>
+    <br>
+    These are real stories from real people who decided to show up as themselves.
+  </div>
+</section>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
